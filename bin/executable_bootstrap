@@ -99,6 +99,8 @@ PKGS=(
 PKGS_AM=(
   losslesscut
   obsidian
+  opencode
+  lmstudio
 )
 
 PKGS_GO=(
