@@ -13,7 +13,7 @@ tasks=(
 
   "# Software"
   "Install software|install_software"
-  "Install docker|install_docker"
+  "Install podman|install_podman"
   "Install switch emulators|install_switch_emulators"
   "Install playstation emulators|install_playstation_emulators"
   "Install xbox emulators|install_xbox_emulators"
@@ -181,9 +181,6 @@ install_nvidia() {
 
   echo "Setup the CDI configuration..."
   sudo nvidia-ctk cdi generate -output /etc/cdi/nvidia.yaml
-
-  echo "Restart docker service..."
-  sudo systemctl restart docker
 }
 
 enable_repos() {
@@ -214,17 +211,12 @@ install_software() {
   install_pkgs_py "${PKGS_PY[@]}"
 }
 
-install_docker() {
-  echo "Installing docker..."
-  install_pkgs docker docker-compose
+install_podman() {
+  echo "Installing podman..."
+  install_pkgs podman podman-docker podman-compose
 
-  echo "Starting docker..."
-  sudo systemctl enable --now docker
-
-  echo "Adding user to docker group..."
-  sudo usermod -aG docker $USER
-
-  echo "You should restart for groups to make change, or you can write 'newgrp docker' in each new shell for now"
+  echo "Enabling rootless podman service..."
+  systemctl --user enable --now podman.socket
 }
 
 install_switch_emulators() {
