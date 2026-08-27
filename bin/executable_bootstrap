@@ -227,7 +227,7 @@ install_software() {
 
 install_podman() {
     echo "Installing podman..."
-    install_pkgs podman podman-docker podman-compose
+    install_pkgs podman podman-docker podman-compose podman-tui
 
     echo "Enabling rootless podman service..."
     systemctl --user enable --now podman.socket
