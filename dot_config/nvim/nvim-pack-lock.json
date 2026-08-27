@@ -36,6 +36,10 @@
       "rev": "11d779b26a9ab2b3db8c22c6ac9fb6e8ed4fea79",
       "src": "https://github.com/sainnhe/gruvbox-material"
     },
+    "mason-conform.nvim": {
+      "rev": "48da2ebd5efbaf8a99566eadc3ece82d523f03c5",
+      "src": "https://github.com/zapling/mason-conform.nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "47059d71b42d74b0a1e9f61c1d99d301039c3b5b",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"

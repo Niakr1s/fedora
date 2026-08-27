@@ -31,8 +31,9 @@ vim.opt.copyindent = true   -- Copy the structure of the existing lines indent w
 vim.pack.add({
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/mason-org/mason.nvim",
-  "https://github.com/mason-org/mason-lspconfig.nvim",
   "https://github.com/stevearc/conform.nvim",
+  "https://github.com/zapling/mason-conform.nvim",
+  "https://github.com/mason-org/mason-lspconfig.nvim",
   "https://github.com/nvim-treesitter/nvim-treesitter",
   "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
   "https://github.com/nvim-telescope/telescope.nvim",
@@ -411,6 +412,9 @@ require("conform").setup({
     ["*"] = { "prettierd", "prettier" },
     -- '_' runs for filetypes that have no other formatters configured [citation:7]
   },
+})
+
+require("mason-conform").setup({
 })
 
 -- [[ Treesitter
