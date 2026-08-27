@@ -7,7 +7,7 @@
 # Lines starting with '# ' are section headers and won't be selectable
 tasks=(
     "# Core"
-    "Enable repos|enable_repos"
+    "Enable rpmfusion|enable_rpmfusion"
     "Install dms-shell (choose niri & kitty)|curl -fsSL https://install.danklinux.com | sh"
     "Install NVIDIA drivers (with CUDA and nvidia-container-toolkit)|install_nvidia"
 
@@ -32,6 +32,7 @@ tasks=(
 COPR=(
     lihaohong/yazi
     dejan/lazygit
+    atim/bottom
 )
 
 PKGS=(
@@ -55,6 +56,7 @@ PKGS=(
     gdu
     fastfetch
     rofi
+    bottom
 
     unar
     bsdtar
@@ -210,18 +212,18 @@ install_nvidia() {
     sudo nvidia-ctk cdi generate -output /etc/cdi/nvidia.yaml
 }
 
-enable_repos() {
+enable_rpmfusion() {
     echo "Enabling rpmfusion repos..."
     sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
     echo "Disabling cisco-openh264..."
     sudo dnf config-manager setopt fedora-cisco-openh264.enabled=0
-
-    echo "Enabling copr..."
-    enable_copr "${COPR[@]}"
 }
 
 install_software() {
+    echo "Enabling copr..."
+    enable_copr "${COPR[@]}"
+
     echo "Installing multimedia group..."
     sudo dnf install -y group multimedia
 
