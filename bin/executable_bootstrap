@@ -88,6 +88,7 @@ PKGS=(
     cargo
     rubygems
     dotnet-sdk-10.0
+    java-25-openjdk
 
     # some libs
     python3-gobject
@@ -118,7 +119,7 @@ PKGS_AM=(
     obsidian
     opencode
     lmstudio
-    prismlauncher
+    polymc
 )
 
 PKGS_GO=(
