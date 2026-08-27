@@ -31,6 +31,8 @@ function myip() {
   echo "$(curl -s ifconfig.me) (ifconfig.me)"
 }
 
+alias ff="fastfetch"
+
 # Chezmoi
 alias cz="chezmoi"
 alias cza="chezmoi apply"
