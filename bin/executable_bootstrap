@@ -9,7 +9,7 @@ tasks=(
   "# Core"
   "Enable repos|enable_repos"
   "Install dms-shell (choose niri & kitty)|curl -fsSL https://install.danklinux.com | sh"
-  "Install nvidia drivers|install_nvidia"
+  "Install NVIDIA drivers (with CUDA and nvidia-container-toolkit)|install_nvidia"
 
   "# Software"
   "Install software|install_software"
@@ -167,8 +167,20 @@ confirm_yes_no() {
 # TASKS
 
 install_nvidia() {
-  sudo dnf install akmod-nvidia xorg-x11-drv-nvidia-cuda
-  echo "wait ~5 minutes for nvidia diver finish compiling"
+  echo "Install NVIDIA drivers..."
+  install_pkgs akmod-nvidia
+
+  echo "Install CUDA libraries..."
+  install_pkgs xorg-x11-drv-nvidia-cuda
+
+  echo "Enable the COPR repo for nvidia-container-toolkit..."
+  enable_copr @ai-ml/nvidia-container-toolkit
+
+  echo "Install the NVIDIA container toolkit..."
+  install_pkgs nvidia-container-toolkit nvidia-container-toolkit-selinux
+
+  echo "Setup the CDI configuration..."
+  sudo nvidia-ctk cdi generate -output /etc/cdi/nvidia.yaml
 }
 
 enable_repos() {
