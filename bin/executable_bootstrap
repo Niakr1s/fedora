@@ -18,6 +18,7 @@ tasks=(
     "Install playstation emulators|install_playstation_emulators"
     "Install xbox emulators|install_xbox_emulators"
     "Install retroarch|install_retroarch"
+    "Install sunshine|install_sunshine"
 
     "# System"
     "Add essential kernel params|manage_kernel_params"
@@ -31,7 +32,6 @@ tasks=(
 COPR=(
     lihaohong/yazi
     dejan/lazygit
-    lizardbyte/stable
 )
 
 PKGS=(
@@ -101,8 +101,6 @@ PKGS=(
     foliate
     remmina
     telegram-desktop
-
-    Sunshine
 )
 
 PKGS_AM=(
@@ -359,6 +357,32 @@ EOF
 
     echo "Installation complete! Checking service status..."
     sudo systemctl status nvidia-pstated.service
+}
+
+install_sunshine() {
+  enable_copr "lizardbyte/stable"
+  install_pkgs "Sunshine"
+
+  echo "Enabling firewall for sunshine..."
+  sudo tee /etc/firewalld/services/sunshine.xml << EOF
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>Sunshine</short>
+  <description>Sunshine is a self-hosted game stream host for Moonlight.</description>
+  <!-- TCP Ports -->
+  <port protocol="tcp" port="47984"/>
+  <port protocol="tcp" port="47989"/>
+  <port protocol="tcp" port="48010"/>
+  <!-- UDP Ports -->
+  <port protocol="udp" port="47998-48000"/>
+  <port protocol="udp" port="48002"/>
+  <port protocol="udp" port="48010"/>
+</service>
+EOF
+
+  sudo firewall-cmd --reload
+  sudo firewall-cmd --permanent --zone=public --add-service=sunshine
+  sudo firewall-cmd --reload
 }
 
 # MAIN
