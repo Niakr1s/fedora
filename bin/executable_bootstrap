@@ -367,11 +367,11 @@ EOF
 }
 
 install_sunshine() {
-  enable_copr "lizardbyte/stable"
-  install_pkgs "Sunshine"
+    enable_copr "lizardbyte/stable"
+    install_pkgs "Sunshine"
 
-  echo "Enabling firewall for sunshine..."
-  sudo tee /etc/firewalld/services/sunshine.xml << EOF
+    echo "Enabling firewall for sunshine..."
+    sudo tee /etc/firewalld/services/sunshine.xml << EOF
 <?xml version="1.0" encoding="utf-8"?>
 <service>
   <short>Sunshine</short>
@@ -387,9 +387,9 @@ install_sunshine() {
 </service>
 EOF
 
-  sudo firewall-cmd --reload
-  sudo firewall-cmd --permanent --zone=public --add-service=sunshine
-  sudo firewall-cmd --reload
+    sudo firewall-cmd --reload
+    sudo firewall-cmd --permanent --zone=public --add-service=sunshine
+    sudo firewall-cmd --reload
 }
 
 # MAIN
