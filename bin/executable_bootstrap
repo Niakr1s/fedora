@@ -12,7 +12,7 @@ tasks=(
   "Install nvidia drivers|install_nvidia"
 
   "# Software"
-  "Install essential software|install_software"
+  "Install software|install_software"
   "Install switch emulators|install_switch_emulators"
   "Install playstation emulators|install_playstation_emulators"
   "Install xbox emulators|install_xbox_emulators"
