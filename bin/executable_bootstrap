@@ -61,6 +61,7 @@ PKGS=(
 	ffmpeg
 	tealdeer
 	keepassxc
+	strawberry
 
 	xrandr
 	vulkan-tools
