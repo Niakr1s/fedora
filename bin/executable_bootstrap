@@ -85,9 +85,14 @@ PKGS=(
     rubygems
     dotnet-sdk-10.0
 
-    lutris
+    # some libs
     python3-gobject
+    python3-pyudev
+    python3-dbus-fast
+    python3-xlib
     gdk-pixbuf2-modules-extra
+
+    lutris
     steam
     mangohud
 
