@@ -34,6 +34,7 @@ COPR=(
 )
 
 PKGS=(
+  kernel-modules-extra
   curl
   wget
   bat
