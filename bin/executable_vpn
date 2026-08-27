@@ -7,7 +7,7 @@ LOGFILE="/tmp/vpn.log"
 VPN="$HOME/go/bin/xray-knife" # separate for kill
 VPN_CMD="$VPN proxy system --port $PORT --rotate 300"
 
-PROXY="mitmdump"
+PROXY="$HOME/.local/bin/mitmdump"
 PROXY_CMD="$PROXY -p $PORT --ignore-hosts '.*'"
 
 # Kills a proxy that listens on PORT
