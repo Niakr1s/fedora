@@ -1,0 +1,19 @@
+[".oh-my-zsh"]
+    type = "git-repo"
+    url = "https://github.com/ohmyzsh/ohmyzsh"
+    refreshPeriod = "168h"
+
+[".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+    type = "git-repo"
+    url = "https://github.com/zsh-users/zsh-autosuggestions"
+    refreshPeriod = "168h"
+
+[".config/DankMaterialShell/plugins"]
+    type = "git-repo"
+    url = "https://github.com/AvengeMedia/dms-plugins.git"
+    refreshPeriod = "168h"
+
+[".config/yazi/plugins/mediainfo.yazi"]
+  type = "git-repo"
+  url = "https://github.com/boydaihungst/mediainfo.yazi"
+  refreshPeriod = "168h"
