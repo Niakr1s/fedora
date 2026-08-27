@@ -4,8 +4,9 @@ services:
   comfyui:
     image: yanwk/comfyui-boot:cu130-slim-v2-20260814
     container_name: comfyui
-    ports:
-      - "8188:8188"
+    network_mode: "host"
+    # ports:
+    #   - "8188:8188"
     environment:
       - CLI_ARGS=
     volumes:
