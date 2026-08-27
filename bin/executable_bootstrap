@@ -69,6 +69,7 @@ PKGS=(
     strawberry
     dconf-editor
     adw-gtk3-theme
+    firewall-config
 
     xrandr
     vulkan-tools
