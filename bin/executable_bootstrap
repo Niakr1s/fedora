@@ -62,6 +62,8 @@ PKGS=(
 	tealdeer
 	keepassxc
 	strawberry
+	dconf-editor
+	adw-gtk3-theme
 
 	xrandr
 	vulkan-tools
