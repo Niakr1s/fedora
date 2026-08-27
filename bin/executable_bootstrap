@@ -76,9 +76,11 @@ PKGS=(
 
     qt6ct-kde
 
+    # fonts
     gdouros-symbola-fonts
     jetbrains-mono-nl-fonts
 
+    # programming
     go
     uv
     cargo
