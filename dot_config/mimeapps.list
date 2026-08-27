@@ -142,3 +142,4 @@ text/x-sql=org.gnome.TextEditor.desktop
 text/x-tcl=org.gnome.TextEditor.desktop
 text/x-tex=org.gnome.TextEditor.desktop
 text/xml=org.gnome.TextEditor.desktop
+x-scheme-handler/discord-424004941485572097=discord-424004941485572097.desktop
