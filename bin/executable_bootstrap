@@ -53,6 +53,7 @@ PKGS=(
 	duf
 	gdu
 	fastfetch
+	rofi
 
 	unar
 	bsdtar
