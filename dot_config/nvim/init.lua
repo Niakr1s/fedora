@@ -26,6 +26,7 @@ vim.opt.autoindent = true   -- Copy indent from furrent line when starting a new
 vim.opt.smartindent = false -- Do smart autoindenting when starting a new line
 vim.opt.cindent = false     -- Indent fo C progs
 vim.opt.copyindent = true   -- Copy the structure of the existing lines indent when autoindenting a new line.
+vim.opt.fixeol = true       -- Probably fix for chezmoi EOL diffs
 
 -- Plugins
 vim.pack.add({
