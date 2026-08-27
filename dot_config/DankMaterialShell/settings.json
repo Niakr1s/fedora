@@ -536,7 +536,16 @@
   "notificationHistorySaveLow": true,
   "notificationHistorySaveNormal": true,
   "notificationHistorySaveCritical": true,
-  "notificationRules": [],
+  "notificationRules": [
+    {
+      "enabled": true,
+      "field": "summary",
+      "pattern": "^Stream .*",
+      "matchType": "regex",
+      "action": "ignore",
+      "urgency": "default"
+    }
+  ],
   "notificationFocusedMonitor": false,
   "osdAlwaysShowValue": false,
   "osdPosition": 5,
