@@ -13,6 +13,7 @@ tasks=(
 
   "# Software"
   "Install software|install_software"
+  "Install docker|install_docker"
   "Install switch emulators|install_switch_emulators"
   "Install playstation emulators|install_playstation_emulators"
   "Install xbox emulators|install_xbox_emulators"
@@ -182,6 +183,18 @@ install_software() {
 
   echo "Installing python packages..."
   install_pkgs_py "${PKGS_PY[@]}"
+}
+
+install_docker() {
+  echo "Installing docker..."
+  install_pkgs "docker"
+
+  echo "Starting docker..."
+  sudo systemctl enable --now docker
+
+  echo "Adding user to docker group..."
+  sudo usermod -aG docker $USER
+  newgrp docker
 }
 
 install_switch_emulators() {
