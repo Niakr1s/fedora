@@ -1,0 +1,23 @@
+// DMS Window Rules - Managed by DankMaterialShell
+// Do not edit manually - changes may be overwritten
+
+// @id=wr_1787768287724361691 @name=org.mozilla.firefox
+window-rule {
+    match app-id="^org.mozilla.firefox$"
+    open-maximized true
+    open-on-output "HDMI-A-2"
+}
+
+// @id=wr_1787814418960875825 @name=xdg-desktop-portal-gtk
+window-rule {
+    match app-id="^xdg-desktop-portal-gtk$"
+    open-floating true
+    max-width 1280
+    max-height 720
+}
+
+// @id=wr_1787814981139956914 @name=org.keepassxc.KeePassXC
+window-rule {
+    match app-id="^org.keepassxc.KeePassXC$" title="^KeePassXC - Browser Access Request$"
+    open-floating true
+}
