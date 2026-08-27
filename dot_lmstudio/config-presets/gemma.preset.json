@@ -1,6 +1,6 @@
 {
-  "identifier": "@local:gemma4-26b-qat",
-  "name": "gemma4-26b-qat",
+  "identifier": "@local:gemma",
+  "name": "gemma",
   "changed": true,
   "operation": {
     "fields": [
