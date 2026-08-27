@@ -82,6 +82,8 @@ PKGS=(
 	cargo
 
 	lutris
+	python3-gobject
+	gdk-pixbuf2-modules-extra
 	steam
 	mangohud
 
