@@ -120,6 +120,7 @@ PKGS_AM=(
     opencode
     lmstudio
     polymc
+    crossmacro
 )
 
 PKGS_GO=(
