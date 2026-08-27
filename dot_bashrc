@@ -68,6 +68,11 @@ export LESS='-R'
 export PAGER='less -R'
 export GIT_PAGER='less -R'
 
+# FZF config
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --exclude dosdevices --exclude drive_c --exclude .venv'
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always {}' --walker-skip .git,node_modules,target,dosdevices,drive_c,.venv"
+export FZF_ALT_C_OPTS="--preview 'tree -C {}' --walker-skip .git,node_modules,target,dosdevices,drive_c,.venv"
+
 # Mount
 luksMountUmount() {
   local uuid="$1"
