@@ -122,7 +122,7 @@ PKGS_GO=(
     github.com/lilendian0x00/xray-knife/v11@latest
 )
 
-PKGS_PY=(
+PKGS_UV=(
     mitmproxy
 )
 
@@ -159,7 +159,7 @@ install_pkgs_go() {
     done
 }
 
-install_pkgs_py() {
+install_pkgs_uv() {
     which uv &>/dev/null || install_pkgs uv
 
     for pkg in "$@"; do
@@ -234,8 +234,8 @@ install_software() {
     echo "Installing go packages..."
     install_pkgs_go "${PKGS_GO[@]}"
 
-    echo "Installing python packages..."
-    install_pkgs_py "${PKGS_PY[@]}"
+    echo "Installing uv packages..."
+    install_pkgs_uv "${PKGS_UV[@]}"
 
     echo "Installing cargo packages..."
     install_pkgs_cargo "${PKGS_CARGO[@]}"
