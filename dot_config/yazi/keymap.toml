@@ -17,3 +17,13 @@ desc = "Open in Neovim"
 on = "I"
 run = 'shell "sudo nvim %s" --block'
 desc = "Open in Neovim with sudo"
+
+[[mgr.prepend_keymap]]
+on   = [ "T" ]
+run  = "plugin toggle-pane max-preview"
+desc = "Maximize or restore the preview pane"
+
+[[mgr.prepend_keymap]]
+on   = [ "M" ]
+run  = "plugin mediainfo -- toggle-metadata"
+desc = "Toggle media preview metadata"

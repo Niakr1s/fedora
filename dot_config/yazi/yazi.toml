@@ -14,6 +14,8 @@ suppress_preload = true
 
 [preview]
 cache_dir = "~/.cache/yazi"
+max_width = 2560
+max_height = 1440
 wrap = "yes"
 
 [plugin]
