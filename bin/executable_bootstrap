@@ -50,6 +50,9 @@ PKGS=(
 	tree
 	chezmoi
 	borg
+	duf
+	gdu
+	fastfetch
 
 	unar
 	bsdtar
