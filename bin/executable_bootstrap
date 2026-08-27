@@ -80,6 +80,8 @@ PKGS=(
 	go
 	uv
 	cargo
+	rubygems
+	dotnet-sdk-10.0
 
 	lutris
 	python3-gobject
