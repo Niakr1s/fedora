@@ -181,6 +181,9 @@ install_nvidia() {
 
   echo "Setup the CDI configuration..."
   sudo nvidia-ctk cdi generate -output /etc/cdi/nvidia.yaml
+
+  echo "Restart docker service..."
+  sudo systemctl restart docker
 }
 
 enable_repos() {
