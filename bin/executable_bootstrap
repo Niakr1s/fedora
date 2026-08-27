@@ -49,7 +49,10 @@ PKGS=(
 	tree
 	chezmoi
 	borg
+
 	unar
+	bsdtar
+
 	mediainfo
 	nautilus
 	kde-connect
@@ -243,7 +246,7 @@ install_playstation_emulators() {
 
   local PCS3_FIRMWARE_PATH="$HOME/.cache/PS3UPDAT.PUP"
   echo "Downloading PS3 firmware to $PCS3_FIRMWARE_PATH"
-  wget -P "$PCS3_FIRMWARE_PATH" "http://dus01.ps3.update.playstation.net/update/ps3/image/us/2026_0318_a2b60b6ac1d2e49e230144345616927c/PS3UPDAT.PUP"
+  wget -O "$PCS3_FIRMWARE_PATH" "http://dus01.ps3.update.playstation.net/update/ps3/image/us/2026_0318_a2b60b6ac1d2e49e230144345616927c/PS3UPDAT.PUP"
   echo "PS3 firmware is at $PCS3_FIRMWARE_PATH, don't forget to install it"
 
   echo "Installing ps3dec (tool for decrypting ps3 iso)..."
