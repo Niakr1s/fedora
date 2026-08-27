@@ -6,332 +6,332 @@
 # Define all tasks with their descriptions and commands
 # Lines starting with '# ' are section headers and won't be selectable
 tasks=(
-  "# Core"
-  "Enable repos|enable_repos"
-  "Install dms-shell (choose niri & kitty)|curl -fsSL https://install.danklinux.com | sh"
-  "Install NVIDIA drivers (with CUDA and nvidia-container-toolkit)|install_nvidia"
+    "# Core"
+    "Enable repos|enable_repos"
+    "Install dms-shell (choose niri & kitty)|curl -fsSL https://install.danklinux.com | sh"
+    "Install NVIDIA drivers (with CUDA and nvidia-container-toolkit)|install_nvidia"
 
-  "# Software"
-  "Install software|install_software"
-  "Install podman|install_podman"
-  "Install switch emulators|install_switch_emulators"
-  "Install playstation emulators|install_playstation_emulators"
-  "Install xbox emulators|install_xbox_emulators"
-  "Install retroarch|install_retroarch"
+    "# Software"
+    "Install software|install_software"
+    "Install podman|install_podman"
+    "Install switch emulators|install_switch_emulators"
+    "Install playstation emulators|install_playstation_emulators"
+    "Install xbox emulators|install_xbox_emulators"
+    "Install retroarch|install_retroarch"
 
-  "# System"
-  "Add essential kernel params|manage_kernel_params"
-  "Disable sleep and hibernation|disable_sleep_hybernation"
+    "# System"
+    "Add essential kernel params|manage_kernel_params"
+    "Disable sleep and hibernation|disable_sleep_hybernation"
 
-  "# Tweaks"
-  "Link steam runtime to umu|link_steamruntime_to_umu"
-  "Enable nvidia-pstated|install_nvidia_pstated"
+    "# Tweaks"
+    "Link steam runtime to umu|link_steamruntime_to_umu"
+    "Enable nvidia-pstated|install_nvidia_pstated"
 )
 
 COPR=(
-	lihaohong/yazi
-	dejan/lazygit
+    lihaohong/yazi
+    dejan/lazygit
 )
 
 PKGS=(
-  kernel-modules-extra
-  curl
-  wget
-  bat
-	zsh
-	direnv
-	git
-	lazygit
-	neovim
-	firefox
-	nvtop
-	yazi
-	eza
-	tree
-	chezmoi
-	borg
-	duf
-	gdu
-	fastfetch
-	rofi
+    kernel-modules-extra
+    curl
+    wget
+    bat
+    zsh
+    direnv
+    git
+    lazygit
+    neovim
+    firefox
+    nvtop
+    yazi
+    eza
+    tree
+    chezmoi
+    borg
+    duf
+    gdu
+    fastfetch
+    rofi
 
-	unar
-	bsdtar
+    unar
+    bsdtar
 
-	mediainfo
-	nautilus
-	kde-connect
-	mpv
-	ffmpeg
-	tealdeer
-	keepassxc
-	strawberry
-	dconf-editor
-	adw-gtk3-theme
+    mediainfo
+    nautilus
+    kde-connect
+    mpv
+    ffmpeg
+    tealdeer
+    keepassxc
+    strawberry
+    dconf-editor
+    adw-gtk3-theme
 
-	xrandr
-	vulkan-tools
+    xrandr
+    vulkan-tools
 
-	qt6ct-kde
+    qt6ct-kde
 
-	gdouros-symbola-fonts
-	jetbrains-mono-nl-fonts
+    gdouros-symbola-fonts
+    jetbrains-mono-nl-fonts
 
-	go
-	uv
-	cargo
-	rubygems
-	dotnet-sdk-10.0
+    go
+    uv
+    cargo
+    rubygems
+    dotnet-sdk-10.0
 
-	lutris
-	python3-gobject
-	gdk-pixbuf2-modules-extra
-	steam
-	mangohud
+    lutris
+    python3-gobject
+    gdk-pixbuf2-modules-extra
+    steam
+    mangohud
 
-	syncthing
-	btrfs-assistant
-	gnome-disk-utility
+    syncthing
+    btrfs-assistant
+    gnome-disk-utility
 
-	HandBrake-gui
-	gthumb
-	gnome-text-editor
-	foliate
-	remmina
-	telegram-desktop
+    HandBrake-gui
+    gthumb
+    gnome-text-editor
+    foliate
+    remmina
+    telegram-desktop
 )
 
 PKGS_AM=(
-  losslesscut
-  obsidian
-  opencode
-  lmstudio
+    losslesscut
+    obsidian
+    opencode
+    lmstudio
 )
 
 PKGS_GO=(
-	github.com/lilendian0x00/xray-knife/v11@latest
+    github.com/lilendian0x00/xray-knife/v11@latest
 )
 
 PKGS_PY=(
-  mitmproxy
+    mitmproxy
 )
 
 # HELPERS
 
 enable_copr() {
-  for repo in $@; do
-    sudo dnf copr enable -y "$repo"
-  done
+    for repo in $@; do
+        sudo dnf copr enable -y "$repo"
+    done
 }
 
 install_pkgs() {
-  sudo dnf install -y "$@"
+    sudo dnf install -y "$@"
 }
 
 install_pkgs_am() {
-  which am &>/dev/null || \
-    (cd /tmp && wget -q https://raw.githubusercontent.com/ivan-hc/AM/main/INSTALL && chmod a+x ./INSTALL && sudo ./INSTALL && rm ./INSTALL)
+    which am &>/dev/null || \
+        (cd /tmp && wget -q https://raw.githubusercontent.com/ivan-hc/AM/main/INSTALL && chmod a+x ./INSTALL && sudo ./INSTALL && rm ./INSTALL)
 
-  for app in $@; do
-    am -i "$app"
-  done
+    for app in $@; do
+        am -i "$app"
+    done
 }
 
 install_pkgs_go() {
-  which go &>/dev/null || install_pkgs go
+    which go &>/dev/null || install_pkgs go
 
-  for pkg in "$@"; do
-    go install "$pkg"
-  done
+    for pkg in "$@"; do
+        go install "$pkg"
+    done
 }
 
 install_pkgs_py() {
-  which uv &>/dev/null || install_pkgs uv
+    which uv &>/dev/null || install_pkgs uv
 
-  for pkg in "$@"; do
-    uv tool install "$pkg"
-  done
+    for pkg in "$@"; do
+        uv tool install "$pkg"
+    done
 }
 
 confirm_yes_no() {
-  # Usage: confirm_yes_no "Prompt text"
-  # Returns: 0 if user types y or Y, 1 otherwise
-  local prompt="$1"
-  local suggestion="$2"
-  local ans
+    # Usage: confirm_yes_no "Prompt text"
+    # Returns: 0 if user types y or Y, 1 otherwise
+    local prompt="$1"
+    local suggestion="$2"
+    local ans
 
-  echo "$prompt (y): "
-  read -r ans
-  if [[ "$ans" == "y" ]]; then 
-    [[ ! -z "$suggestion" ]] && echo "Suggestion:\n\t$suggestion"
-    return 0
-  fi
-  return 1
+    echo "$prompt (y): "
+    read -r ans
+    if [[ "$ans" == "y" ]]; then
+        [[ ! -z "$suggestion" ]] && echo "Suggestion:\n\t$suggestion"
+        return 0
+    fi
+    return 1
 }
 
 # TASKS
 
 install_nvidia() {
-  echo "Install NVIDIA drivers..."
-  install_pkgs akmod-nvidia
+    echo "Install NVIDIA drivers..."
+    install_pkgs akmod-nvidia
 
-  echo "Install CUDA libraries..."
-  install_pkgs xorg-x11-drv-nvidia-cuda
+    echo "Install CUDA libraries..."
+    install_pkgs xorg-x11-drv-nvidia-cuda
 
-  echo "Enable the COPR repo for nvidia-container-toolkit..."
-  enable_copr @ai-ml/nvidia-container-toolkit
+    echo "Enable the COPR repo for nvidia-container-toolkit..."
+    enable_copr @ai-ml/nvidia-container-toolkit
 
-  echo "Install the NVIDIA container toolkit..."
-  install_pkgs nvidia-container-toolkit nvidia-container-toolkit-selinux
+    echo "Install the NVIDIA container toolkit..."
+    install_pkgs nvidia-container-toolkit nvidia-container-toolkit-selinux
 
-  echo "Setup the CDI configuration..."
-  sudo nvidia-ctk cdi generate -output /etc/cdi/nvidia.yaml
+    echo "Setup the CDI configuration..."
+    sudo nvidia-ctk cdi generate -output /etc/cdi/nvidia.yaml
 }
 
 enable_repos() {
-  echo "Enabling rpmfusion repos..."
-  sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+    echo "Enabling rpmfusion repos..."
+    sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-  echo "Disabling cisco-openh264..."
-  sudo dnf config-manager setopt fedora-cisco-openh264.enabled=0
+    echo "Disabling cisco-openh264..."
+    sudo dnf config-manager setopt fedora-cisco-openh264.enabled=0
 
-  echo "Enabling copr..."
-  enable_copr "${COPR[@]}"
+    echo "Enabling copr..."
+    enable_copr "${COPR[@]}"
 }
 
 install_software() {
-  echo "Installing multimedia group..."
-  sudo dnf install -y group multimedia
+    echo "Installing multimedia group..."
+    sudo dnf install -y group multimedia
 
-  echo "Installing packages..."
-  install_pkgs "${PKGS[@]}"
+    echo "Installing packages..."
+    install_pkgs "${PKGS[@]}"
 
-  echo "Installing appimages..."
-  install_pkgs_am "${PKGS_AM[@]}"
+    echo "Installing appimages..."
+    install_pkgs_am "${PKGS_AM[@]}"
 
-  echo "Installing go packages..."
-  install_pkgs_go "${PKGS_GO[@]}"
+    echo "Installing go packages..."
+    install_pkgs_go "${PKGS_GO[@]}"
 
-  echo "Installing python packages..."
-  install_pkgs_py "${PKGS_PY[@]}"
+    echo "Installing python packages..."
+    install_pkgs_py "${PKGS_PY[@]}"
 }
 
 install_podman() {
-  echo "Installing podman..."
-  install_pkgs podman podman-docker podman-compose
+    echo "Installing podman..."
+    install_pkgs podman podman-docker podman-compose
 
-  echo "Enabling rootless podman service..."
-  systemctl --user enable --now podman.socket
+    echo "Enabling rootless podman service..."
+    systemctl --user enable --now podman.socket
 }
 
 install_switch_emulators() {
-  echo "Installing Ryujinx..."
-  am -i ryujinx
+    echo "Installing Ryujinx..."
+    am -i ryujinx
 
-  echo "Downloading and install keys..."
-  mkdir -p "$HOME/.config/Ryujinx/system"
-  wget -O- "https://archive.org/download/20.0.1-keys/20.0.1 Keys.zip" | bsdtar -xf- -C "$HOME/.config/Ryujinx/system"
+    echo "Downloading and install keys..."
+    mkdir -p "$HOME/.config/Ryujinx/system"
+    wget -O- "https://archive.org/download/20.0.1-keys/20.0.1 Keys.zip" | bsdtar -xf- -C "$HOME/.config/Ryujinx/system"
 
-  echo "Downloading and installing cheats..."
-  mkdir -p $HOME/.config/Ryujinx/mods
-  wget -O- "https://github.com/HamletDuFromage/switch-cheats-db/releases/download/2026-04-18/contents_complete.zip" | bsdtar -xf- -C "$HOME/.config/Ryujinx/mods"
+    echo "Downloading and installing cheats..."
+    mkdir -p $HOME/.config/Ryujinx/mods
+    wget -O- "https://github.com/HamletDuFromage/switch-cheats-db/releases/download/2026-04-18/contents_complete.zip" | bsdtar -xf- -C "$HOME/.config/Ryujinx/mods"
 
-  echo "1" | am -i eden # choose '1) AMD64 (PGO)' variant
-  echo "Downloading and install keys..."
-  mkdir -p "$HOME/.local/share/eden/keys"
-  wget -O- "https://archive.org/download/20.0.1-keys/20.0.1 Keys.zip" | bsdtar -xf- -C "$HOME/.local/share/eden/keys"
+    echo "1" | am -i eden # choose '1) AMD64 (PGO)' variant
+    echo "Downloading and install keys..."
+    mkdir -p "$HOME/.local/share/eden/keys"
+    wget -O- "https://archive.org/download/20.0.1-keys/20.0.1 Keys.zip" | bsdtar -xf- -C "$HOME/.local/share/eden/keys"
 
-  cat << EOF
+    cat << EOF
 Eden configuration:
   - VULKAN BALANCED DOCKED SCALEFORCE SMAA
 EOF
 
-  local SWITCH_FIRMWARE_PATH="$HOME/.cache/SwitchFirmware.zip"
-  if [[ ! -e "$SWITCH_FIRMWARE_PATH" ]]; then
-    echo "Downloading firmware to ~/.cache..."
-    wget -O "$SWITCH_FIRMWARE_PATH" "https://github.com/THZoria/NX_Firmware/releases/download/20.0.1/Firmware.20.0.1.zip"
-  fi
-  echo "Switch firmware is at $SWITCH_FIRMWARE_PATH, don't forget to install it"
+    local SWITCH_FIRMWARE_PATH="$HOME/.cache/SwitchFirmware.zip"
+    if [[ ! -e "$SWITCH_FIRMWARE_PATH" ]]; then
+        echo "Downloading firmware to ~/.cache..."
+        wget -O "$SWITCH_FIRMWARE_PATH" "https://github.com/THZoria/NX_Firmware/releases/download/20.0.1/Firmware.20.0.1.zip"
+    fi
+    echo "Switch firmware is at $SWITCH_FIRMWARE_PATH, don't forget to install it"
 }
 
 install_playstation_emulators() {
-  echo "Installing pcsx2"
-  am -i pcsx2
+    echo "Installing pcsx2"
+    am -i pcsx2
 
-  echo "Installing bioses..."
-  mkdir -p "$HOME/.config/PCSX2/bios"
-  for region in a e j h; do wget -O- "https://github.com/archtaurus/RetroPieBIOS/raw/refs/heads/master/BIOS/pcsx2/bios/ps2-0230${region}-20080220.bin" > "$HOME/.config/PCSX2/bios/ps2-0230${region}-20080220.bin"; done
+    echo "Installing bioses..."
+    mkdir -p "$HOME/.config/PCSX2/bios"
+    for region in a e j h; do wget -O- "https://github.com/archtaurus/RetroPieBIOS/raw/refs/heads/master/BIOS/pcsx2/bios/ps2-0230${region}-20080220.bin" > "$HOME/.config/PCSX2/bios/ps2-0230${region}-20080220.bin"; done
 
-  echo "Installing rpcs3"
-  am -i rpcs3
+    echo "Installing rpcs3"
+    am -i rpcs3
 
-  local PCS3_FIRMWARE_PATH="$HOME/.cache/PS3UPDAT.PUP"
-  echo "Downloading PS3 firmware to $PCS3_FIRMWARE_PATH"
-  wget -O "$PCS3_FIRMWARE_PATH" "http://dus01.ps3.update.playstation.net/update/ps3/image/us/2026_0318_a2b60b6ac1d2e49e230144345616927c/PS3UPDAT.PUP"
-  echo "PS3 firmware is at $PCS3_FIRMWARE_PATH, don't forget to install it"
+    local PCS3_FIRMWARE_PATH="$HOME/.cache/PS3UPDAT.PUP"
+    echo "Downloading PS3 firmware to $PCS3_FIRMWARE_PATH"
+    wget -O "$PCS3_FIRMWARE_PATH" "http://dus01.ps3.update.playstation.net/update/ps3/image/us/2026_0318_a2b60b6ac1d2e49e230144345616927c/PS3UPDAT.PUP"
+    echo "PS3 firmware is at $PCS3_FIRMWARE_PATH, don't forget to install it"
 
-  echo "Installing ps3dec (tool for decrypting ps3 iso)..."
-  cargo install --git https://github.com/Redrrx/ps3dec
+    echo "Installing ps3dec (tool for decrypting ps3 iso)..."
+    cargo install --git https://github.com/Redrrx/ps3dec
 
-  echo "Installing shadPS4..."
-  am -i shadps4-qtlauncher
+    echo "Installing shadPS4..."
+    am -i shadps4-qtlauncher
 
-  echo "Installing azaharplus-pkg-extractor for shadPS4..."
-  am -i azaharplus-pkg-extractor
+    echo "Installing azaharplus-pkg-extractor for shadPS4..."
+    am -i azaharplus-pkg-extractor
 }
 
 install_xbox_emulators() {
-  echo "Installing xemu..."
-  am -i xemu
-  mkdir -p "$HOME/.local/share/xemu"
-  wget -O- "https://archive.org/download/xemustarter/XEMU FILES.zip" | bsdtar -xf- -C "$HOME/.local/share/xemu"
-  echo "Needed xemu fiiles are under $HOME/.local/share/xemu, provide it to emulator them manually"
+    echo "Installing xemu..."
+    am -i xemu
+    mkdir -p "$HOME/.local/share/xemu"
+    wget -O- "https://archive.org/download/xemustarter/XEMU FILES.zip" | bsdtar -xf- -C "$HOME/.local/share/xemu"
+    echo "Needed xemu fiiles are under $HOME/.local/share/xemu, provide it to emulator them manually"
 }
 
 install_retroarch() {
-  echo "Installing retroarch..."
-  echo "Refer to docs/retroarch.md for further configuration"
-  am -i retroarch
+    echo "Installing retroarch..."
+    echo "Refer to docs/retroarch.md for further configuration"
+    am -i retroarch
 
-  echo "Removing portable home for retroarch to use usual directories.."
-  sudo rm -rf /opt/retroarch/retroarch.home
-  mkdir -p ~/.config/retroarch
+    echo "Removing portable home for retroarch to use usual directories.."
+    sudo rm -rf /opt/retroarch/retroarch.home
+    mkdir -p ~/.config/retroarch
 }
 
 disable_sleep_hybernation() {
-  echo "Disabling sleep and hybernation..."
-  sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+    echo "Disabling sleep and hybernation..."
+    sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 }
 
 manage_kernel_params() {
-  sudo grubby --update-kernel=ALL --args='clearcpuid=514 split_lock_detect=off'
-  sudo grubby --update-kernel=ALL --args='usbcore.quirks="057e:2009:ik"'
+    sudo grubby --update-kernel=ALL --args='clearcpuid=514 split_lock_detect=off'
+    sudo grubby --update-kernel=ALL --args='usbcore.quirks="057e:2009:ik"'
 
-  sudo grubby --info=DEFAULT
+    sudo grubby --info=DEFAULT
 }
 
 link_steamruntime_to_umu() {
-  confirm_yes_no "Make sure you've downloaded all 4 steam linux runtimes first (under tools section)."
-  rm -rf ~/.local/share/umu/steamrt*
-  ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime ~/.local/share/umu/steamrt1
-  ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime ~/.local/share/umu/steamrt # dunno if it with prefix 1
-  ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_soldier ~/.local/share/umu/steamrt2
-  ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_sniper ~/.local/share/umu/steamrt3
-  ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_4 ~/.local/share/umu/steamrt4
+    confirm_yes_no "Make sure you've downloaded all 4 steam linux runtimes first (under tools section)."
+    rm -rf ~/.local/share/umu/steamrt*
+    ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime ~/.local/share/umu/steamrt1
+    ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime ~/.local/share/umu/steamrt # dunno if it with prefix 1
+    ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_soldier ~/.local/share/umu/steamrt2
+    ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_sniper ~/.local/share/umu/steamrt3
+    ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_4 ~/.local/share/umu/steamrt4
 }
 
 install_nvidia_pstated() {
-  local url="https://github.com/sasha0552/nvidia-pstated/releases/download/v1.0.9/nvidia-pstated"
-  local dest="/usr/local/bin/nvidia-pstated"
-  local service_file="/etc/systemd/system/nvidia-pstated.service"
+    local url="https://github.com/sasha0552/nvidia-pstated/releases/download/v1.0.9/nvidia-pstated"
+    local dest="/usr/local/bin/nvidia-pstated"
+    local service_file="/etc/systemd/system/nvidia-pstated.service"
 
-  sudo curl -L "$url" -o "$dest"
+    sudo curl -L "$url" -o "$dest"
 
-  echo "Setting executable permissions..."
-  sudo chmod +x "$dest"
+    echo "Setting executable permissions..."
+    sudo chmod +x "$dest"
 
-  echo "Creating systemd service file..."
-  sudo tee "$service_file" > /dev/null << 'EOF'
+    echo "Creating systemd service file..."
+    sudo tee "$service_file" > /dev/null << 'EOF'
 [Unit]
 Description=A daemon that automatically manages the performance states of NVIDIA GPUs
 After=nvidia-persistenced.service nvpd.service
@@ -347,176 +347,176 @@ RestartSec=1s
 WantedBy=multi-user.target
 EOF
 
-  echo "Reloading systemd manager configuration..."
-  sudo systemctl daemon-reload
+    echo "Reloading systemd manager configuration..."
+    sudo systemctl daemon-reload
 
-  echo "Enabling nvidia-pstated service to start on boot..."
-  sudo systemctl enable --now nvidia-pstated.service
+    echo "Enabling nvidia-pstated service to start on boot..."
+    sudo systemctl enable --now nvidia-pstated.service
 
-  echo "Installation complete! Checking service status..."
-  sudo systemctl status nvidia-pstated.service
+    echo "Installation complete! Checking service status..."
+    sudo systemctl status nvidia-pstated.service
 }
 
 # MAIN
 
 main() {
-  local selected_indices=()
-  local total_tasks=${#tasks[@]}
+    local selected_indices=()
+    local total_tasks=${#tasks[@]}
 
-  while true; do
-    clear
+    while true; do
+        clear
 
-    local display_num=0
-    for ((i=0; i<total_tasks; i++)); do
-      local item="${tasks[$i]}"
+        local display_num=0
+        for ((i=0; i<total_tasks; i++)); do
+            local item="${tasks[$i]}"
 
-      # Check if it's a header
-      if [[ "$item" == "# "* ]]; then
-        local header="${item#\# }"
+            # Check if it's a header
+            if [[ "$item" == "# "* ]]; then
+                local header="${item#\# }"
+                echo ""
+                echo "━━━ $header ━━━"
+                echo ""
+                continue
+            fi
+
+            # It's a task, increment display number
+            ((display_num++))
+            local desc=$(echo "$item" | cut -d'|' -f1)
+
+            # Check if index is in selected_indices
+            local is_selected=0
+            for sel in "${selected_indices[@]}"; do
+                if [[ $sel -eq $i ]]; then
+                    is_selected=1
+                    break
+                fi
+            done
+
+            if [[ $is_selected -eq 1 ]]; then
+                echo "[✓] $display_num. $desc"
+            else
+                echo "[ ] $display_num. $desc"
+            fi
+        done
+
         echo ""
-        echo "━━━ $header ━━━"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "Commands:"
+        echo "  - Enter numbers: 1 3 5  (toggle selection)"
+        echo "  - Type 'a' to select everything"
+        echo "  - Type 'c' to clear all selections"
+        echo "  - Press ENTER to execute selected tasks"
         echo ""
-        continue
-      fi
+        read -p "> " choice
 
-      # It's a task, increment display number
-      ((display_num++))
-      local desc=$(echo "$item" | cut -d'|' -f1)
-
-      # Check if index is in selected_indices
-      local is_selected=0
-      for sel in "${selected_indices[@]}"; do
-        if [[ $sel -eq $i ]]; then
-          is_selected=1
-          break
+        # If empty input, execute selected tasks
+        if [[ -z "$choice" ]]; then
+            break
         fi
-      done
 
-      if [[ $is_selected -eq 1 ]]; then
-        echo "[✓] $display_num. $desc"
-      else
-        echo "[ ] $display_num. $desc"
-      fi
+        case "$choice" in
+            a)
+                # Select all non-header items
+                selected_indices=()
+                for ((i=0; i<total_tasks; i++)); do
+                    if [[ ! "${tasks[$i]}" == "# "* ]]; then
+                        selected_indices+=($i)
+                    fi
+                done
+                ;;
+            c)
+                selected_indices=()
+                ;;
+            *)
+                # Parse space-separated numbers properly
+                if [[ -n "$choice" ]]; then
+                    # Convert to array by splitting on spaces
+                    local nums=($choice)
+                    for num in "${nums[@]}"; do
+                        if [[ "$num" =~ ^[0-9]+$ ]]; then
+                            # Find the actual index for this display number
+                            local actual_index=-1
+                            local display_counter=0
+                            for ((i=0; i<total_tasks; i++)); do
+                                if [[ ! "${tasks[$i]}" == "# "* ]]; then
+                                    ((display_counter++))
+                                    if [[ $display_counter -eq $num ]]; then
+                                        actual_index=$i
+                                        break
+                                    fi
+                                fi
+                            done
+
+                            if [[ $actual_index -ge 0 ]]; then
+                                # Toggle selection
+                                local found=0
+                                local new_selected=()
+                                for sel in "${selected_indices[@]}"; do
+                                    if [[ $sel -eq $actual_index ]]; then
+                                        found=1
+                                    else
+                                        new_selected+=($sel)
+                                    fi
+                                done
+                                if [[ $found -eq 0 ]]; then
+                                    new_selected+=($actual_index)
+                                fi
+                                selected_indices=("${new_selected[@]}")
+                            else
+                                echo "⚠️  Invalid number: $num"
+                                sleep 1
+                            fi
+                        else
+                            echo "⚠️  Invalid input: $num (must be a number or command)"
+                            sleep 1
+                        fi
+                    done
+                    # Sort selections
+                    if [[ ${#selected_indices[@]} -gt 0 ]]; then
+                        selected_indices=($(printf "%s\n" "${selected_indices[@]}" | sort -n))
+                    fi
+                fi
+                ;;
+        esac
     done
 
-    echo ""
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "Commands:"
-    echo "  - Enter numbers: 1 3 5  (toggle selection)"
-    echo "  - Type 'a' to select everything"
-    echo "  - Type 'c' to clear all selections"
-    echo "  - Press ENTER to execute selected tasks"
-    echo ""
-    read -p "> " choice
-
-    # If empty input, execute selected tasks
-    if [[ -z "$choice" ]]; then
-      break
+    # If nothing selected, exit
+    if [[ ${#selected_indices[@]} -eq 0 ]]; then
+        echo "❌ No tasks selected. Exiting."
+        return 0
     fi
 
-    case "$choice" in
-      a)
-        # Select all non-header items
-        selected_indices=()
-        for ((i=0; i<total_tasks; i++)); do
-          if [[ ! "${tasks[$i]}" == "# "* ]]; then
-            selected_indices+=($i)
-          fi
-        done
-        ;;
-      c)
-        selected_indices=()
-        ;;
-      *)
-        # Parse space-separated numbers properly
-        if [[ -n "$choice" ]]; then
-          # Convert to array by splitting on spaces
-          local nums=($choice)
-          for num in "${nums[@]}"; do
-            if [[ "$num" =~ ^[0-9]+$ ]]; then
-              # Find the actual index for this display number
-              local actual_index=-1
-              local display_counter=0
-              for ((i=0; i<total_tasks; i++)); do
-                if [[ ! "${tasks[$i]}" == "# "* ]]; then
-                  ((display_counter++))
-                  if [[ $display_counter -eq $num ]]; then
-                    actual_index=$i
-                    break
-                  fi
-                fi
-              done
+    echo ""
+    echo "🚀 Executing ${#selected_indices[@]} selected tasks..."
+    echo ""
 
-              if [[ $actual_index -ge 0 ]]; then
-                # Toggle selection
-                local found=0
-                local new_selected=()
-                for sel in "${selected_indices[@]}"; do
-                  if [[ $sel -eq $actual_index ]]; then
-                    found=1
-                  else
-                    new_selected+=($sel)
-                  fi
-                done
-                if [[ $found -eq 0 ]]; then
-                  new_selected+=($actual_index)
-                fi
-                selected_indices=("${new_selected[@]}")
-              else
-                echo "⚠️  Invalid number: $num"
-                sleep 1
-              fi
-            else
-              echo "⚠️  Invalid input: $num (must be a number or command)"
-              sleep 1
-            fi
-          done
-          # Sort selections
-          if [[ ${#selected_indices[@]} -gt 0 ]]; then
-            selected_indices=($(printf "%s\n" "${selected_indices[@]}" | sort -n))
-          fi
+    local task_count=0
+    local total_selected=${#selected_indices[@]}
+    for idx in "${selected_indices[@]}"; do
+        ((task_count++))
+        local task_info="${tasks[$idx]}"
+        local task_desc=$(echo "$task_info" | cut -d'|' -f1)
+        local task_cmd=$(echo "$task_info" | cut -d'|' -f2-)
+
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo "[$task_count/$total_selected] ▶  Running: $task_desc"
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+        # Execute the command
+        eval "$task_cmd"
+
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        if [[ $? -eq 0 ]]; then
+            echo "✅ Completed: $task_desc"
+        else
+            echo "❌ Failed: $task_desc"
         fi
-        ;;
-    esac
-  done
+        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-  # If nothing selected, exit
-  if [[ ${#selected_indices[@]} -eq 0 ]]; then
-    echo "❌ No tasks selected. Exiting."
-    return 0
-  fi
-
-  echo ""
-  echo "🚀 Executing ${#selected_indices[@]} selected tasks..."
-  echo ""
-
-  local task_count=0
-  local total_selected=${#selected_indices[@]}
-  for idx in "${selected_indices[@]}"; do
-    ((task_count++))
-    local task_info="${tasks[$idx]}"
-    local task_desc=$(echo "$task_info" | cut -d'|' -f1)
-    local task_cmd=$(echo "$task_info" | cut -d'|' -f2-)
-
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "[$task_count/$total_selected] ▶  Running: $task_desc"
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-
-    # Execute the command
-    eval "$task_cmd"
-
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    if [[ $? -eq 0 ]]; then
-      echo "✅ Completed: $task_desc"
-    else
-      echo "❌ Failed: $task_desc"
-    fi
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-
-    if [[ $task_count -lt $total_selected ]]; then
-      read -p "Press Enter to continue to next task..."
-    fi
-  done
+        if [[ $task_count -lt $total_selected ]]; then
+            read -p "Press Enter to continue to next task..."
+        fi
+    done
 }
 
 main
