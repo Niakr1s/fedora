@@ -677,7 +677,9 @@
       "removeWidgetPadding": false,
       "widgetOutlineEnabled": false,
       "barInsetPadding": 4,
-      "shadowIntensity": 0
+      "shadowIntensity": 0,
+      "scrollYBehavior": "none",
+      "scrollXBehavior": "none"
     }
   ],
   "desktopClockEnabled": false,
