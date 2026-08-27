@@ -10,6 +10,7 @@ services:
       - ./.cache:/root/.cache:Z
       - ./.config:/root/.config:Z
       - ./.local:/root/.local:Z
+      - ./workflows:/root/ComfyUI/user/default/workflows:Z
 
       - ${HOME}/Pictures/comfyui/input:/root/ComfyUI/input:z
       - ${HOME}/Pictures/comfyui/output:/root/ComfyUI/output:z
