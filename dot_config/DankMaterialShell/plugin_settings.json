@@ -36,5 +36,13 @@
   },
   "wallpaperCarousel": {
     "enabled": true
+  },
+  "commandRunner": {
+    "enabled": true,
+    "history": []
+  },
+  "calculator": {
+    "enabled": true,
+    "trigger": "="
   }
 }
