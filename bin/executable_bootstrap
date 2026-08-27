@@ -36,6 +36,7 @@ COPR=(
 PKGS=(
   curl
   wget
+  bat
 	zsh
 	direnv
 	git
@@ -188,14 +189,15 @@ install_software() {
 
 install_docker() {
   echo "Installing docker..."
-  install_pkgs "docker"
+  install_pkgs docker docker-compose
 
   echo "Starting docker..."
   sudo systemctl enable --now docker
 
   echo "Adding user to docker group..."
   sudo usermod -aG docker $USER
-  newgrp docker
+
+  echo "You should restart for groups to make change, or you can write 'newgrp docker' in each new shell for now"
 }
 
 install_switch_emulators() {
