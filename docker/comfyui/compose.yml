@@ -1,3 +1,5 @@
+name: comfyui
+
 services:
   comfyui:
     image: yanwk/comfyui-boot:cu130-slim-v2-20260814
