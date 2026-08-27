@@ -93,6 +93,7 @@ PKGS=(
     python3-dbus-fast
     python3-xlib
     gdk-pixbuf2-modules-extra
+    gtk4-devel
 
     lutris
     steam
@@ -123,6 +124,10 @@ PKGS_GO=(
 
 PKGS_PY=(
     mitmproxy
+)
+
+PKGS_CARGO=(
+    ripdrag
 )
 
 # HELPERS
@@ -159,6 +164,14 @@ install_pkgs_py() {
 
     for pkg in "$@"; do
         uv tool install "$pkg"
+    done
+}
+
+install_pkgs_cargo() {
+    which cargo &>/dev/null || install_pkgs cargo
+
+    for pkg in "$@"; do
+        cargo install "$pkg"
     done
 }
 
@@ -223,6 +236,9 @@ install_software() {
 
     echo "Installing python packages..."
     install_pkgs_py "${PKGS_PY[@]}"
+
+    echo "Installing cargo packages..."
+    install_pkgs_cargo "${PKGS_CARGO[@]}"
 }
 
 install_podman() {
