@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+
+PORT=9999
+
+LOGFILE="/tmp/vpn.log"
+
+VPN="$HOME/go/bin/xray-knife" # separate for kill
+VPN_CMD="$VPN proxy system --port $PORT --rotate 300"
+
+PROXY="mitmdump"
+PROXY_CMD="$PROXY -p $PORT --ignore-hosts '.*'"
+
+# Kills a proxy that listens on PORT
+# $1: a binary name
+kill_proxy() {
+  local bin="$1"
+  pkill -f "$bin.*$PORT"
+}
+
+# Kills both VPN and PROXY
+killall() {
+  kill_proxy "$VPN"
+  kill_proxy "$PROXY"
+}
+
+# Returns 0 if it's on
+# $1: a binary name
+status() {
+  local bin="$1"
+  pgrep -f "^$bin.*$PORT" &>/dev/null
+}
+
+start_proxy() {
+  killall
+  echo "$(date): vpn off" >> "$LOGFILE"
+  eval "$PROXY_CMD >> $LOGFILE 2>&1 &"
+}
+
+start_vpn() {
+  killall
+  echo "$(date): vpn on" >> "$LOGFILE"
+  eval "$VPN_CMD >> /tmp/vpn.log 2>&1 &"
+}
+
+toggle() {
+  if status "$VPN"; then
+    start_proxy
+  else
+    start_vpn
+  fi
+}
+
+proxy-shell() {
+    local p="http://127.0.0.1:$PORT"
+    echo "On: $p"
+    http_proxy="$p" https_proxy="$p" HTTP_PROXY="$p" HTTPS_PROXY="$p" $SHELL
+    echo "Off: $p"
+}
+
+case "$1" in
+  on)
+    start_vpn
+    ;;
+  off)
+    start_proxy 
+    ;;
+  kill)
+    killall
+    ;;
+  status)
+    if status $VPN; then
+      echo "on"
+    else
+      echo "off"
+    fi
+    ;;
+  toggle)
+    toggle
+    ;;
+  shell)
+    proxy-shell
+    ;;
+  *)
+    echo "Usage: $0 {on|off|status}"
+    ;;
+esac
