@@ -31,6 +31,7 @@ tasks=(
 COPR=(
     lihaohong/yazi
     dejan/lazygit
+    lizardbyte/stable
 )
 
 PKGS=(
@@ -99,6 +100,8 @@ PKGS=(
     foliate
     remmina
     telegram-desktop
+
+    Sunshine
 )
 
 PKGS_AM=(
