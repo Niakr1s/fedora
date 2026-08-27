@@ -276,7 +276,13 @@
   "browserPickerViewMode": "grid",
   "browserUsageHistory": {},
   "appPickerViewMode": "grid",
-  "filePickerUsageHistory": {},
+  "filePickerUsageHistory": {
+    "org.mozilla.firefox": {
+      "count": 1,
+      "lastUsed": 1787832950819,
+      "name": "Firefox"
+    }
+  },
   "sortAppsAlphabetically": false,
   "appLauncherGridColumns": 4,
   "spotlightCloseNiriOverview": true,
