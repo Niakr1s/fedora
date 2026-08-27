@@ -45,6 +45,7 @@ PKGS=(
 	nvtop
 	yazi
 	eza
+	tree
 	chezmoi
 	borg
 	unar
