@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=joystickwake
+Exec=/home/user/bin/joystickwake
