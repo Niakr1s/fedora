@@ -102,6 +102,7 @@ PKGS=(
     python3-xlib
     gdk-pixbuf2-modules-extra
     gtk4-devel
+    dbus-devel
 
     lutris
     steam
@@ -138,6 +139,7 @@ PKGS_UV=(
 
 PKGS_CARGO=(
     ripdrag
+    https://github.com/Zhaith-Izaliel/iio-niri.git
 )
 
 # HELPERS
@@ -181,7 +183,11 @@ install_pkgs_cargo() {
     which cargo &>/dev/null || install_pkgs cargo
 
     for pkg in "$@"; do
-        cargo install "$pkg"
+        if [[ "$pkg" =~ ^https?:// ]]; then
+          cargo install --git "$pkg"
+        else
+          cargo install "$pkg"
+        fi
     done
 }
 
