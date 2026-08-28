@@ -93,7 +93,7 @@
   "appFirstLoad": false,
   "autoLoadBundledLLM": true,
   "modelLoadingGuardrails": {
-    "mode": "medium",
+    "mode": "high",
     "customThresholdBytes": 4294967296,
     "alwaysAllowLoadAnyway": false
   },
