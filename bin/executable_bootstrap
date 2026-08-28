@@ -189,9 +189,9 @@ install_pkgs_cargo() {
 
     for pkg in "$@"; do
         if [[ "$pkg" =~ ^https?:// ]]; then
-          cargo install --git "$pkg"
+            cargo install --git "$pkg"
         else
-          cargo install "$pkg"
+            cargo install "$pkg"
         fi
     done
 }
