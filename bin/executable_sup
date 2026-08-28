@@ -65,8 +65,21 @@ PKGS=(
     # video
     mpv
     kdenlive
-    obs-studio
     HandBrake-gui
+
+    # obs studio with plugins
+    obs-studio
+    obs-studio-plugin-browser
+    obs-studio-plugin-distroav
+    obs-studio-plugin-droidcam
+    obs-studio-plugin-pwvideo
+    obs-studio-plugin-vaapi
+    obs-studio-plugin-vkcapture
+    obs-studio-plugin-vkcapture-hook-libs
+    obs-studio-plugin-vkcapture-hook-libs
+    obs-studio-plugin-vlc-video
+    obs-studio-plugin-webkitgtk
+    obs-studio-plugin-x264
 
     # audio
     strawberry
