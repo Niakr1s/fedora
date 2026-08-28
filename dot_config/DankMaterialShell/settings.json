@@ -288,7 +288,9 @@
   "spotlightCloseNiriOverview": true,
   "rememberLastQuery": false,
   "rememberLastMode": true,
-  "spotlightSectionViewModes": {},
+  "spotlightSectionViewModes": {
+    "apps": "list"
+  },
   "appDrawerSectionViewModes": {},
   "niriOverviewOverlayEnabled": true,
   "niriOverviewLauncherStyle": "full",
