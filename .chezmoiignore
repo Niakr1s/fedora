@@ -1,0 +1,4 @@
+*.md
+dconf/
+scripts/
+docs/
