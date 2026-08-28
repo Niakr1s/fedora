@@ -9,7 +9,7 @@ tasks=(
     "# Core"
     "Enable rpmfusion|enable_rpmfusion"
     "Set groups|set_groups"
-    "Install dms-shell (choose niri & kitty)|curl -fsSL https://install.danklinux.com | sh"
+    "Install dms-shell|curl -fsSL https://install.danklinux.com | sh"
 
     "# Software"
     "Install software|install_software"
@@ -26,7 +26,7 @@ tasks=(
     "Add essential kernel params|manage_kernel_params"
     "Disable sleep and hibernation|disable_sleep_hybernation"
     "Enable nvidia-pstated|install_nvidia_pstated"
-    "Install NVIDIA drivers (with CUDA and nvidia-container-toolkit)|install_nvidia"
+    "Install NVIDIA drivers|install_nvidia"
 
     "# Misc"
     "Link steam runtime to umu|link_steamruntime_to_umu"
