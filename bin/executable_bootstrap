@@ -443,18 +443,19 @@ PRE_SNAPSHOT_NUMBER=""
 
 create_pre_snapshot() {
     PRE_SNAPSHOT_NUMBER=$(sudo snapper -c "$SNAPPER_CONFIG" create \
-        --type=pre \
-        --print-number \
+            --type=pre \
+            --print-number \
         --description="before bootstrap")
     echo "Pre-snapshot: #$PRE_SNAPSHOT_NUMBER"
 }
 
 create_post_snapshot() {
-    sudo snapper -c "$SNAPPER_CONFIG" create \
-        --type=post \
-        --pre-number="$PRE_SNAPSHOT_NUMBER" \
-        --description="after bootstrap"
-    echo "Post-snapshot created"
+    local POST_SNAPSHOT_NUMBER=$(sudo snapper -c "$SNAPPER_CONFIG" create \
+            --type=post \
+            --print-number \
+            --pre-number="$PRE_SNAPSHOT_NUMBER" \
+        --description="after bootstrap")
+    echo "Post-snapshot: #$POST_SNAPSHOT_NUMBER"
 }
 
 # MAIN
@@ -596,9 +597,12 @@ main() {
     echo "🚀 Executing ${#selected_indices[@]} selected tasks..."
     echo ""
 
-    # manage snapper snapshots
     create_pre_snapshot
-    trap create_post_snapshot EXIT
+    if [ -z "$PRE_SNAPSHOT_NUMBER" ]; then
+        echo "WARNING: couldn't create snapper snapshot, configure snapper with '--config root'"
+    else
+        trap create_post_snapshot EXIT
+    fi
 
     local task_count=0
     local total_selected=${#selected_indices[@]}
