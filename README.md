@@ -1,4 +1,4 @@
 # My dotfiles for fedora
 
 ## Documentation
-- [retroarch](./retroarch.md)
+- [retroarch](./docs/retroarch.md)
