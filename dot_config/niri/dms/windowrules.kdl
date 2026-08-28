@@ -5,7 +5,7 @@
 window-rule {
     match app-id="^org.mozilla.firefox$"
     open-maximized true
-    open-on-output "HDMI-A-2"
+    open-on-workspace "web"
 }
 
 // @id=wr_1787814418960875825 @name=xdg-desktop-portal-gtk
