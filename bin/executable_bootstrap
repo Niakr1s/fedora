@@ -8,6 +8,7 @@
 tasks=(
     "# Core"
     "Enable rpmfusion|enable_rpmfusion"
+    "Set groups|set_groups"
     "Install dms-shell (choose niri & kitty)|curl -fsSL https://install.danklinux.com | sh"
     "Install NVIDIA drivers (with CUDA and nvidia-container-toolkit)|install_nvidia"
 
@@ -27,6 +28,10 @@ tasks=(
     "# Tweaks"
     "Link steam runtime to umu|link_steamruntime_to_umu"
     "Enable nvidia-pstated|install_nvidia_pstated"
+)
+
+ADD_GROUPS=(
+    input
 )
 
 COPR=(
@@ -197,6 +202,13 @@ confirm_yes_no() {
 }
 
 # TASKS
+
+set_groups() {
+    for group in "${ADD_GROUPS[@]}"; do
+        echo "Adding '$USER' to group '$group'"
+        sudo usermod -a -G "$group" "$USER"
+    done
+}
 
 install_nvidia() {
     echo "Install NVIDIA drivers..."
