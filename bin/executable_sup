@@ -45,8 +45,95 @@ COPR=(
 )
 
 PKGS=(
-    parallel
+    ###########
+    ### GUI ###
+    ###########
+
+    # file managers
+    nautilus
+
+    # browsers
+    firefox
+    chromium
+    torbrowser-launcher
+
+    # internet
+    remmina
+    telegram-desktop
+    qbittorrent
+
+    # video
+    mpv
+    kdenlive
+    obs-studio
+    HandBrake-gui
+
+    # audio
+    strawberry
+    audacity
+    kid3 # tag editor
+
+    # images
+    nomacs
+    gimp
+    inkscape
+    krita
+    conjure
+
+    # office
+    libreoffice
+    foliate
+    gnome-text-editor
+    # sqlitestudio
+
+    # dialogs
+    zenity
+    dialog
+    yad
+    rofi
+
+    # appearance
+    adw-gtk3-theme
+    qt6ct-kde
+
+    # fonts
+    gdouros-symbola-fonts
+    jetbrains-mono-nl-fonts
+
+    # hardware info
+    cpu-x
+    hardinfo2
+
+    # secrets
+    keepassxc
+
+    # gaming
+    lutris
+    steam
+    mangohud
+
+    # misc
+    librecad
+    kde-connect
+    dconf-editor
+    firewall-config
+    sqlitebrowser
+    blender
+    syncthing
+    btrfs-assistant
+    gnome-disk-utility
+    meld
+    krename
+
+    ###########
+    ### CLI ###
+    ###########
+
+    # system
     kernel-modules-extra
+
+    # core
+    parallel
     curl
     wget
     bat
@@ -55,8 +142,6 @@ PKGS=(
     git
     lazygit
     neovim
-    firefox
-    chromium
     nvtop
     yazi
     eza
@@ -66,50 +151,44 @@ PKGS=(
     duf
     gdu
     fastfetch
-    rofi
     bottom
     glow
-    zenity dialog
-    gamemode
     playerctl
     aria2
     xclip
+    gamemode
+    mediainfo
+    ffmpeg
+    tealdeer
+    ImageMagick
+    xrandr
+    vulkan-tools
+    rsync
+    lm_sensors
+    lsof
+    trash-cli
 
+    # archive
     unar
-    zip
+    zip unzip
+    unrar
+    lz4
     7zip
     bsdtar
 
-    mediainfo
-    nautilus
-    kde-connect
-    mpv
-    ffmpeg
-    tealdeer
-    keepassxc
-    strawberry
-    dconf-editor
-    adw-gtk3-theme
-    firewall-config
-    sqlitebrowser
-    libreoffice
-    librecad
-    blender
-    audacity
-    kdenlive
-    obs-studio
+    # python libs
+    python3-gobject
+    python3-pyudev
+    python3-dbus-fast
+    python3-xlib
+    python3-pygments
+    python3-tkinter
+    python3-wand
 
-    cpu-x
-    hardinfo2
-
-    xrandr
-    vulkan-tools
-
-    qt6ct-kde
-
-    # fonts
-    gdouros-symbola-fonts
-    jetbrains-mono-nl-fonts
+    # extra libs
+    gdk-pixbuf2-modules-extra
+    gtk4-devel
+    dbus-devel
 
     # programming
     go
@@ -123,36 +202,7 @@ PKGS=(
     ccache
     typescript
 
-    # some libs
-    python3-gobject
-    python3-pyudev
-    python3-dbus-fast
-    python3-xlib
-    python3-pygments
-    python3-tkinter
-    python3-wand
-    gdk-pixbuf2-modules-extra
-    gtk4-devel
-    dbus-devel
-
-    lutris
-    steam
-    mangohud
-
-    syncthing
-    btrfs-assistant
-    gnome-disk-utility
-
-    HandBrake-gui
-    nomacs
-    gimp inkscape krita
-    ImageMagick
-    gnome-text-editor
-    foliate
-    remmina
-    telegram-desktop
-    qbittorrent
-
+    # input
     lisgd
     wvkbd
 )
@@ -165,10 +215,12 @@ PKGS_AM=(
     polymc
     crossmacro
     zed
+    xnconvert
 )
 
 PKGS_GO=(
     github.com/lilendian0x00/xray-knife/v11@latest
+    github.com/jorgerojas26/lazysql@latest
 )
 
 PKGS_UV=(
@@ -281,25 +333,25 @@ enable_rpmfusion() {
 
 install_software() {
     echo "Enabling copr..."
-    enable_copr "${COPR[@]}"
+    enable_copr "${COPR[@]}" || exit 1
 
     echo "Installing multimedia group..."
-    sudo dnf install -y group multimedia
+    sudo dnf group install -y multimedia || exit 1
 
     echo "Installing packages..."
-    install_pkgs "${PKGS[@]}"
+    install_pkgs "${PKGS[@]}" || exit 1
 
     echo "Installing appimages..."
-    install_pkgs_am "${PKGS_AM[@]}"
+    install_pkgs_am "${PKGS_AM[@]}" || exit 1
 
     echo "Installing go packages..."
-    install_pkgs_go "${PKGS_GO[@]}"
+    install_pkgs_go "${PKGS_GO[@]}" || exit 1
 
     echo "Installing uv packages..."
-    install_pkgs_uv "${PKGS_UV[@]}"
+    install_pkgs_uv "${PKGS_UV[@]}" || exit 1
 
     echo "Installing cargo packages..."
-    install_pkgs_cargo "${PKGS_CARGO[@]}"
+    install_pkgs_cargo "${PKGS_CARGO[@]}" || exit 1
 }
 
 install_podman() {
