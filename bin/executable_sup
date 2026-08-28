@@ -45,6 +45,7 @@ COPR=(
 )
 
 PKGS=(
+    parallel
     kernel-modules-extra
     curl
     wget
@@ -55,6 +56,7 @@ PKGS=(
     lazygit
     neovim
     firefox
+    chromium
     nvtop
     yazi
     eza
@@ -67,8 +69,14 @@ PKGS=(
     rofi
     bottom
     glow
+    zenity dialog
+    gamemode
+    playerctl
+    aria2
 
     unar
+    zip
+    7zip
     bsdtar
 
     mediainfo
@@ -82,6 +90,16 @@ PKGS=(
     dconf-editor
     adw-gtk3-theme
     firewall-config
+    sqlitebrowser
+    libreoffice
+    librecad
+    blender
+    audacity
+    kdenlive
+    obs-studio
+
+    cpu-x
+    hardinfo2
 
     xrandr
     vulkan-tools
@@ -94,11 +112,15 @@ PKGS=(
 
     # programming
     go
+    python3-pip pipx
     uv
     cargo
     rubygems
     dotnet-sdk-10.0
     java-25-openjdk
+    cmake
+    ccache
+    typescript
 
     # some libs
     python3-gobject
@@ -120,6 +142,8 @@ PKGS=(
 
     HandBrake-gui
     gthumb
+    gimp inkscape krita
+    ImageMagick
     gnome-text-editor
     foliate
     remmina
