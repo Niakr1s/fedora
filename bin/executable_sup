@@ -10,24 +10,26 @@ tasks=(
     "Enable rpmfusion|enable_rpmfusion"
     "Set groups|set_groups"
     "Install dms-shell (choose niri & kitty)|curl -fsSL https://install.danklinux.com | sh"
-    "Install NVIDIA drivers (with CUDA and nvidia-container-toolkit)|install_nvidia"
 
     "# Software"
     "Install software|install_software"
     "Install podman|install_podman"
+    "Install sunshine|install_sunshine"
+
+    "# Emulators"
+    "Install retroarch|install_retroarch"
     "Install switch emulators|install_switch_emulators"
     "Install playstation emulators|install_playstation_emulators"
     "Install xbox emulators|install_xbox_emulators"
-    "Install retroarch|install_retroarch"
-    "Install sunshine|install_sunshine"
 
     "# System"
     "Add essential kernel params|manage_kernel_params"
     "Disable sleep and hibernation|disable_sleep_hybernation"
-
-    "# Tweaks"
-    "Link steam runtime to umu|link_steamruntime_to_umu"
     "Enable nvidia-pstated|install_nvidia_pstated"
+    "Install NVIDIA drivers (with CUDA and nvidia-container-toolkit)|install_nvidia"
+
+    "# Misc"
+    "Link steam runtime to umu|link_steamruntime_to_umu"
 )
 
 ADD_GROUPS=(
@@ -528,8 +530,7 @@ main() {
             if [[ "$item" == "# "* ]]; then
                 local header="${item#\# }"
                 echo ""
-                echo "━━━ $header ━━━"
-                echo ""
+                echo "- $header:"
                 continue
             fi
 
@@ -547,9 +548,9 @@ main() {
             done
 
             if [[ $is_selected -eq 1 ]]; then
-                echo "[✓] $display_num. $desc"
+                echo "  [✓] $display_num. $desc"
             else
-                echo "[ ] $display_num. $desc"
+                echo "  [ ] $display_num. $desc"
             fi
         done
 
