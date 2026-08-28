@@ -1,3 +1,7 @@
+workspace "web" {
+    open-on-output "HDMI-A-2"
+}
+
 config-notification {
     disable-failed
 }
@@ -14,7 +18,6 @@ input {
             layout "us,ru"
             options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
         }
-        numlock
     }
 
     // Next sections include libinput settings.
@@ -179,6 +182,8 @@ recent-windows {
         Alt+Shift+Tab   { previous-window scope="output"; }
     }
 }
+
+include "./hosts/{{- .chezmoi.hostname -}}.kdl"
 
 // Include dms files
 include optional=true "dms/colors.kdl"
