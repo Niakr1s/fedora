@@ -332,6 +332,11 @@ enable_rpmfusion() {
 }
 
 install_software() {
+    postfixes() {
+        # xnconvert doesn't run from launcher
+        sudo sed -i 's/^Exec=xnconvert.*/Exec=env QT_QPA_PLATFORM=xcb xnconvert/' /usr/local/share/applications/xnconvert-AM.desktop
+    }
+
     echo "Enabling copr..."
     enable_copr "${COPR[@]}" || exit 1
 
@@ -352,6 +357,8 @@ install_software() {
 
     echo "Installing cargo packages..."
     install_pkgs_cargo "${PKGS_CARGO[@]}" || exit 1
+
+    postfixes
 }
 
 install_podman() {
