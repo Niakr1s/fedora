@@ -144,7 +144,7 @@ PKGS=(
     gnome-disk-utility
 
     HandBrake-gui
-    gthumb
+    nomacs
     gimp inkscape krita
     ImageMagick
     gnome-text-editor
