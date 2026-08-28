@@ -436,6 +436,27 @@ EOF
     sudo firewall-cmd --reload
 }
 
+# SNAPPER
+
+SNAPPER_CONFIG="root"
+PRE_SNAPSHOT_NUMBER=""
+
+create_pre_snapshot() {
+    PRE_SNAPSHOT_NUMBER=$(sudo snapper -c "$SNAPPER_CONFIG" create \
+        --type=pre \
+        --print-number \
+        --description="before bootstrap")
+    echo "Pre-snapshot: #$PRE_SNAPSHOT_NUMBER"
+}
+
+create_post_snapshot() {
+    sudo snapper -c "$SNAPPER_CONFIG" create \
+        --type=post \
+        --pre-number="$PRE_SNAPSHOT_NUMBER" \
+        --description="after bootstrap"
+    echo "Post-snapshot created"
+}
+
 # MAIN
 
 main() {
@@ -574,6 +595,10 @@ main() {
     echo ""
     echo "🚀 Executing ${#selected_indices[@]} selected tasks..."
     echo ""
+
+    # manage snapper snapshots
+    create_pre_snapshot
+    trap create_post_snapshot EXIT
 
     local task_count=0
     local total_selected=${#selected_indices[@]}
