@@ -50,6 +50,7 @@ binds {
     Mod+Ctrl+F { expand-column-to-available-width; }
     Mod+Ctrl+H { move-column-left; }
     Mod+Ctrl+L { move-column-right; }
+    Mod+Ctrl+Shift+F { toggle-window-floating; }
     Mod+Ctrl+Shift+J { move-window-down; }
     Mod+Ctrl+Shift+K { move-window-up; }
     Mod+Ctrl+Shift+Q repeat=false { close-window; }
@@ -66,8 +67,6 @@ binds {
     Mod+Shift+F { fullscreen-window; }
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+R { switch-preset-window-height; }
-    Mod+Shift+T { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+Delete { power-off-monitors; }
     Print { screenshot; }
     Mod+E { spawn "nautilus"; }
