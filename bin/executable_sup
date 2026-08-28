@@ -144,6 +144,7 @@ PKGS=(
 
     # system
     kernel-modules-extra
+    xdg-desktop-portal-gnome
 
     # core
     parallel
