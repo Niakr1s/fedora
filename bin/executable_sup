@@ -460,9 +460,54 @@ create_post_snapshot() {
     echo "Post-snapshot: #$POST_SNAPSHOT_NUMBER"
 }
 
+# ARGS
+
+show_help() {
+    cat << EOF
+Usage: $(basename "$0") [OPTIONS]
+
+Options:
+    -h, --help      Show this help message and exit
+
+Interactive Commands:
+    Type numbers: 1 3 5       Toggle selection for specific items
+    Type 'a'                  Select everything
+    Type 'c'                  Clear all selections
+    Press ENTER               Execute selected tasks
+
+Examples:
+    $(basename "$0")          Run the program
+    $(basename "$0") --help   Show this help message
+EOF
+}
+
+parse_args() {
+    # Loop through all arguments
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -h|--help)
+                show_help
+                exit 0
+                ;;
+            -*)
+                echo "Error: Unknown option: $1"
+                show_help
+                exit 1
+                ;;
+            *)
+                # Handle positional arguments here
+                # For now, just shift them
+                shift
+                ;;
+        esac
+    done
+}
+
 # MAIN
 
 main() {
+    parse_args
+
     # Guardrail: Prevent running with sudo
     if [ "$EUID" -eq 0 ]; then
         echo "ERROR: This script should NOT be run with sudo or as root"
@@ -508,13 +553,6 @@ main() {
             fi
         done
 
-        echo ""
-        echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-        echo "Commands:"
-        echo "  - Enter numbers: 1 3 5  (toggle selection)"
-        echo "  - Type 'a' to select everything"
-        echo "  - Type 'c' to clear all selections"
-        echo "  - Press ENTER to execute selected tasks"
         echo ""
         read -p "> " choice
 
@@ -635,4 +673,5 @@ main() {
     done
 }
 
+parse_args $@
 main
