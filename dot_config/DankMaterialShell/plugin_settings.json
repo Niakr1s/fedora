@@ -27,10 +27,10 @@
         "updateInterval": 0,
         "showIcon": true,
         "showText": false,
-        "visibilityCommand": "prgep wvkbd-mobintl",
-        "visibilityInterval": 10,
-        "id": "variant_1787777499497",
-        "name": "keyboard"
+        "visibilityCommand": "pgrep wvkbd-mobintl",
+        "visibilityInterval": 5,
+        "id": "variant_1787903278430",
+        "name": "wvkbd"
       }
     ]
   },

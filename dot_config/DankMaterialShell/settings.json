@@ -627,15 +627,15 @@
         "focusedWindow"
       ],
       "centerWidgets": [
-        {
-          "id": "dankActions:variant_1787777499497",
-          "enabled": true
-        },
         "music",
         "clock",
         "weather",
         {
           "id": "dankActions:variant_1787777264970",
+          "enabled": true
+        },
+        {
+          "id": "dankActions:variant_1787903278430",
           "enabled": true
         }
       ],
