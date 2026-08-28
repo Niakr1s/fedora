@@ -472,10 +472,11 @@ Options:
     -h, --help      Show this help message and exit
 
 Interactive Commands:
-    Type numbers: 1 3 5       Toggle selection for specific items
-    Type 'a'                  Select everything
-    Type 'c'                  Clear all selections
-    Press ENTER               Execute selected tasks
+    q                  Quit the program
+    1 3 5              Toggle selection
+    a                  Select all
+    c                  Clear all
+    ENTER              Execute selected
 
 Examples:
     $(basename "$0")          Run the program
@@ -574,6 +575,9 @@ main() {
                 ;;
             c)
                 selected_indices=()
+                ;;
+            q)
+                exit 0
                 ;;
             *)
                 # Parse space-separated numbers properly
