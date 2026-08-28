@@ -137,6 +137,7 @@ PKGS_AM=(
     lmstudio
     polymc
     crossmacro
+    zed
 )
 
 PKGS_GO=(
