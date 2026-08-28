@@ -439,6 +439,12 @@ EOF
 # MAIN
 
 main() {
+    # Guardrail: Prevent running with sudo
+    if [ "$EUID" -eq 0 ]; then
+        echo "ERROR: This script should NOT be run with sudo or as root"
+        exit 1
+    fi
+
     local selected_indices=()
     local total_tasks=${#tasks[@]}
 
