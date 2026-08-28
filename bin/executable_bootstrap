@@ -64,6 +64,7 @@ PKGS=(
     fastfetch
     rofi
     bottom
+    glow
 
     unar
     bsdtar
@@ -102,6 +103,7 @@ PKGS=(
     python3-pyudev
     python3-dbus-fast
     python3-xlib
+    python3-pygments
     gdk-pixbuf2-modules-extra
     gtk4-devel
     dbus-devel
