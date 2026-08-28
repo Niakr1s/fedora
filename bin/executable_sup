@@ -124,6 +124,7 @@ PKGS=(
     foliate
     remmina
     telegram-desktop
+    qbittorrent
 
     lisgd
     wvkbd
