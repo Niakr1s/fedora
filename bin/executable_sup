@@ -73,6 +73,7 @@ PKGS=(
     gamemode
     playerctl
     aria2
+    xclip
 
     unar
     zip
@@ -128,6 +129,8 @@ PKGS=(
     python3-dbus-fast
     python3-xlib
     python3-pygments
+    python3-tkinter
+    python3-wand
     gdk-pixbuf2-modules-extra
     gtk4-devel
     dbus-devel
