@@ -276,6 +276,7 @@
   "browserPickerViewMode": "grid",
   "browserUsageHistory": {},
   "appPickerViewMode": "grid",
+  "filePickerUsageHistory": {},
   "sortAppsAlphabetically": false,
   "appLauncherGridColumns": 4,
   "spotlightCloseNiriOverview": true,
