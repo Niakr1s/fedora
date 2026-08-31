@@ -13,6 +13,9 @@ tasks=(
 
     "# Software"
     "Install software|install_software"
+    "Update  software|update_software"
+
+    "# Extra software"
     "Install podman|install_podman"
     "Install sunshine|install_sunshine"
 
@@ -242,6 +245,8 @@ PKGS_UV=(
 )
 
 PKGS_CARGO=(
+    cargo-update
+    cargo-binstall
     ripdrag
     https://github.com/Zhaith-Izaliel/iio-niri.git
 )
@@ -373,6 +378,23 @@ install_software() {
     install_pkgs_cargo "${PKGS_CARGO[@]}" || exit 1
 
     postfixes
+}
+
+update_software() {
+    echo "Updating  packages..."
+    sudo dnf update -y || exit 1
+
+    echo "Updating appimages..."
+    am -u || exit 1
+
+    echo "Updating go packages..."
+    install_pkgs_go "${PKGS_GO[@]}" || exit 1
+
+    echo "Updating uv packages..."
+    uv tool upgrade --all || exit 1
+
+    echo "Updating cargo packages..."
+    cargo install-update -a || exit 1
 }
 
 install_podman() {
