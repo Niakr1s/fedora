@@ -563,6 +563,7 @@ Usage: $(basename "$0") [OPTIONS]
 
 Options:
     -h, --help      Show this help message and exit
+    -y              Autostarts the default action
 
 Interactive Commands:
     q                  Quit the program
@@ -577,6 +578,8 @@ Examples:
 EOF
 }
 
+AUTOSTART=false # allows autostart with default
+
 parse_args() {
     # Loop through all arguments
     while [[ $# -gt 0 ]]; do
@@ -584,6 +587,10 @@ parse_args() {
             -h|--help)
                 show_help
                 exit 0
+                ;;
+            -y)
+                AUTOSTART=true
+                shift
                 ;;
             -*)
                 echo "Error: Unknown option: $1"
@@ -622,7 +629,7 @@ main() {
         fi
     done
 
-    while true; do
+    while [[ $AUTOSTART == "false" ]]; do
         clear
 
         local display_num=0
