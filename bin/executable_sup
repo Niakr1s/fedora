@@ -12,7 +12,7 @@ tasks=(
     "Install dms-shell|curl -fsSL https://install.danklinux.com | sh"
 
     "# Software"
-    "Install software|install_software"
+    "*Install software|install_software"
     "Update  software|update_software"
 
     "# Extra software"
@@ -612,6 +612,15 @@ main() {
 
     local selected_indices=()
     local total_tasks=${#tasks[@]}
+
+    # Pre-select tasks marked with *
+    for ((i=0; i<total_tasks; i++)); do
+        if [[ "${tasks[$i]}" == "*"* && ! "${tasks[$i]}" == "# "* ]]; then
+            selected_indices+=($i)
+            # Remove the marker from display
+            tasks[$i]="${tasks[$i]#\*}"
+        fi
+    done
 
     while true; do
         clear
