@@ -28,7 +28,6 @@ tasks=(
     "# System"
     "Add essential kernel params|manage_kernel_params"
     "Disable sleep and hibernation|disable_sleep_hybernation"
-    "Enable nvidia-pstated|install_nvidia_pstated"
     "Install NVIDIA drivers|install_nvidia"
 
     "# Misc"
@@ -40,6 +39,7 @@ ADD_GROUPS=(
 )
 
 COPR=(
+    niakr1s/copr
     lihaohong/yazi
     dejan/lazygit
     atim/bottom
@@ -55,6 +55,8 @@ PKGS=(
     # system
     kernel-modules-extra
     xdg-desktop-portal-gnome
+    copr-cli
+    mock # for rpmbuild
 
     # core
     parallel
@@ -129,6 +131,9 @@ PKGS=(
     # input
     lisgd
     wvkbd
+
+    # misc
+    nvidia-pstated
 
     ###########
     ### GUI ###
@@ -500,43 +505,6 @@ link_steamruntime_to_umu() {
     ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_soldier ~/.local/share/umu/steamrt2
     ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_sniper ~/.local/share/umu/steamrt3
     ln -s ~/.local/share/Steam/steamapps/common/SteamLinuxRuntime_4 ~/.local/share/umu/steamrt4
-}
-
-install_nvidia_pstated() {
-    local url="https://github.com/sasha0552/nvidia-pstated/releases/download/v1.0.9/nvidia-pstated"
-    local dest="/usr/local/bin/nvidia-pstated"
-    local service_file="/etc/systemd/system/nvidia-pstated.service"
-
-    sudo curl -L "$url" -o "$dest"
-
-    echo "Setting executable permissions..."
-    sudo chmod +x "$dest"
-
-    echo "Creating systemd service file..."
-    sudo tee "$service_file" > /dev/null << 'EOF'
-[Unit]
-Description=A daemon that automatically manages the performance states of NVIDIA GPUs
-After=nvidia-persistenced.service nvpd.service
-BindsTo=nvidia-persistenced.service
-
-[Service]
-DynamicUser=yes
-ExecStart=/usr/local/bin/nvidia-pstated
-Restart=on-failure
-RestartSec=1s
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-    echo "Reloading systemd manager configuration..."
-    sudo systemctl daemon-reload
-
-    echo "Enabling nvidia-pstated service to start on boot..."
-    sudo systemctl enable --now nvidia-pstated.service
-
-    echo "Installation complete! Checking service status..."
-    sudo systemctl status nvidia-pstated.service
 }
 
 install_sunshine() {
