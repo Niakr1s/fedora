@@ -35,3 +35,9 @@ window-rule {
     min-height 720
     max-height 720
 }
+
+// @id=wr_1788190267373420267 @name=losslesscut
+window-rule {
+    match app-id="^losslesscut$"
+    open-maximized true
+}
