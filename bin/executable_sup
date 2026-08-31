@@ -233,6 +233,7 @@ PKGS_AM=(
     crossmacro
     zed
     xnconvert
+    mission-center
 )
 
 PKGS_GO=(
