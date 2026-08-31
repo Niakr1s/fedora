@@ -28,6 +28,8 @@
 	"preserveMovData": false,
 	"movFastStart": true,
 	"avoidNegativeTs": "auto",
+	"hideNotifications": "all",
+	"hideOsNotifications": "all",
 	"autoLoadTimecode": false,
 	"segmentsToChapters": false,
 	"simpleMode": false,
@@ -44,7 +46,7 @@
 	"windowBounds": {
 		"x": 0,
 		"y": 0,
-		"width": 1278,
+		"width": 2558,
 		"height": 1398,
 		"isMaximized": false
 	},
@@ -303,7 +305,5 @@
 	"keyframesEnabled": true,
 	"reducedMotion": "user",
 	"ffmpegHwaccel": "none",
-	"enableAskForImportChapters": true,
-	"hideNotifications": "all",
-	"hideOsNotifications": "all"
+	"enableAskForImportChapters": true
 }
