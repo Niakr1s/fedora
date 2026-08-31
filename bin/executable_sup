@@ -773,10 +773,6 @@ main() {
             echo "❌ Failed: $task_desc"
         fi
         echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-
-        if [[ $task_count -lt $total_selected ]]; then
-            read -p "Press Enter to continue to next task..."
-        fi
     done
 }
 
