@@ -1,0 +1,27 @@
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="maran"
+
+# ENABLE_CORRECTION=true
+
+plugins=(
+  colored-man-pages
+  colorize # provides ccat cless
+  direnv # .envrc
+  dotenv # .env
+  extract # extracts any type of archives
+  fzf
+  zoxide
+
+  # custom
+  zsh-autosuggestions
+)
+
+source $ZSH/oh-my-zsh.sh
+
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+source <(xray-knife completion zsh)
+source <(niri completions zsh)
