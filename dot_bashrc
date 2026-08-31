@@ -32,7 +32,10 @@ function myip() {
 }
 
 alias ff="fastfetch"
-alias rpm-extract="rpm2cpio $1 | cpio -dium"
+
+rpm-extract() {
+    rpm2cpio "$1" | cpio -dium
+}
 
 # Chezmoi
 alias cz="chezmoi"
