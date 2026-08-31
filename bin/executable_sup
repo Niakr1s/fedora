@@ -49,6 +49,88 @@ COPR=(
 
 PKGS=(
     ###########
+    ### CLI ###
+    ###########
+
+    # system
+    kernel-modules-extra
+    xdg-desktop-portal-gnome
+
+    # core
+    parallel
+    curl
+    wget
+    bat
+    zsh
+    direnv
+    git
+    lazygit
+    neovim
+    nvtop
+    yazi
+    eza
+    tree
+    chezmoi
+    borg
+    duf
+    gdu
+    fastfetch
+    bottom
+    glow
+    playerctl
+    aria2
+    xclip
+    gamemode
+    mediainfo
+    ffmpeg
+    tealdeer
+    ImageMagick
+    xrandr
+    vulkan-tools
+    rsync
+    lm_sensors
+    lsof
+    trash-cli
+
+    # archive
+    unar
+    zip unzip
+    unrar
+    lz4
+    7zip
+    bsdtar
+
+    # python libs
+    python3-gobject
+    python3-pyudev
+    python3-dbus-fast
+    python3-xlib
+    python3-pygments
+    python3-tkinter
+    python3-wand
+
+    # extra libs
+    gdk-pixbuf2-modules-extra
+    gtk4-devel
+    dbus-devel
+
+    # programming
+    go
+    python3-pip pipx
+    uv
+    cargo
+    rubygems
+    dotnet-sdk-10.0
+    java-25-openjdk
+    cmake
+    ccache
+    typescript
+
+    # input
+    lisgd
+    wvkbd
+
+    ###########
     ### GUI ###
     ###########
 
@@ -140,88 +222,6 @@ PKGS=(
     gnome-disk-utility
     meld
     krename
-
-    ###########
-    ### CLI ###
-    ###########
-
-    # system
-    kernel-modules-extra
-    xdg-desktop-portal-gnome
-
-    # core
-    parallel
-    curl
-    wget
-    bat
-    zsh
-    direnv
-    git
-    lazygit
-    neovim
-    nvtop
-    yazi
-    eza
-    tree
-    chezmoi
-    borg
-    duf
-    gdu
-    fastfetch
-    bottom
-    glow
-    playerctl
-    aria2
-    xclip
-    gamemode
-    mediainfo
-    ffmpeg
-    tealdeer
-    ImageMagick
-    xrandr
-    vulkan-tools
-    rsync
-    lm_sensors
-    lsof
-    trash-cli
-
-    # archive
-    unar
-    zip unzip
-    unrar
-    lz4
-    7zip
-    bsdtar
-
-    # python libs
-    python3-gobject
-    python3-pyudev
-    python3-dbus-fast
-    python3-xlib
-    python3-pygments
-    python3-tkinter
-    python3-wand
-
-    # extra libs
-    gdk-pixbuf2-modules-extra
-    gtk4-devel
-    dbus-devel
-
-    # programming
-    go
-    python3-pip pipx
-    uv
-    cargo
-    rubygems
-    dotnet-sdk-10.0
-    java-25-openjdk
-    cmake
-    ccache
-    typescript
-
-    # input
-    lisgd
-    wvkbd
 )
 
 PKGS_AM=(
