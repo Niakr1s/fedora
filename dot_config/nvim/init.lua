@@ -28,6 +28,8 @@ vim.opt.cindent = false     -- Indent fo C progs
 vim.opt.copyindent = true   -- Copy the structure of the existing lines indent when autoindenting a new line.
 vim.opt.fixeol = false       -- Probably fix for chezmoi EOL diffs
 
+vim.opt.swapfile = false
+
 -- Plugins
 vim.pack.add({
   "https://github.com/neovim/nvim-lspconfig",
