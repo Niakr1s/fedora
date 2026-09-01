@@ -531,7 +531,7 @@ EOF
     sudo firewall-cmd --reload
 }
 
-# SNAPPER
+# main() function helpers
 
 SNAPPER_CONFIG="root"
 PRE_SNAPSHOT_NUMBER=""
@@ -551,6 +551,32 @@ create_post_snapshot() {
             --pre-number="$PRE_SNAPSHOT_NUMBER" \
         --description="after bootstrap")
     echo "Post-snapshot: #$POST_SNAPSHOT_NUMBER"
+}
+
+# SUDO REFRESHER
+
+start_sudo_refresher() {
+    local SLEEP_SECS="${1:-60}"
+
+    sudo -v
+    (
+        while true; do
+            sudo -v
+            sleep "$SLEEP_SECS"
+        done
+    ) 2>/dev/null &
+    REFRESH_PID=$! # return PID
+}
+
+stop_sudo_refresher() {
+    kill "$REFRESH_PID" 2>/dev/null
+}
+
+# The cleanup function that needs to be called on trap EXIT
+# Create post snapshot and stop sudo refresher
+trap_exit() {
+    create_post_snapshot
+    stop_sudo_refresher
 }
 
 # ARGS
@@ -749,12 +775,15 @@ main() {
     echo "🚀 Executing ${#selected_indices[@]} selected tasks..."
     echo ""
 
+
     create_pre_snapshot
     if [ -z "$PRE_SNAPSHOT_NUMBER" ]; then
         echo "WARNING: couldn't create snapper snapshot, configure snapper with '--config root'"
-    else
-        trap create_post_snapshot EXIT
+        exit 1
     fi
+
+    start_sudo_refresher # retain sudo for the rest of the program
+    trap trap_exit EXIT
 
     local task_count=0
     local total_selected=${#selected_indices[@]}
