@@ -9,14 +9,14 @@ run = "quit"
 desc = "Quit Yazi and change directory in shell"
 
 [[mgr.prepend_keymap]]
-on = "i"
+on = "e"
 run = 'shell "nvim %s" --block'
-desc = "Open in Neovim"
+desc = "Edit in Neovim"
 
 [[mgr.prepend_keymap]]
-on = "I"
-run = 'shell "sudo nvim %s" --block'
-desc = "Open in Neovim with sudo"
+on = "E"
+run = 'shell "sudo -e %s" --block'
+desc = "Edit in Neovim with sudo"
 
 [[mgr.prepend_keymap]]
 on   = [ "T" ]
