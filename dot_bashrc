@@ -37,6 +37,8 @@ rpm-extract() {
     rpm2cpio "$1" | cpio -dium
 }
 
+alias se="sudoedit"
+
 # Chezmoi
 alias cz="chezmoi"
 alias cza="chezmoi apply"
