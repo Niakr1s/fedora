@@ -104,9 +104,6 @@ PKGS=(
 
     # python libs
     python3-gobject
-    python3-pyudev
-    python3-dbus-fast
-    python3-xlib
     python3-pygments
     python3-tkinter
     python3-wand
@@ -132,8 +129,9 @@ PKGS=(
     lisgd
     wvkbd
 
-    # misc
+    # my copr: niakr1s/copr
     nvidia-pstated
+    joystickwake
 
     ###########
     ### GUI ###
