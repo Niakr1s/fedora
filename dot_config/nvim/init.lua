@@ -107,6 +107,11 @@ function close_window_with_confirm()
   end
 end
 
+vim.keymap.set('n', '<C-w>,', ':tabprevious<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-w>.', ':tabnext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-w><', ':<C-u>execute "tabmove " . (tabpagenr() - 2)<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-w>>', ':<C-u>execute "tabmove " . tabpagenr()<CR>', { noremap = true, silent = true })
+
 -- Better navigation
 vim.keymap.set("n", "<C-w>h", "<Nop>")
 vim.keymap.set("n", "<C-w>j", "<Nop>")
