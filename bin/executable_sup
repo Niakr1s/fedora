@@ -200,6 +200,7 @@ PKGS=(
     # fonts
     gdouros-symbola-fonts
     jetbrains-mono-nl-fonts
+    cascadia-mono-nf-fonts
 
     # hardware info
     cpu-x
