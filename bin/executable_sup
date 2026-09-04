@@ -17,6 +17,7 @@ tasks=(
 
     "# Extra software"
     "Install podman|install_podman"
+    "Enable virtualization|enable_virtualization"
     "Install sunshine|install_sunshine"
 
     "# Emulators"
@@ -408,6 +409,13 @@ install_podman() {
 
     echo "Enabling rootless podman service..."
     systemctl --user enable --now podman.socket
+}
+
+enable_virtualization() {
+  install_pkgs "@virtualization"
+  sudo systemctl enable --now libvirtd
+  sudo usermod -aG libvirt $USER
+  newgrp libvirt
 }
 
 install_switch_emulators() {
