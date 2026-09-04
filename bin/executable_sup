@@ -139,7 +139,6 @@ PKGS=(
     ###########
 
     # system
-    policycoreutils-gui
     firewall-config
 
     # file managers
