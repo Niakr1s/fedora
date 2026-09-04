@@ -138,6 +138,10 @@ PKGS=(
     ### GUI ###
     ###########
 
+    # system
+    policycoreutils-gui
+    firewall-config
+
     # file managers
     nautilus
 
@@ -219,7 +223,6 @@ PKGS=(
     librecad
     kde-connect
     dconf-editor
-    firewall-config
     sqlitebrowser
     blender
     syncthing
