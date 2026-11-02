@@ -1,0 +1,6 @@
+# Desktop PC — heavy setup (NVIDIA GPU, VMs, emulators...).
+# Starts from the shared 'core' profile, then adds desktop-only tasks.
+
+%include core
+
+nvidia
