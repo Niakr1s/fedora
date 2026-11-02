@@ -1,0 +1,25 @@
+[".config/yazi/plugins/mediainfo.yazi"]
+  type = "git-repo"
+  url = "https://github.com/boydaihungst/mediainfo.yazi"
+  refreshPeriod = "168h"
+
+[".config/yazi/plugins/toggle-pane.yazi/main.lua"]
+  type = "file"
+  url = "https://github.com/yazi-rs/plugins/raw/39aaf6dc77e546fe7f7836f102a6c57f96d15365/toggle-pane.yazi/main.lua"
+  refreshPeriod = "168h"
+
+[".tmux/plugins/tpm"]
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tpm"
+    refreshPeriod = "168h"
+
+[".config/nvim"]
+    type = "git-repo"
+    url = "git@github.com:Niakr1s/lazyvim.git"
+    refreshPeriod = "168h"
+
+[".local/bin/kbdoverlay"]
+    type = "file"
+    url = {{ gitHubLatestReleaseAssetURL "niakr1s/kbdoverlay" "kbdoverlay" | quote }}
+    refreshPeriod = "24h"
+    executable = true
