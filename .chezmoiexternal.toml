@@ -20,6 +20,6 @@
 
 [".local/bin/kbdoverlay"]
     type = "file"
-    url = {{ gitHubLatestReleaseAssetURL "niakr1s/kbdoverlay" "kbdoverlay" | quote }}
+    url = "https://github.com/Niakr1s/kbdoverlay/releases/download/v0.1.0/kbdoverlay"
     refreshPeriod = "24h"
     executable = true
