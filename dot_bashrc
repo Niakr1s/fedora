@@ -117,6 +117,7 @@ function opencode() {
 alias cz="chezmoi"
 alias cze="chezmoi edit"
 alias czd="chezmoi diff"
+alias czm="chezmoi merge-all"
 
 # Git
 alias gst="git status"
