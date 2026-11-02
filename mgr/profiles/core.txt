@@ -8,3 +8,4 @@ hibernation off
 groups
 core-packages
 caddy
+etckeeper
