@@ -1,6 +1,6 @@
 {
 	"version": 2,
-	"lastAppVersion": "3.70.1",
+	"lastAppVersion": "3.69.0",
 	"captureFormat": "jpeg",
 	"enableCustomOutDir": false,
 	"recentCustomOutDirs": [],
@@ -295,8 +295,7 @@
 		"cleanupAfterExport": false
 	},
 	"allowMultipleInstances": false,
-	"theme": "dark",
-	"videoFit": "contain",
+	"darkMode": true,
 	"preferStrongColors": false,
 	"outputFileNameMinZeroPadding": 1,
 	"cutFromAdjustmentFrames": 0,
@@ -306,5 +305,7 @@
 	"keyframesEnabled": true,
 	"reducedMotion": "user",
 	"ffmpegHwaccel": "none",
+	"theme": "dark",
+	"videoFit": "contain",
 	"enableAskForImportChapters": true
 }
