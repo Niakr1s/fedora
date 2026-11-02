@@ -181,3 +181,4 @@ alias backup-etc="sudo borg create --progress $HOME/drives/hdd1/borg/etc::{now} 
 alias backup-home="sudo borg create --progress $HOME/drives/hdd1/borg/home::{now} $HOME --exclude '$HOME/.config/rpcs3/dev_hdd0/game/*' --exclude '$HOME/drives'"
 
 eval "$(fzf --bash)"
+eval "$(zoxide init bash)"
