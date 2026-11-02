@@ -1,0 +1,10 @@
+// spawn-sh-at-startup "$HOME/scripts/joystickwake"
+
+input {
+    keyboard {
+        numlock
+    }
+}
+
+// workspace "emacs"
+// spawn-sh-at-startup "emacs"
