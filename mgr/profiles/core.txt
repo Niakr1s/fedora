@@ -7,3 +7,4 @@ kernel
 hibernation off
 groups
 core-packages
+caddy
