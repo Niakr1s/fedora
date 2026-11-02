@@ -7,6 +7,7 @@ source "$SCRIPT_DIR/../lib/helpers.sh"
 
 COPRS=(
   oak443/clash-verge-rev
+  lizardbyte/stable
 )
 
 PKGS=(
@@ -49,14 +50,42 @@ PKGS=(
   xdg-terminal-exec
   cairo
   tdf
-  swappy
+  caddy mkcert
+  scanmem       # cheat engine alternative
+  weechat
+
+  # services
+  Sunshine
+  kdeconnectd
+
+  # libs
+  gtk4-layer-shell
+  libevdev
+  python-pyudev
+  python-evdev
+  python-dbus-fast
+  python-xlib
+  python-huggingface-hub
+  python-pywayland
+
+  # archive
+  unar zip unzip unrar lz4 7zip
 
   # doc stuff
   ghostscript poppler poppler-data
   djvulibre libgxps libspectre texlive
 
   # prog
-  rust cargo golang
+  cmake ninja make
+  bear # for generating compile_commands.json: bear -- mak
+  uv
+  golang
+  rust
+  luajit luarocks
+  nodejs npm deno
+  cargo lldb
+  ruby ruby-devel tk
+  zig
 
   # Fonts
   cascadia-mono-nf-fonts
@@ -65,146 +94,48 @@ PKGS=(
   clash-verge-rev
   btrfs-assistant
   kitty
+  strawberry
+  firewall-config
+  keepassxc
+  krita
+  librecad
+  xreader
+  qbittorrent
+  sqlitebrowser
+  remmina
+  HandBrake-gui
+  kid3
+  mpv
+  telegram-desktop
+  obs-studio
+  cosmic-viewer
+  zeal
+
+  # games
+  luanti # minecraft like
+)
+
+PKGS_REMOVE=(
+  okular
+  cosmic-player
+  rhythmbox
+  thunderbird
+  nheko
 )
 
 FLATPAKS=(
+  com.github.tchx84.Flatseal
+
   com.valvesoftware.Steam
-  net.lutris.Lutris
+  net.lutris.Lutris # it works better via flatpak, lol
+
+  # no alternatives
   no.mifi.losslesscut
   io.github.alper_han.crossmacro
 )
 
-# TODO: move these pkgs
-OLD_PKGS=(
-  # archive
-  unarchiver zip unzip unrar lz4 7zip
-
-  # libs
-  gtk4-layer-shell
-  gtk-layer-shell
-  libevdev
-  # needed for joystickwake
-  python-pyudev
-  python-evdev
-  python-dbus-fast
-  python-xlib
-  python-huggingface-hub
-  python-pywayland
-  fuse2
-
-  # lsp
-  tree-sitter tree-sitter-cli
-  python-lsp-server ty
-  bash-language-server
-  gopls
-  marksman
-  python-pipenv
-  python-pytest
-  shfmt
-  shellcheck
-  tidy
-  zls
-
-  # deps
-  ddcutil
-  i2c-tools
-  wtype
-  ydotool
-
-  # fonts
-  noto-fonts-cjk
-  noto-fonts-emoji
-  ttf-nerd-fonts-symbols-mono
-  ttf-nerd-fonts-symbols
-  ttf-firacode-nerd
-  ttf-iosevka-nerd
-
-  # services
-  xdg-desktop-portal-gnome
-  xdg-desktop-portal-wlr
-  syncthing
-  caddy mkcert
-
-  # programming
-  cmake ninja make
-  bear # for generating compile_commands.json: bear -- mak
-  uv
-  go
-  rust
-  lua51 luajit luarocks
-  nodejs npm deno
-  cargo lldb
-  ruby tk ruby-stdlib
-  zig
-
-  # theming
-  qt5ct
-  qt6ct
-  adw-gtk-theme
-
-  # gui
-  imv krita
-  libreoffice
-  librecad
-  mission-center
-  qbittorrent
-  nautilus
-  sqlitebrowser
-  xreader
-  weechat
-  l3afpad
-  gnome-disk-utility
-  font-manager
-  keepassxc
-  dconf-editor
-  remmina
-  kitty
-  handbrake
-  strawberry
-  kdeconnect
-  kid3
-  strawberry
-  mpv
-  telegram-desktop
-  moonlight-qt
-  sunshine
-  obs-studio-browser # cachyos's obs-studio
-  gpu-screen-recorder
-  kdenlive
-  squeekboard
-  gthumb
-  zeal
-  opencode
-  blanket
-
-  # browsers
-  firefox
-  chromium
-
-  # hardware
-  cpu-x
-  hardinfo2 apcupsd fwupd
-  occt
-
-  # games stuff
-  lutris
-  proton-cachyos-slr wine # either one or another will work
-  mangohud
-  gamescope
-  gamemode
-  steam
-  scanmem       # cheat engine alternative
-  gameconqueror # doesn't work though
-
-  # native games
-  luanti # minecraft like
-  angband
-)
-
 AUR_PKGS=(
   lisgd iio-niri
-  vkbasalt
-  lib32-vkbasalt
 )
 
 GO_PKGS=(
@@ -214,6 +145,8 @@ GO_PKGS=(
 function post_install() {
   # needed for correct nvidia GPU work
   flatpak override --user --env=VK_LOADER_DRIVERS_SELECT="*"
+  flatpak override --user --filesystem=host no.mifi.losslesscut
+  flatpak override --user --filesystem=xdg-config/MangoHud:ro
 
   # enable syncthing
   systemctl --user enable --now syncthing.service
@@ -224,6 +157,7 @@ function post_install() {
 
 copr_install "${COPRS[@]}"
 pkg_install "${PKGS[@]}"
+pkg_remove "${PKGS_REMOVE[@]}"
 flatpak_install "${FLATPAKS[@]}"
 go_install "${GO_PKGS[@]}"
 cargo_install "${CARGO_PKGS[@]}"

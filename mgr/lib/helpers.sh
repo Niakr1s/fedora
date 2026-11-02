@@ -38,13 +38,20 @@ pkg_install() {
   sudo sudo dnf install -y "${pkgs[@]}"
 }
 
+# Install one or more APT packages
+pkg_remove() {
+  local pkgs=("$@")
+  log_info "Removing: ${pkgs[*]}"
+  sudo sudo dnf remove -y "${pkgs[@]}"
+}
+
 flatpak_install() {
   flatpak remote-add --if-not-exists --user cosmic https://apt.pop-os.org/cosmic/
   flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
   local pkgs=("$@")
   log_info "Installing: ${pkgs[*]}"
-  flatpak install -y "${pkgs[@]}"
+  flatpak install -y flathub "${pkgs[@]}"
 }
 
 # Install a Go package via go install
