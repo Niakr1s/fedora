@@ -63,7 +63,11 @@ if [ -z "$TMUX" ] && command -v tmuxp &>/dev/null; then
   done
 fi
 
-alias tmuxpl="tmuxp load --yes"
+# tmux aliases
+alias txpl="tmuxp ls" # list projects
+alias txpa="tmuxp load --yes" # load project
+alias txls="tmux ls" # list sessions
+alias txa="tmux attach -t" # load session
 
 function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
