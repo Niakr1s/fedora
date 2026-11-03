@@ -63,6 +63,8 @@ if [ -z "$TMUX" ] && command -v tmuxp &>/dev/null; then
   done
 fi
 
+alias tmuxpl="tmuxp load --yes"
+
 function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   command yazi "$@" --cwd-file="$tmp"
