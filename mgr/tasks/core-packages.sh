@@ -147,6 +147,9 @@ GO_PKGS=(
 )
 
 function post_install() {
+  # enable lingering
+  loginctl enable-linger "$USER"
+
   # enable syncthing
   systemctl --user enable --now syncthing.service
 
