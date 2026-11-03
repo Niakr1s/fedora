@@ -4,7 +4,7 @@ After=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=%h/scripts/joystickwake.sh
+ExecStart=joystickwake
 Restart=on-failure
 
 [Install]
