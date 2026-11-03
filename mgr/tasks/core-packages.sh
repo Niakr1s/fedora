@@ -76,6 +76,7 @@ PKGS=(
   djvulibre libgxps libspectre texlive
 
   # prog
+  gcc gcc-c++
   cmake ninja make
   bear # for generating compile_commands.json: bear -- mak
   uv
