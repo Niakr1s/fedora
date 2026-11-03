@@ -27,8 +27,10 @@ command_exists() {
 # Install one or more APT packages
 copr_install() {
   local coprs=("$@")
-  log_info "Installing: ${coprs[*]}"
-  sudo sudo dnf copr enable -y "${coprs[@]}"
+  for copr in "${coprs[@]}"; do
+    log_info "Enabling copr: $copr"
+    sudo sudo dnf copr enable -y "$copr"
+  done
 }
 
 # Install one or more APT packages
