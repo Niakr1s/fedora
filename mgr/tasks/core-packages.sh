@@ -123,15 +123,16 @@ PKGS_REMOVE=(
   nheko
 )
 
+AM_PKGS=(
+  lossless-cut
+  crossmacro
+)
+
 FLATPAKS=(
-  com.github.tchx84.Flatseal
+  "com.github.tchx84.Flatseal"
 
-  com.valvesoftware.Steam
-  net.lutris.Lutris # it works better via flatpak, lol
-
-  # no alternatives
-  no.mifi.losslesscut
-  io.github.alper_han.crossmacro
+  "com.valvesoftware.Steam|--filesystem=xdg-config/MangoHud:ro"
+  "net.lutris.Lutris|--filesystem=xdg-config/MangoHud:ro" # it works better via flatpak, lol
 )
 
 AUR_PKGS=(
@@ -143,11 +144,6 @@ GO_PKGS=(
 )
 
 function post_install() {
-  # needed for correct nvidia GPU work
-  flatpak override --user --env=VK_LOADER_DRIVERS_SELECT="*"
-  flatpak override --user --filesystem=host no.mifi.losslesscut
-  flatpak override --user --filesystem=xdg-config/MangoHud:ro
-
   # enable syncthing
   systemctl --user enable --now syncthing.service
 
@@ -161,5 +157,6 @@ pkg_remove "${PKGS_REMOVE[@]}"
 flatpak_install "${FLATPAKS[@]}"
 go_install "${GO_PKGS[@]}"
 cargo_install "${CARGO_PKGS[@]}"
+am_install "${AM_PKGS[@]}"
 
 post_install

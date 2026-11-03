@@ -48,11 +48,36 @@ pkg_remove() {
 flatpak_install() {
   flatpak remote-add --if-not-exists --user cosmic https://apt.pop-os.org/cosmic/
   flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+  flatpak override --user --env=VK_LOADER_DRIVERS_SELECT="*" # needed for correct nvidia GPU work
 
   local pkgs=("$@")
   log_info "Installing: ${pkgs[*]}"
-  flatpak install -y flathub "${pkgs[@]}"
+
+  for entry in "${pkgs[@]}"; do
+    IFS='|' read -r id overrides <<< "$entry"
+    flatpak install -y flathub "$id"
+    # shellcheck disable=SC2086
+    [[ -n "$overrides" ]] && flatpak override --user $overrides "$id"
+  done
 }
+
+# Install a AM package
+am_install() {
+    command_exists am || {
+        curl -sSf https://raw.githubusercontent.com/ivan-hc/AM/main/AM-INSTALLER | sh -s -- -i am
+    }
+
+    local pkgs=("$@")
+    for pkg in "${pkgs[@]}"; do
+        if command_exists "$pkg"; then
+            log_info "Skipping AM package (exists): $pkg"
+        else
+            log_info "Installing AM package: $pkg"
+            am -i "$pkg"
+        fi
+    done
+}
+
 
 # Install a Go package via go install
 #
