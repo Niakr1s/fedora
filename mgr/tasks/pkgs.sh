@@ -132,6 +132,7 @@ PKGS_REMOVE=(
 AM_PKGS=(
   lossless-cut
   crossmacro
+  ventoy
 )
 
 FLATPAKS=(
