@@ -160,6 +160,9 @@ function post_install() {
   # enable syncthing
   systemctl --user enable --now syncthing.service
 
+  # enable sshd
+  sudo systemctl enable --now sshd.service
+
   # create root config for snapper
   sudo snapper -c root create-config / || true
 
