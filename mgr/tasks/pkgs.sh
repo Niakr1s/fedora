@@ -55,6 +55,7 @@ PKGS=(
   scanmem # cheat engine alternative
   weechat
   joystickwake # niakr1s/copr
+  python3-tmuxp
 
   # services
   Sunshine

@@ -43,6 +43,17 @@ export HISTCONTROL=ignoreboth
 # Don't add certain commands to the history file.
 export HISTORY_IGNORE="(\&|[bf]g|c|clear|history|exit|q|pwd|* --help)"
 
+# TMUX sessions preload
+TMUX_SESSIONS=(
+  cz
+)
+
+if [ -z "$TMUX" ] && command -v tmuxp &>/dev/null; then
+  for SESSION in "${TMUX_SESSIONS[@]}"; do
+    tmuxp load "$SESSION" -d &>/dev/null
+  done
+fi
+
 function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   command yazi "$@" --cwd-file="$tmp"

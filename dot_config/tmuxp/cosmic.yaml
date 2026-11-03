@@ -1,0 +1,9 @@
+session_name: cosmic
+start_directory: ~/.config/cosmic
+windows:
+  - window_name: repo
+    layout: even-horizontal
+    panes:
+      - shell_command:
+          - nvim .
+        focus: true
