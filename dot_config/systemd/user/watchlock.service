@@ -1,11 +1,17 @@
 [Unit]
 Description=Turn off monitors during lock
+# Only start after the graphical session is active
 After=graphical-session.target
+# Ensure the service is stopped if the graphical session stops
+PartOf=graphical-session.target
 
 [Service]
 Type=simple
 ExecStart=%h/bin/watchlock HDMI-A-2
 Restart=on-failure
+# (Optional) Add a small delay if watchlock needs extra time to connect
+ExecStartPre=/bin/sleep 3
 
 [Install]
-WantedBy=default.target
+# Bind the service to the graphical session, not default.target
+WantedBy=graphical-session.target
