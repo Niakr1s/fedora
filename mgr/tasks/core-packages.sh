@@ -8,6 +8,7 @@ source "$SCRIPT_DIR/../lib/helpers.sh"
 COPRS=(
   oak443/clash-verge-rev
   lizardbyte/stable
+  niakr1s/copr
 )
 
 PKGS=(
@@ -53,6 +54,7 @@ PKGS=(
   caddy mkcert
   scanmem       # cheat engine alternative
   weechat
+  joystickwake # niakr1s/copr
 
   # services
   Sunshine
