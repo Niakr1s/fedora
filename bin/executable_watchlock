@@ -17,9 +17,6 @@ while true; do
     echo "watchlock: turning off monitors"
     cosmic-randr disable "$MONITOR"
     wlopm --off "*"
-  else
-    echo "watchlock: turning off monitors"
-    cosmic-randr enable "$MONITOR"
   fi
 
   sleep 20
