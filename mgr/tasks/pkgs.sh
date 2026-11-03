@@ -57,6 +57,7 @@ PKGS=(
   joystickwake # niakr1s/copr
   python3-tmuxp
   wlopm
+  ffmpeg
 
   # services
   Sunshine
