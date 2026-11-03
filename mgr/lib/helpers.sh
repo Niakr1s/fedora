@@ -56,8 +56,8 @@ flatpak_install() {
   log_info "Installing: ${pkgs[*]}"
 
   for entry in "${pkgs[@]}"; do
-    IFS='|' read -r id overrides <<< "$entry"
-    flatpak install -y flathub "$id"
+    IFS='|' read -r repo id overrides <<< "$entry"
+    flatpak install -y "$repo" "$id"
     # shellcheck disable=SC2086
     [[ -n "$overrides" ]] && flatpak override --user $overrides "$id"
   done

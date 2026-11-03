@@ -52,7 +52,7 @@ PKGS=(
   cairo
   tdf
   caddy mkcert
-  scanmem       # cheat engine alternative
+  scanmem # cheat engine alternative
   weechat
   joystickwake # niakr1s/copr
 
@@ -132,10 +132,14 @@ AM_PKGS=(
 )
 
 FLATPAKS=(
-  "com.github.tchx84.Flatseal"
+  "flathub|com.github.tchx84.Flatseal"
 
-  "com.valvesoftware.Steam|--filesystem=xdg-config/MangoHud:ro"
-  "net.lutris.Lutris|--filesystem=xdg-config/MangoHud:ro" # it works better via flatpak, lol
+  "flathub|com.valvesoftware.Steam|--filesystem=xdg-config/MangoHud:ro"
+  "flathub|net.lutris.Lutris|--filesystem=xdg-config/MangoHud:ro" # it works better via flatpak, lol
+
+  "cosmic|com.github.codevardhan.caffeine-applet"
+  "cosmic|dev.DBrox.CosmicSystemMonitor"
+  "cosmic|io.github.marcelogomes90.cosmic-ext-applet-status-hub"
 )
 
 AUR_PKGS=(
