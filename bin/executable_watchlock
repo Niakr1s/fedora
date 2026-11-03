@@ -3,14 +3,24 @@
 # Required for glob with nullglob behavior
 shopt -s nullglob
 
+if [[ -z "$1" ]]; then
+  echo "Usage: $0 <monitor-name>"
+  exit 1
+fi
+
+MONITOR="$1"
+
 while true; do
-  # Expand the glob into an array; empty if nothing matches
   lockfiles=("$XDG_RUNTIME_DIR"/cosmic-greeter-*.lock)
 
   if ((${#lockfiles[@]} > 0)); then
     echo "watchlock: turning off monitors"
+    cosmic-randr disable "$MONITOR"
     wlopm --off "*"
+  else
+    echo "watchlock: turning off monitors"
+    cosmic-randr enable "$MONITOR"
   fi
 
-  sleep 30
+  sleep 20
 done
