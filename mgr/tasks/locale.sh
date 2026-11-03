@@ -5,7 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/../lib/helpers.sh"
 
 MAIN_LOCALE="en_US.UTF-8"
-TIME_LOCALE="en_DK.UTF-8"
+TIME_LOCALE="en_SE.UTF-8"
 
 LOCALE_CONF_PATH="/etc/locale.conf"
 
