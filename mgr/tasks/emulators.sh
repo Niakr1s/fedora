@@ -60,7 +60,7 @@ install_playstation_emulators() {
 
 install_xbox_emulators() {
   echo "Installing xemu..."
-  am -i xemu
+  echo "1" | am -i xemu
   mkdir -p "$HOME/.local/share/xemu"
   wget -O- "https://archive.org/download/xemustarter/XEMU FILES.zip" | bsdtar -xf- -C "$HOME/.local/share/xemu"
   echo "Needed xemu fiiles are under $HOME/.local/share/xemu, provide it to emulator them manually"
