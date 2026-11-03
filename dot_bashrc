@@ -68,7 +68,7 @@ alias ff="fastfetch"
 alias se="sudoedit"
 
 # Opencode (see https://github.com/didvc/opencode-bwrap/blob/master/opencode-bwrap)
-function opencode() {
+function __opencode_bwrap() {
   local WORKSPACES=(
     "$PWD"
   )
