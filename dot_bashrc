@@ -7,6 +7,15 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+# Press TAB once to start cycling through completion matches
+bind 'TAB:menu-complete'
+
+# Press Shift + TAB to cycle backward through matches
+bind '"\e[Z":menu-complete-backward'
+
+# Immediately display a list of all options under the command line while cycling
+bind 'set show-all-if-ambiguous on'
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
