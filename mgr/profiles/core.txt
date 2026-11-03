@@ -8,7 +8,6 @@ hibernation off
 locale
 core-packages
 caddy
-etckeeper
 podman
 virtualization
 groups
