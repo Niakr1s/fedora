@@ -15,6 +15,16 @@ PKGS=(
 
 pkg_install "${PKGS[@]}"
 
+function cuda_install() {
+  log_info "Installing cuda (https://rpmfusion.org/Howto/CUDA)"
+  sudo dnf config-manager addrepo "--from-repofile=https://developer.download.nvidia.com/compute/cuda/repos/fedora44/$(uname -m)/cuda-fedora44.repo"
+  sudo dnf clean all
+  sudo dnf config-manager setopt "cuda-fedora44-$(uname -m).exclude=nvidia-driver*,cuda-drivers*,nvidia-modprobe,nvidia-persistenced,nvidia-settings,nvidia-libXNVCtrl*,nvidia-xconfig,nvidia-open,nvidia-imex,nvidia-kmod-common,libnvidia-fbc,kmod-nvidia-*-dkms,nvidia-fs*,nvidia-gds*,xorg-x11-nvidia*"
+  sudo dnf -y install cuda-toolkit xorg-x11-drv-nvidia-cuda
+}
+
+cuda_install
+
 install_nvidia_pstated() {
   local url="https://github.com/sasha0552/nvidia-pstated/releases/download/v1.0.9/nvidia-pstated"
   local dest="/usr/local/bin/nvidia-pstated"
@@ -27,7 +37,7 @@ install_nvidia_pstated() {
   sudo chmod +x "$dest"
 
   log_info "Creating systemd service file..."
-  sudo tee "$service_file" > /dev/null << 'EOF'
+  sudo tee "$service_file" >/dev/null <<'EOF'
 [Unit]
 Description=A daemon that automatically manages the performance states of NVIDIA GPUs
 After=nvidia-persistenced.service
