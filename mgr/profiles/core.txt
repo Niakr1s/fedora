@@ -6,7 +6,7 @@ repos
 kernel
 hibernation off
 locale
-core-packages
+pkgs
 caddy
 podman
 virtualization
