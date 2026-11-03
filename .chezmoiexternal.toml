@@ -28,3 +28,8 @@
     url = "https://github.com/Niakr1s/kbdoverlay/releases/download/v0.1.0/kbdoverlay"
     refreshPeriod = "24h"
     executable = true
+
+["rpmbuild/SOURCES"]
+    type = "git-repo"
+    url = "git@github.com:Niakr1s/copr.git"
+    refreshPeriod = "168h"
