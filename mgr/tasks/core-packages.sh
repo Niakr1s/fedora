@@ -150,6 +150,10 @@ function post_install() {
 
   # create root config for snapper
   sudo snapper -c root create-config / || true
+
+  # install python versions
+  uv python install 3.13
+  uv python install 3.14
 }
 
 copr_install "${COPRS[@]}"
