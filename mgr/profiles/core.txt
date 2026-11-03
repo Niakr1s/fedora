@@ -5,6 +5,7 @@
 repos
 kernel
 hibernation off
+locale
 groups
 core-packages
 caddy
