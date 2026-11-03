@@ -56,6 +56,7 @@ PKGS=(
   weechat
   joystickwake # niakr1s/copr
   python3-tmuxp
+  wlopm
 
   # services
   Sunshine

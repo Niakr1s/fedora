@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Required for glob with nullglob behavior
+shopt -s nullglob
+
+while true; do
+  # Expand the glob into an array; empty if nothing matches
+  lockfiles=("$XDG_RUNTIME_DIR"/cosmic-greeter-*.lock)
+
+  if ((${#lockfiles[@]} > 0)); then
+    echo "watchlock: turning off monitors"
+    wlopm --off "*"
+  fi
+
+  sleep 15
+done
