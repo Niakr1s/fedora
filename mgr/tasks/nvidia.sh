@@ -9,7 +9,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/../lib/helpers.sh"
 
 PKGS=(
-  akmod-nvidia xorg-x11-drv-nvidia-cuda # nvidia drivers
+  akmod-nvidia xorg-x11-drv-nvidia-cuda             # nvidia drivers
   intel-media-driver libva-intel-driver libva-utils # intel drivers
 )
 
