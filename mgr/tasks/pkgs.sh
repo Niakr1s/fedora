@@ -158,6 +158,10 @@ function post_install() {
   # install python versions
   uv python install 3.13
   uv python install 3.14
+
+  # fix alt+shift switch keyboard layouts in a file
+  # /etc/X11/xorg.conf.d/00-keyboard.conf
+  sudo localectl set-x11-keymap us pc105 "" ""
 }
 
 copr_install "${COPRS[@]}"
