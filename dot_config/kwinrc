@@ -6,6 +6,10 @@ Id_4=ade123b9-1317-4347-baec-fcfd439f1cee
 Number=4
 Rows=2
 
+[Effect-overview]
+BorderActivate=9
+GridBorderActivate=7
+
 [Effect-zoom]
 PointerAxisGestureModifiers=
 
