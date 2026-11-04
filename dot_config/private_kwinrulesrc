@@ -1,0 +1,9 @@
+[General]
+Order=fb5c986e-822c-4bcf-9ebe-b1e368e5f854
+
+[fb5c986e-822c-4bcf-9ebe-b1e368e5f854]
+Description=kitty initial size
+size=1024,768
+sizerule=3
+wmclass=kitty
+wmclassmatch=1

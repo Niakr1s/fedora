@@ -1,0 +1,15 @@
+[Added Associations]
+video/ogg=mpv.desktop;
+video/x-matroska=mpv.desktop;
+video/x-ogm=mpv.desktop;
+video/x-ogm+ogg=mpv.desktop;
+video/x-theora=mpv.desktop;
+video/x-theora+ogg=mpv.desktop;
+
+[Default Applications]
+video/ogg=mpv.desktop;
+video/x-matroska=mpv.desktop;
+video/x-ogm=mpv.desktop;
+video/x-ogm+ogg=mpv.desktop;
+video/x-theora=mpv.desktop;
+video/x-theora+ogg=mpv.desktop;

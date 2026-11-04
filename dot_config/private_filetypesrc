@@ -1,0 +1,7 @@
+[EmbedSettings]
+embed-video/ogg=false
+embed-video/x-matroska=false
+embed-video/x-ogm=false
+embed-video/x-ogm+ogg=false
+embed-video/x-theora=false
+embed-video/x-theora+ogg=false
