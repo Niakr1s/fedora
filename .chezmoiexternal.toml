@@ -18,17 +18,6 @@
     url = "git@github.com:Niakr1s/lazyvim.git"
     refreshPeriod = "168h"
 
-[".config/cosmic"]
-    type = "git-repo"
-    url = "git@github.com:Niakr1s/cosmic.git"
-    refreshPeriod = "168h"
-
-[".local/bin/kbdoverlay"]
-    type = "file"
-    url = "https://github.com/Niakr1s/kbdoverlay/releases/download/v0.1.0/kbdoverlay"
-    refreshPeriod = "24h"
-    executable = true
-
 ["rpmbuild/SOURCES"]
     type = "git-repo"
     url = "git@github.com:Niakr1s/copr.git"

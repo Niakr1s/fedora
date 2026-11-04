@@ -5,6 +5,10 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/../lib/helpers.sh"
 
+set -o pipefail
+
+sudo dnf install -y ffmpeg --allowerasing
+
 COPRS=(
   oak443/clash-verge-rev
   lizardbyte/stable
@@ -12,9 +16,7 @@ COPRS=(
 )
 
 PKGS=(
-  snapper libdnf5-plugin-actions
   glow
-  nvtop
   borgbackup
   yazi
   tealdeer
@@ -38,7 +40,6 @@ PKGS=(
   aria2
   xclip
   ripgrep
-  rofi
   compsize
   ImageMagick
   yt-dlp
@@ -49,7 +50,6 @@ PKGS=(
   lazygit
   hyperfine
   xdg-terminal-exec
-  cairo
   tdf
   caddy mkcert
   scanmem # cheat engine alternative
@@ -57,13 +57,12 @@ PKGS=(
   joystickwake # niakr1s/copr
   python3-tmuxp
   wlopm
-  ffmpeg
 
   # services
   Sunshine
-  kdeconnectd
 
   # libs
+  cairo
   gtk4-layer-shell
   libevdev
   python-pyudev
@@ -97,15 +96,10 @@ PKGS=(
   cascadia-mono-nf-fonts
 
   # GUI
-  clash-verge-rev
-  btrfs-assistant
+  timeshift
   kitty
   strawberry
-  firewall-config
   keepassxc
-  krita
-  librecad
-  xreader
   qbittorrent
   sqlitebrowser
   remmina
@@ -114,7 +108,6 @@ PKGS=(
   mpv
   telegram-desktop
   obs-studio
-  cosmic-viewer
   zeal
 
   # games
@@ -122,11 +115,8 @@ PKGS=(
 )
 
 PKGS_REMOVE=(
-  okular
-  cosmic-player
-  rhythmbox
-  thunderbird
-  nheko
+  elisa-player
+  dragon
 )
 
 AM_PKGS=(
@@ -141,9 +131,9 @@ FLATPAKS=(
   "flathub|com.valvesoftware.Steam|--filesystem=xdg-config/MangoHud:ro"
   "flathub|net.lutris.Lutris|--filesystem=xdg-config/MangoHud:ro" # it works better via flatpak, lol
 
-  "cosmic|com.github.codevardhan.caffeine-applet"
-  "cosmic|dev.DBrox.CosmicSystemMonitor"
-  "cosmic|io.github.marcelogomes90.cosmic-ext-applet-status-hub"
+  # "cosmic|com.github.codevardhan.caffeine-applet"
+  # "cosmic|dev.DBrox.CosmicSystemMonitor"
+  # "cosmic|io.github.marcelogomes90.cosmic-ext-applet-status-hub"
 )
 
 AUR_PKGS=(
@@ -164,9 +154,6 @@ function post_install() {
   # enable sshd
   sudo systemctl enable --now sshd.service
 
-  # create root config for snapper
-  sudo snapper -c root create-config / || true
-
   # install python versions
   uv python install 3.13
   uv python install 3.14
@@ -181,3 +168,5 @@ cargo_install "${CARGO_PKGS[@]}"
 am_install "${AM_PKGS[@]}"
 
 post_install
+
+log_info "Install amneziavpn client manually from 'https://github.com/amnezia-vpn/amnezia-client/releases/download/5.1.0.6/AmneziaVPN_5.1.0.6_linux_x64.run'"
