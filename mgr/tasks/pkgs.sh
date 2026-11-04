@@ -162,6 +162,9 @@ function post_install() {
   # fix alt+shift switch keyboard layouts in a file
   # /etc/X11/xorg.conf.d/00-keyboard.conf
   sudo localectl set-x11-keymap us pc105 "" ""
+
+  # update flatpak afterwards
+  flatpak update
 }
 
 copr_install "${COPRS[@]}"
