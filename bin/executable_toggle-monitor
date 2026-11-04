@@ -1,27 +1,45 @@
 #!/bin/bash
 
-# Require exactly one argument: the monitor name
+echo "toggle-monitor 1" >> /tmp/toggle-monitor.log
+
 if [ $# -ne 1 ]; then
     echo "Usage: $0 <monitor-name>"
-    echo "Example: $0 HDMI-A-2"
-    echo ""
-    echo "Available outputs:"
-    kscreen-doctor -j | jq -r '.outputs[].name'
     exit 1
 fi
+
+echo "toggle-monitor 2" >> /tmp/toggle-monitor.log
 
 MONITOR="$1"
 
-# Verify the monitor exists
-if ! kscreen-doctor -j | jq -e --arg m "$MONITOR" '.outputs[] | select(.name == $m)' > /dev/null; then
+# --- FIX FOR KDE SHORTCUTS ---
+# 1. Ensure XDG_RUNTIME_DIR is set
+if [ -z "$XDG_RUNTIME_DIR" ]; then
+    export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+fi
+
+# 2. Dynamically find the Wayland socket (wayland-0, wayland-1, etc.)
+# We check the runtime dir, and also /tmp just in case
+if [ -z "$WAYLAND_DISPLAY" ]; then
+    SOCKET=$(ls "$XDG_RUNTIME_DIR"/wayland-* 2>/dev/null | head -n 1)
+    if [ -n "$SOCKET" ]; then
+        export WAYLAND_DISPLAY=$(basename "$SOCKET")
+    else
+        # Fallback to standard name
+        export WAYLAND_DISPLAY="wayland-0"
+    fi
+fi
+
+# 3. Force Qt to use Wayland
+export QT_QPA_PLATFORM=wayland
+# -----------------------------
+
+# Verify monitor exists
+if ! kscreen-doctor -j 2>/dev/null | jq -e --arg m "$MONITOR" '.outputs[] | select(.name == $m)' > /dev/null; then
     echo "Error: monitor '$MONITOR' not found."
-    echo "Available outputs:"
-    kscreen-doctor -j | jq -r '.outputs[].name'
     exit 1
 fi
 
-# Read current enabled state
-STATE=$(kscreen-doctor -j | jq -r --arg m "$MONITOR" '.outputs[] | select(.name == $m) | .enabled')
+STATE=$(kscreen-doctor -j 2>/dev/null | jq -r --arg m "$MONITOR" '.outputs[] | select(.name == $m) | .enabled')
 
 if [ "$STATE" = "true" ]; then
     kscreen-doctor output."$MONITOR".disable
