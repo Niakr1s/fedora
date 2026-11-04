@@ -26,4 +26,6 @@ function cuda_install() {
 
 cuda_install
 
+flatpak update
+
 log_warn "After the RPM transaction ends, please remember to wait until the kmod has been built. This can take up to 5 minutes on some systems."
