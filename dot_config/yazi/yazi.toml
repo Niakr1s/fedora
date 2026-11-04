@@ -26,7 +26,7 @@ prepend_previewers = [
 
 [opener]
 custom = [
-  { run = "xdg-open %s", desc = "open", for = "linux", orphan = true },
+  { run = "kde-open %s", desc = "open", for = "linux", orphan = true },
   { run = "unar %s", desc = "extract", for = "linux", orphan = false, block = true },
   { run = "chezmoi add %s", desc = "chezmoi", for = "linux" },
   { run = "dolphin %s", desc = "fm", for = "linux", orphan = true },
