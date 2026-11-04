@@ -1,0 +1,29 @@
+[Unit]
+Description=llama.cpp server (Instance %i)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/models/LLM
+
+# Load instance-specific variables (CUDA_VISIBLE_DEVICES, PORT) from a file
+# The file path is determined by the instance name (%i)
+EnvironmentFile=%h/.config/llama/%i.env
+
+# CUDA_VISIBLE_DEVICES and PORT are now loaded from the EnvironmentFile above
+ExecStart=/home/user/llama.cpp/build/bin/llama-server \
+    --models-preset %h/.config/llama/preset.ini \
+    --models-max 1 \
+    --tools all \
+    --ui-mcp-proxy \
+    --host 0.0.0.0 \
+    --port ${PORT}
+
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+KillSignal=SIGINT
+
+[Install]
+WantedBy=default.target
