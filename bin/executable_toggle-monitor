@@ -1,52 +1,30 @@
-#!/usr/bin/env bash
-#
-# toggle-monitor.sh - Toggle a display on/off via cosmic-randr
-#
-# Usage: toggle-monitor.sh [OUTPUT]
-#   OUTPUT: monitor output name. Default: HDMI-A-2
+#!/bin/bash
 
-set -euo pipefail
-
-OUTPUT="${1:-HDMI-A-2}"
-
-if ! command -v cosmic-randr >/dev/null 2>&1; then
-    echo "Error: 'cosmic-randr' not found in PATH." >&2
-    exit 2
-fi
-
-if [[ -z "$OUTPUT" ]]; then
-    echo "Usage: $0 [OUTPUT]" >&2
+# Require exactly one argument: the monitor name
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <monitor-name>"
+    echo "Example: $0 HDMI-A-2"
+    echo ""
+    echo "Available outputs:"
+    kscreen-doctor -j | jq -r '.outputs[].name'
     exit 1
 fi
 
-# Strip ANSI escape sequences (cosmic-randr colorizes its output)
-strip_ansi() { sed -E 's/\x1B\[[0-9;]*[A-Za-z]//g'; }
+MONITOR="$1"
 
-STATE_LINE="$(cosmic-randr list 2>/dev/null | strip_ansi | grep -E "^${OUTPUT} \(" || true)"
-
-if [[ -z "$STATE_LINE" ]]; then
-    echo "Error: output '${OUTPUT}' not found. Available outputs:" >&2
-    cosmic-randr list 2>/dev/null | strip_ansi | grep -E '^[A-Za-z].*\(' >&2 || true
-    exit 3
+# Verify the monitor exists
+if ! kscreen-doctor -j | jq -e --arg m "$MONITOR" '.outputs[] | select(.name == $m)' > /dev/null; then
+    echo "Error: monitor '$MONITOR' not found."
+    echo "Available outputs:"
+    kscreen-doctor -j | jq -r '.outputs[].name'
+    exit 1
 fi
 
-if [[ "$STATE_LINE" == *"(enabled)"* ]]; then
-    ACTION="disable"
-    NEXT="disabled"
-elif [[ "$STATE_LINE" == *"(disabled)"* ]]; then
-    ACTION="enable"
-    NEXT="enabled"
-else
-    echo "Error: could not parse state for '${OUTPUT}': ${STATE_LINE}" >&2
-    exit 4
-fi
+# Read current enabled state
+STATE=$(kscreen-doctor -j | jq -r --arg m "$MONITOR" '.outputs[] | select(.name == $m) | .enabled')
 
-echo "Output '${OUTPUT}' is currently $([[ "$ACTION" == "disable" ]] && echo enabled || echo disabled); running: cosmic-randr ${ACTION} ${OUTPUT}"
-
-if cosmic-randr "${ACTION}" "${OUTPUT}"; then
-    echo "Done. '${OUTPUT}' should now be ${NEXT}."
+if [ "$STATE" = "true" ]; then
+    kscreen-doctor output."$MONITOR".disable
 else
-    rc=$?
-    echo "Error: 'cosmic-randr ${ACTION} ${OUTPUT}' failed (exit ${rc})." >&2
-    exit 4
+    kscreen-doctor output."$MONITOR".enable
 fi
