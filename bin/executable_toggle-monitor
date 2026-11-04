@@ -1,15 +1,6 @@
 #!/bin/bash
 
-echo "toggle-monitor 1" >> /tmp/toggle-monitor.log
-
-if [ $# -ne 1 ]; then
-    echo "Usage: $0 <monitor-name>"
-    exit 1
-fi
-
-echo "toggle-monitor 2" >> /tmp/toggle-monitor.log
-
-MONITOR="$1"
+MONITOR="${1:-HDMI-A-2}"
 
 # --- FIX FOR KDE SHORTCUTS ---
 # 1. Ensure XDG_RUNTIME_DIR is set
