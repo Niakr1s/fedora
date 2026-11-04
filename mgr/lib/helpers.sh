@@ -48,7 +48,7 @@ pkg_remove() {
 }
 
 flatpak_install() {
-  flatpak remote-add --if-not-exists --user cosmic https://apt.pop-os.org/cosmic/
+  # flatpak remote-add --if-not-exists --user cosmic https://apt.pop-os.org/cosmic/
   flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
   flatpak override --user --env=VK_LOADER_DRIVERS_SELECT="*" # needed for correct nvidia GPU work
 
