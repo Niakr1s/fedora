@@ -4,6 +4,7 @@ detailViewIconSize=256
 [PlasmaViews][Panel 3]
 floating=1
 panelLengthMode=0
+panelOpacity=2
 shell=org.kde.plasma.desktop
 
 [PlasmaViews][Panel 3][Defaults]
