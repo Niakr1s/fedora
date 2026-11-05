@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+(
+  cd ~/.local/share/kwin || return
+  ./sera -l
+  ./sera -u
+)
