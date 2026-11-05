@@ -23,7 +23,6 @@
     url = "git@github.com:Niakr1s/copr.git"
     refreshPeriod = "168h"
 
-
 [".local/share/kwin"]
     type = "git-repo"
     url = "git@github.com:Niakr1s/kwin.git"
