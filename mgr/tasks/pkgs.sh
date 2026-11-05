@@ -97,7 +97,6 @@ PKGS=(
   cascadia-mono-nf-fonts
 
   # GUI
-  timeshift
   kitty
   strawberry
   keepassxc
