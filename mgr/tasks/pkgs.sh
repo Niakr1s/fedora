@@ -16,6 +16,7 @@ COPRS=(
 )
 
 PKGS=(
+  copr-cli
   glow
   borgbackup
   yazi
