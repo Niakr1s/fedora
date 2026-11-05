@@ -18,7 +18,7 @@
     url = "git@github.com:Niakr1s/lazyvim.git"
     refreshPeriod = "168h"
 
-["rpmbuild/SOURCES"]
+["rpmbuild"]
     type = "git-repo"
     url = "git@github.com:Niakr1s/copr.git"
     refreshPeriod = "168h"
