@@ -6,6 +6,9 @@ Id_4=ade123b9-1317-4347-baec-fcfd439f1cee
 Number=4
 Rows=2
 
+[Effect-hidecursor]
+InactivityDuration=5
+
 [Effect-overview]
 BorderActivate=9
 GridBorderActivate=7
@@ -17,8 +20,31 @@ PointerAxisGestureModifiers=
 Active=true
 
 [Plugins]
+blurEnabled=true
 diminactiveEnabled=true
+hidecursorEnabled=true
+krohnkiteEnabled=true
 translucencyEnabled=true
+
+[Script-krohnkite]
+floatRandomHeight=30
+floatRandomWidth=30
+focusMoveScreensNormal=false
+focusMoveVDesktopsMeta=false
+focusMoveVDesktopsNormal=false
+movePointerOnFocus=true
+movePointerOnFocusShortcutsOnly=true
+noTileBorder=true
+optVKeyboardSupport=true
+screenDefaultLayout=:floating
+screenGapBetween=5
+screenGapBottom=5
+screenGapLeft=5
+screenGapRight=5
+screenGapTop=5
+
+[TabBox]
+MultiScreenMode=1
 
 [Tiling][3ca6dfe3-d14e-4764-8a00-01f3e05a1c42][a20c8827-243b-4a3c-9baf-ef2266411c07]
 padding=4
@@ -56,6 +82,7 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 VirtualKeyboardMode=1
 
 [Windows]
+ActivationDesktopPolicy=2
 PerOutputVirtualDesktops=true
 Placement=Smart
 
