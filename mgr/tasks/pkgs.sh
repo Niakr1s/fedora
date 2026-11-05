@@ -144,6 +144,10 @@ GO_PKGS=(
   github.com/jorgerojas26/lazysql@latest
 )
 
+CARGO_PKGS=(
+  chezmoi_modify_manager
+)
+
 function post_install() {
   # enable lingering
   loginctl enable-linger "$USER"
