@@ -167,7 +167,7 @@ function post_install() {
   sudo localectl set-x11-keymap us pc105 "" ""
 
   # update flatpak afterwards
-  flatpak update
+  flatpak update -y
 }
 
 copr_install "${COPRS[@]}"
