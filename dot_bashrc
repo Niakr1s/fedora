@@ -144,6 +144,7 @@ alias cz="chezmoi"
 alias cze="chezmoi edit"
 alias czd="chezmoi diff"
 alias czm="chezmoi merge-all"
+alias czmm="chezmoi_modify_manager"
 
 # Git
 alias gst="git status"
