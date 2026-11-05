@@ -5,8 +5,8 @@ RightButton;NoModifier=org.kde.contextmenu
 RightButton;NoModifier=org.kde.contextmenu
 
 [Containments][1]
-ItemGeometries-2560x1440=Applet-35:0,0,208,256,0;Applet-36:0,496,208,208,0;Applet-37:0,256,240,240,0;Applet-38:0,704,208,208,0;
-ItemGeometriesHorizontal=Applet-35:0,0,208,256,0;Applet-36:0,496,208,208,0;Applet-37:0,256,240,240,0;Applet-38:0,704,208,208,0;
+ItemGeometries-2560x1440=Applet-79:0,656,192,192,0;Applet-78:0,464,192,192,0;Applet-76:0,256,192,208,0;Applet-77:0,0,192,256,0;
+ItemGeometriesHorizontal=Applet-79:0,656,192,192,0;Applet-78:0,464,192,192,0;Applet-76:0,256,192,208,0;Applet-77:0,0,192,256,0;
 activityId=434e8d6c-169a-43ad-a4b0-c9da24f06c18
 formfactor=0
 immutability=1
@@ -18,6 +18,7 @@ wallpaperplugin=org.kde.image
 [Containments][1][Applets][35]
 immutability=1
 plugin=org.kde.plasma.systemmonitor.cpu
+transient=true
 
 [Containments][1][Applets][35][Configuration]
 CurrentPreset=org.kde.plasma.systemmonitor
@@ -37,6 +38,7 @@ totalSensors=["cpu/all/usage"]
 [Containments][1][Applets][36]
 immutability=1
 plugin=org.kde.plasma.systemmonitor.net
+transient=true
 
 [Containments][1][Applets][36][Configuration]
 CurrentPreset=org.kde.plasma.systemmonitor
@@ -55,6 +57,7 @@ highPrioritySensorIds=["network/all/download","network/all/upload"]
 [Containments][1][Applets][37]
 immutability=1
 plugin=org.kde.plasma.systemmonitor.memory
+transient=true
 
 [Containments][1][Applets][37][Configuration]
 CurrentPreset=org.kde.plasma.systemmonitor
@@ -74,6 +77,7 @@ totalSensors=["memory/physical/usedPercent"]
 [Containments][1][Applets][38]
 immutability=1
 plugin=org.kde.plasma.systemmonitor.diskactivity
+transient=true
 
 [Containments][1][Applets][38][Configuration]
 CurrentPreset=org.kde.plasma.systemmonitor
@@ -87,6 +91,80 @@ disk/all/read=233,120,61
 disk/all/write=61,174,233
 
 [Containments][1][Applets][38][Configuration][Sensors]
+highPrioritySensorIds=["disk/all/write","disk/all/read"]
+
+[Containments][1][Applets][76]
+immutability=1
+plugin=org.kde.plasma.systemmonitor.memory
+
+[Containments][1][Applets][76][Configuration]
+CurrentPreset=org.kde.plasma.systemmonitor
+
+[Containments][1][Applets][76][Configuration][Appearance]
+chartFace=org.kde.ksysguard.piechart
+title=Memory Usage
+
+[Containments][1][Applets][76][Configuration][SensorColors]
+memory/physical/used=49,91,239
+
+[Containments][1][Applets][76][Configuration][Sensors]
+highPrioritySensorIds=["memory/physical/used"]
+lowPrioritySensorIds=["memory/physical/total"]
+totalSensors=["memory/physical/usedPercent"]
+
+[Containments][1][Applets][77]
+immutability=1
+plugin=org.kde.plasma.systemmonitor.cpu
+
+[Containments][1][Applets][77][Configuration]
+CurrentPreset=org.kde.plasma.systemmonitor
+
+[Containments][1][Applets][77][Configuration][Appearance]
+chartFace=org.kde.ksysguard.piechart
+title=Total CPU Use
+
+[Containments][1][Applets][77][Configuration][SensorColors]
+cpu/all/usage=49,91,239
+
+[Containments][1][Applets][77][Configuration][Sensors]
+highPrioritySensorIds=["cpu/all/usage"]
+lowPrioritySensorIds=["cpu/all/cpuCount","cpu/all/coreCount"]
+totalSensors=["cpu/all/usage"]
+
+[Containments][1][Applets][78]
+immutability=1
+plugin=org.kde.plasma.systemmonitor.net
+
+[Containments][1][Applets][78][Configuration]
+CurrentPreset=org.kde.plasma.systemmonitor
+
+[Containments][1][Applets][78][Configuration][Appearance]
+chartFace=org.kde.ksysguard.linechart
+title=Network Speed
+
+[Containments][1][Applets][78][Configuration][SensorColors]
+network/all/download=49,91,239
+network/all/upload=239,197,49
+
+[Containments][1][Applets][78][Configuration][Sensors]
+highPrioritySensorIds=["network/all/download","network/all/upload"]
+
+[Containments][1][Applets][79]
+immutability=1
+plugin=org.kde.plasma.systemmonitor.diskactivity
+
+[Containments][1][Applets][79][Configuration]
+CurrentPreset=org.kde.plasma.systemmonitor
+
+[Containments][1][Applets][79][Configuration][Appearance]
+chartFace=org.kde.ksysguard.linechart
+title=Hard Disk Activity
+
+[Containments][1][Applets][79][Configuration][SensorColors]
+disk/all/read=239,197,49
+disk/all/write=49,91,239
+
+[Containments][1][Applets][79][Configuration][Sensors]
 highPrioritySensorIds=["disk/all/write","disk/all/read"]
 
 [Containments][1][ConfigDialog]
