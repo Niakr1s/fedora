@@ -14,7 +14,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias vim='nvim'
 
-alias upd="sudo dnf update && sudo dnf upgrade && flatpak update -y && am -u"
+alias upd="sudo dnf update && sudo dnf upgrade -y && am -u && flatpak update -y"
 
 # Immediately display a list of all options under the command line while cycling
 bind 'set show-all-if-ambiguous on'
