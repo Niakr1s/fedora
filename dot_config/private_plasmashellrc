@@ -1,9 +1,14 @@
 [KFileDialog Settings]
 detailViewIconSize=256
 
+[PlasmaTransientsConfig]
+popupHeight=400
+popupWidth=560
+
 [PlasmaViews][Panel 3]
+alignment=132
 floating=1
-panelLengthMode=0
+panelLengthMode=1
 panelOpacity=2
 shell=org.kde.plasma.desktop
 
