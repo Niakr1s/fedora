@@ -33,7 +33,7 @@ focusMoveScreensNormal=false
 focusMoveVDesktopsMeta=false
 focusMoveVDesktopsNormal=false
 movePointerOnFocus=true
-movePointerOnFocusShortcutsOnly=true
+movePointerOnResize=true
 noTileBorder=true
 optVKeyboardSupport=true
 screenDefaultLayout=:floating
@@ -42,6 +42,8 @@ screenGapBottom=5
 screenGapLeft=5
 screenGapRight=5
 screenGapTop=5
+soleWindowNoBorders=true
+soleWindowNoGaps=true
 
 [TabBox]
 MultiScreenMode=1
