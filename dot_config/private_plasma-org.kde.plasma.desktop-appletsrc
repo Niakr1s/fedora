@@ -212,7 +212,7 @@ plugin=org.kde.plasma.dwellclicker
 
 [Containments][3][Applets][8][Applets][26]
 immutability=1
-plugin=org.kde.plasma.bluetooth
+plugin=org.kde.plasma.battery
 
 [Containments][3][Applets][8][Applets][27]
 immutability=1
