@@ -46,235 +46,235 @@
 	"windowBounds": {
 		"x": 0,
 		"y": 0,
-		"width": 2552,
-		"height": 1364,
+		"width": 1280,
+		"height": 720,
 		"isMaximized": true
 	},
 	"enableAutoHtml5ify": true,
 	"keyBindings": [
 		{
-			"keys": "Space",
-			"action": "togglePlayResetSpeed"
+			"action": "togglePlayResetSpeed",
+			"keys": "Space"
 		},
 		{
-			"keys": "KeyK",
-			"action": "togglePlayNoResetSpeed"
+			"action": "togglePlayNoResetSpeed",
+			"keys": "KeyK"
 		},
 		{
-			"keys": "KeyJ",
-			"action": "reducePlaybackRate"
+			"action": "reducePlaybackRate",
+			"keys": "KeyJ"
 		},
 		{
-			"keys": "ShiftLeft+KeyJ",
-			"action": "reducePlaybackRateMore"
+			"action": "reducePlaybackRateMore",
+			"keys": "ShiftLeft+KeyJ"
 		},
 		{
-			"keys": "KeyL",
-			"action": "increasePlaybackRate"
+			"action": "increasePlaybackRate",
+			"keys": "KeyL"
 		},
 		{
-			"keys": "ShiftLeft+KeyL",
-			"action": "increasePlaybackRateMore"
+			"action": "increasePlaybackRateMore",
+			"keys": "ShiftLeft+KeyL"
 		},
 		{
-			"keys": "KeyZ",
-			"action": "timelineToggleComfortZoom"
+			"action": "timelineToggleComfortZoom",
+			"keys": "KeyZ"
 		},
 		{
-			"keys": "Comma",
-			"action": "seekPreviousFrame"
+			"action": "seekPreviousFrame",
+			"keys": "Comma"
 		},
 		{
-			"keys": "Period",
-			"action": "seekNextFrame"
+			"action": "seekNextFrame",
+			"keys": "Period"
 		},
 		{
-			"keys": "KeyC",
-			"action": "captureSnapshot"
+			"action": "captureSnapshot",
+			"keys": "KeyC"
 		},
 		{
-			"keys": "KeyI",
-			"action": "setCutStart"
+			"action": "setCutStart",
+			"keys": "KeyI"
 		},
 		{
-			"keys": "KeyO",
-			"action": "setCutEnd"
+			"action": "setCutEnd",
+			"keys": "KeyO"
 		},
 		{
-			"keys": "Backspace",
-			"action": "removeCurrentSegment"
+			"action": "removeCurrentSegment",
+			"keys": "Backspace"
 		},
 		{
-			"keys": "KeyD",
-			"action": "cleanupFilesDialog"
+			"action": "cleanupFilesDialog",
+			"keys": "KeyD"
 		},
 		{
-			"keys": "KeyR",
-			"action": "increaseRotation"
+			"action": "increaseRotation",
+			"keys": "KeyR"
 		},
 		{
-			"keys": "KeyG",
-			"action": "goToTimecode"
+			"action": "goToTimecode",
+			"keys": "KeyG"
 		},
 		{
-			"keys": "ArrowLeft",
-			"action": "seekBackwards"
+			"action": "seekBackwards",
+			"keys": "ArrowLeft"
 		},
 		{
-			"keys": "ControlLeft+ShiftLeft+ArrowLeft",
-			"action": "seekBackwards2"
+			"action": "seekBackwards2",
+			"keys": "ControlLeft+ShiftLeft+ArrowLeft"
 		},
 		{
-			"keys": "ControlLeft+ArrowLeft",
-			"action": "seekBackwardsPercent"
+			"action": "seekBackwardsPercent",
+			"keys": "ControlLeft+ArrowLeft"
 		},
 		{
-			"keys": "MetaLeft+ArrowLeft",
-			"action": "seekBackwardsPercent"
+			"action": "seekBackwardsPercent",
+			"keys": "MetaLeft+ArrowLeft"
 		},
 		{
-			"keys": "AltLeft+ArrowLeft",
-			"action": "seekBackwardsKeyframe"
+			"action": "seekBackwardsKeyframe",
+			"keys": "AltLeft+ArrowLeft"
 		},
 		{
-			"keys": "ShiftLeft+ArrowLeft",
-			"action": "jumpCutStart"
+			"action": "jumpCutStart",
+			"keys": "ShiftLeft+ArrowLeft"
 		},
 		{
-			"keys": "ArrowRight",
-			"action": "seekForwards"
+			"action": "seekForwards",
+			"keys": "ArrowRight"
 		},
 		{
-			"keys": "ControlLeft+ShiftLeft+ArrowRight",
-			"action": "seekForwards2"
+			"action": "seekForwards2",
+			"keys": "ControlLeft+ShiftLeft+ArrowRight"
 		},
 		{
-			"keys": "ControlLeft+ArrowRight",
-			"action": "seekForwardsPercent"
+			"action": "seekForwardsPercent",
+			"keys": "ControlLeft+ArrowRight"
 		},
 		{
-			"keys": "MetaLeft+ArrowRight",
-			"action": "seekForwardsPercent"
+			"action": "seekForwardsPercent",
+			"keys": "MetaLeft+ArrowRight"
 		},
 		{
-			"keys": "AltLeft+ArrowRight",
-			"action": "seekForwardsKeyframe"
+			"action": "seekForwardsKeyframe",
+			"keys": "AltLeft+ArrowRight"
 		},
 		{
-			"keys": "ShiftLeft+ArrowRight",
-			"action": "jumpCutEnd"
+			"action": "jumpCutEnd",
+			"keys": "ShiftLeft+ArrowRight"
 		},
 		{
-			"keys": "ControlLeft+Home",
-			"action": "jumpTimelineStart"
+			"action": "jumpTimelineStart",
+			"keys": "ControlLeft+Home"
 		},
 		{
-			"keys": "ControlLeft+End",
-			"action": "jumpTimelineEnd"
+			"action": "jumpTimelineEnd",
+			"keys": "ControlLeft+End"
 		},
 		{
-			"keys": "PageUp",
-			"action": "jumpFirstSegment"
+			"action": "jumpFirstSegment",
+			"keys": "PageUp"
 		},
 		{
-			"keys": "ControlLeft+ArrowUp",
-			"action": "timelineZoomIn"
+			"action": "timelineZoomIn",
+			"keys": "ControlLeft+ArrowUp"
 		},
 		{
-			"keys": "MetaLeft+ArrowUp",
-			"action": "timelineZoomIn"
+			"action": "timelineZoomIn",
+			"keys": "MetaLeft+ArrowUp"
 		},
 		{
-			"keys": "ShiftLeft+ArrowUp",
-			"action": "batchPreviousFile"
+			"action": "batchPreviousFile",
+			"keys": "ShiftLeft+ArrowUp"
 		},
 		{
-			"keys": "ControlLeft+ShiftLeft+ArrowUp",
-			"action": "batchOpenPreviousFile"
+			"action": "batchOpenPreviousFile",
+			"keys": "ControlLeft+ShiftLeft+ArrowUp"
 		},
 		{
-			"keys": "PageDown",
-			"action": "jumpLastSegment"
+			"action": "jumpLastSegment",
+			"keys": "PageDown"
 		},
 		{
-			"keys": "ControlLeft+ArrowDown",
-			"action": "timelineZoomOut"
+			"action": "timelineZoomOut",
+			"keys": "ControlLeft+ArrowDown"
 		},
 		{
-			"keys": "MetaLeft+ArrowDown",
-			"action": "timelineZoomOut"
+			"action": "timelineZoomOut",
+			"keys": "MetaLeft+ArrowDown"
 		},
 		{
-			"keys": "ShiftLeft+ArrowDown",
-			"action": "batchNextFile"
+			"action": "batchNextFile",
+			"keys": "ShiftLeft+ArrowDown"
 		},
 		{
-			"keys": "ControlLeft+ShiftLeft+ArrowDown",
-			"action": "batchOpenNextFile"
+			"action": "batchOpenNextFile",
+			"keys": "ControlLeft+ShiftLeft+ArrowDown"
 		},
 		{
-			"keys": "ShiftLeft+Enter",
-			"action": "batchOpenSelectedFile"
+			"action": "batchOpenSelectedFile",
+			"keys": "ShiftLeft+Enter"
 		},
 		{
-			"keys": "ControlLeft+KeyZ",
-			"action": "undo"
+			"action": "undo",
+			"keys": "ControlLeft+KeyZ"
 		},
 		{
-			"keys": "MetaLeft+KeyZ",
-			"action": "undo"
+			"action": "undo",
+			"keys": "MetaLeft+KeyZ"
 		},
 		{
-			"keys": "ControlLeft+ShiftLeft+KeyZ",
-			"action": "redo"
+			"action": "redo",
+			"keys": "ControlLeft+ShiftLeft+KeyZ"
 		},
 		{
-			"keys": "MetaLeft+ShiftLeft+KeyZ",
-			"action": "redo"
+			"action": "redo",
+			"keys": "MetaLeft+ShiftLeft+KeyZ"
 		},
 		{
-			"keys": "ControlLeft+KeyC",
-			"action": "copySegmentsToClipboard"
+			"action": "copySegmentsToClipboard",
+			"keys": "ControlLeft+KeyC"
 		},
 		{
-			"keys": "MetaLeft+KeyC",
-			"action": "copySegmentsToClipboard"
+			"action": "copySegmentsToClipboard",
+			"keys": "MetaLeft+KeyC"
 		},
 		{
-			"keys": "KeyF",
-			"action": "toggleFullscreenVideo"
+			"action": "toggleFullscreenVideo",
+			"keys": "KeyF"
 		},
 		{
-			"keys": "Enter",
-			"action": "labelCurrentSegment"
+			"action": "labelCurrentSegment",
+			"keys": "Enter"
 		},
 		{
-			"keys": "KeyE",
-			"action": "export"
+			"action": "export",
+			"keys": "KeyE"
 		},
 		{
-			"keys": "ShiftLeft+Slash",
-			"action": "toggleKeyboardShortcuts"
+			"action": "toggleKeyboardShortcuts",
+			"keys": "ShiftLeft+Slash"
 		},
 		{
-			"keys": "AltLeft+ArrowUp",
-			"action": "increaseVolume"
+			"action": "increaseVolume",
+			"keys": "AltLeft+ArrowUp"
 		},
 		{
-			"keys": "AltLeft+ArrowDown",
-			"action": "decreaseVolume"
+			"action": "decreaseVolume",
+			"keys": "AltLeft+ArrowDown"
 		},
 		{
-			"keys": "KeyM",
-			"action": "toggleMuted"
+			"action": "toggleMuted",
+			"keys": "KeyM"
 		},
 		{
-			"keys": "Equal",
-			"action": "addSegment"
+			"action": "addSegment",
+			"keys": "Equal"
 		},
 		{
-			"keys": "ArrowDown",
-			"action": "splitCurrentSegment"
+			"action": "splitCurrentSegment",
+			"keys": "ArrowDown"
 		}
 	],
 	"storeProjectInWorkingDir": false,
@@ -289,10 +289,10 @@
 	"enableNativeHevc": true,
 	"enableUpdateCheck": false,
 	"cleanupChoices": {
-		"trashTmpFiles": true,
 		"askForCleanup": true,
+		"cleanupAfterExport": false,
 		"closeFile": true,
-		"cleanupAfterExport": false
+		"trashTmpFiles": true
 	},
 	"allowMultipleInstances": false,
 	"theme": "dark",
@@ -301,7 +301,7 @@
 	"outputFileNameMinZeroPadding": 1,
 	"cutFromAdjustmentFrames": 0,
 	"cutToAdjustmentFrames": 0,
-	"storeWindowBounds": true,
+	"storeWindowBounds": false,
 	"thumbnailsEnabled": false,
 	"keyframesEnabled": true,
 	"reducedMotion": "user",
