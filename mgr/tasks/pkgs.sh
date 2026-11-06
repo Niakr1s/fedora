@@ -12,6 +12,7 @@ COPRS=(
   oak443/clash-verge-rev
   lizardbyte/stable
   niakr1s/copr
+  niakr1s/llama-cpp-cmpfix
 )
 
 PKGS=(
@@ -59,6 +60,7 @@ PKGS=(
   wlopm
   nvtop
   renameutils
+  llama-cpp-cmpfix
 
   # services
   Sunshine
