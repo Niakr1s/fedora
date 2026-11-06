@@ -59,6 +59,7 @@ PKGS=(
   python3-tmuxp
   wlopm
   nvtop
+  renameutils
 
   # services
   Sunshine
