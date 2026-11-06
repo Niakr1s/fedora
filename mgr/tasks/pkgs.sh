@@ -7,7 +7,6 @@ source "$SCRIPT_DIR/../lib/helpers.sh"
 
 set -o pipefail
 
-sudo dnf install -y ffmpeg --allowerasing
 
 COPRS=(
   oak443/clash-verge-rev
@@ -173,7 +172,10 @@ function post_install() {
 }
 
 copr_install "${COPRS[@]}"
+
+sudo dnf install -y ffmpeg --allowerasing # we install ffmpeg separatedly
 pkg_install "${PKGS[@]}"
+
 pkg_remove "${PKGS_REMOVE[@]}"
 flatpak_install "${FLATPAKS[@]}"
 go_install "${GO_PKGS[@]}"
