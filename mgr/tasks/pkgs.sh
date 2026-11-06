@@ -61,6 +61,7 @@ PKGS=(
   nvtop
   renameutils
   llama-cpp-cmpfix
+  fuse-sshfs
 
   # services
   Sunshine
