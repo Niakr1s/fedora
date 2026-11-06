@@ -1,11 +1,27 @@
 [General]
-Order=fb5c986e-822c-4bcf-9ebe-b1e368e5f854,ae0607e7-f2ad-4a95-90a3-a29db689222c
+Order=fb5c986e-822c-4bcf-9ebe-b1e368e5f854,ae0607e7-f2ad-4a95-90a3-a29db689222c,efd55c4e-87e0-4813-81b1-67516dd76838
 
 [ae0607e7-f2ad-4a95-90a3-a29db689222c]
 Description=mpv
 fullscreen=true
 fullscreenrule=3
 wmclass=mpv
+wmclassmatch=1
+
+[efd55c4e-87e0-4813-81b1-67516dd76838]
+Description=firefox on workspace 9 monitor 2
+desktops=65ba8396-1bd8-4f00-8a6d-c0ab3cf15984
+desktopsrule=3
+ignoregeometry=true
+ignoregeometryrule=2
+maximizehoriz=true
+maximizehorizrule=3
+maximizevert=true
+maximizevertrule=3
+position=2560,400
+positionrule=3
+types=1
+wmclass=org.mozilla.firefox
 wmclassmatch=1
 
 [fb5c986e-822c-4bcf-9ebe-b1e368e5f854]
