@@ -1,10 +1,6 @@
 [KFileDialog Settings]
 detailViewIconSize=256
 
-[PlasmaTransientsConfig]
-popupHeight=400
-popupWidth=560
-
 [PlasmaViews][Panel 3]
 alignment=2
 floating=0
