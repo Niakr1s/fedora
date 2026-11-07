@@ -114,6 +114,7 @@ PKGS=(
   telegram-desktop
   obs-studio
   zeal
+  clash-verge-rev
 
   # games
   luanti # minecraft like
