@@ -118,6 +118,10 @@ PKGS=(
 
   # games
   luanti # minecraft like
+
+  # games tools
+  steam lutris
+  mangohud gamemode gamemode.i686
 )
 
 PKGS_REMOVE=(
@@ -132,10 +136,10 @@ AM_PKGS=(
 )
 
 FLATPAKS=(
-  "flathub|com.github.tchx84.Flatseal"
+  # "flathub|com.github.tchx84.Flatseal"
 
-  "flathub|com.valvesoftware.Steam|--filesystem=xdg-config/MangoHud:ro"
-  "flathub|net.lutris.Lutris|--filesystem=xdg-config/MangoHud:ro" # it works better via flatpak, lol
+  # "flathub|com.valvesoftware.Steam|--filesystem=xdg-config/MangoHud:ro"
+  # "flathub|net.lutris.Lutris|--filesystem=xdg-config/MangoHud:ro" # it works better via flatpak, lol
 
   # "cosmic|com.github.codevardhan.caffeine-applet"
   # "cosmic|dev.DBrox.CosmicSystemMonitor"
