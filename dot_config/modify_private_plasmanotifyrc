@@ -7,4 +7,4 @@ source auto
 #ignore "exact section name without brackets" "exact key name"
 #ignore regex "section.*" "key_prefix_.*"
 #transform "section" "key" transform_name read="the docs" for="more detail on transforms"
-ignore section "DoNotDisturb"
+# ignore section "DoNotDisturb"
