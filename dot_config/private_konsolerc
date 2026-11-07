@@ -1,8 +1,16 @@
+MenuBar=Disabled
+
 [Desktop Entry]
-DefaultProfile=
+DefaultProfile=default.profile
 
 [General]
 ConfigVersion=1
+
+[MainWindow]
+MenuBar=Disabled
+
+[Shortcut Schemes]
+Current Scheme=Default
 
 [UiSettings]
 ColorScheme=
