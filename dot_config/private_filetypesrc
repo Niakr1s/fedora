@@ -1,4 +1,5 @@
 [EmbedSettings]
+embed-application/pdf=false
 embed-application/x-matroska=false
 embed-video/3gp=false
 embed-video/3gpp=false
