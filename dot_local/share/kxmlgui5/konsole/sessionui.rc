@@ -96,9 +96,7 @@
   <Action name="monitor-silence" shortcut=""/>
   <Action name="hamburger_menu" shortcut=""/>
   <Action name="zmodem-upload" shortcut=""/>
-  <Action name="rename-session" shortcut=""/>
   <Action name="reset-font-size" shortcut="Ctrl+0"/>
-  <Action name="close-session" shortcut=""/>
   <Action name="copy-input-to-selected-tabs" shortcut=""/>
  </ActionProperties>
 </gui>

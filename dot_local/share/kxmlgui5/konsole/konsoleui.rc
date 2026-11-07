@@ -71,11 +71,9 @@
  <ActionProperties scheme="Default">
   <Action name="new-window" shortcut=""/>
   <Action name="add_bookmark" shortcut=""/>
-  <Action name="options_configure" shortcut=""/>
   <Action name="activate-menu" shortcut=""/>
   <Action name="next-tab" shortcut="Alt+]; Ctrl+PgDown"/>
   <Action name="previous-tab" shortcut="Alt+[; Ctrl+PgUp"/>
-  <Action name="options_configure_keybinding" shortcut=""/>
   <Action name="hamburger_menu" shortcut=""/>
   <Action name="options_show_menubar" shortcut=""/>
   <Action name="split-view-left-right" shortcut="Ctrl+&quot;"/>
