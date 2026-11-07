@@ -99,5 +99,7 @@
   <Action name="reset-font-size" shortcut="Ctrl+0"/>
   <Action name="copy-input-to-selected-tabs" shortcut=""/>
   <Action name="select-mode" shortcut="Ctrl+Shift+Space"/>
+  <Action name="edit_find_next" shortcut=""/>
+  <Action name="edit_find_prev" shortcut=""/>
  </ActionProperties>
 </gui>
