@@ -91,5 +91,6 @@
   <Action name="focus-view-right" shortcut="Ctrl+Shift+Right; Alt+L"/>
   <Action name="focus-view-next" shortcut="; "/>
   <Action name="focus-view-prev" shortcut=""/>
+  <Action name="fullscreen" shortcut=""/>
  </ActionProperties>
 </gui>
