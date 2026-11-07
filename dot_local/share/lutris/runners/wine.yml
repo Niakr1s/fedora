@@ -1,0 +1,7 @@
+system:
+  env:
+    LD_PRELOAD: /usr/$LIB/libgamemode.so.0
+  gpu: card0
+  mangohud: true
+wine:
+  version: ge-proton
