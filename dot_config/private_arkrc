@@ -1,0 +1,6 @@
+[Extraction]
+closeAfterExtraction=true
+
+[General]
+LockSidebar=true
+ShowSidebar=true
