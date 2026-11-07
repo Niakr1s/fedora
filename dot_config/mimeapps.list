@@ -1,4 +1,5 @@
 [Added Associations]
+application/pdf=okularApplication_pdf.desktop;
 application/x-matroska=mpv.desktop;
 video/3gp=mpv.desktop;
 video/3gpp=mpv.desktop;
@@ -32,10 +33,11 @@ video/x-ogm=mpv.desktop;
 video/x-ogm+ogg=mpv.desktop;
 video/x-theora=mpv.desktop;
 video/x-theora+ogg=mpv.desktop;
-
 x-scheme-handler/clash=clash-verge.desktop;
 x-scheme-handler/clash-verge=clash-verge.desktop;
+
 [Default Applications]
+application/pdf=okularApplication_pdf.desktop;
 application/x-matroska=mpv.desktop;
 video/3gp=mpv.desktop;
 video/3gpp=mpv.desktop;
