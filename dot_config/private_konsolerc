@@ -9,6 +9,10 @@ ConfigVersion=1
 [MainWindow]
 MenuBar=Disabled
 
+[SearchSettings]
+SearchNoWrap=true
+SearchRegExpression=true
+
 [Shortcut Schemes]
 Current Scheme=Default
 
