@@ -3,10 +3,10 @@
 # (Also runnable on its own: ./mgr core)
 
 snapper
-repos
 kernel
 hibernation off
 locale
+repos
 pkgs
 caddy
 podman
