@@ -11,7 +11,7 @@ source auto
 # {{ if eq .chezmoi.hostname "desktop" }}
 ignore regex ".*" "popupHeight"
 ignore regex ".*" "popupWidth"
-ignore regex "Containments.*" "ItemGeometries-"
+# ignore regex "Containments.*" "ItemGeometries-"
 # {{ else }}
 # ignore section regex ".*"
 # {{ end }}
