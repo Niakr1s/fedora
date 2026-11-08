@@ -107,6 +107,8 @@ PKGS=(
 
   # Fonts
   cascadia-mono-nf-fonts
+  google-carlito-fonts # Calibri replacement
+  gdouros-symbola-fonts # symbola fonts
 
   # GUI
   kitty
