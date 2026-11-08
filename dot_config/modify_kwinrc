@@ -9,3 +9,4 @@ source auto
 #transform "section" "key" transform_name read="the docs" for="more detail on transforms"
 ignore regex "Desktops" "Id_.*"
 ignore regex "Tiling\\]\\[.*" ".*"
+ignore "Xwayland" "Scale"
