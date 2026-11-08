@@ -1,9 +1,0 @@
-#!/usr/bin/env chezmoi_modify_manager
-
-source auto
-
-no-warn-multiple-key-matches
-
-ignore regex "ActivityManager" "switch-to-activity-.*"
-transform regex ".*" ".*" kde-shortcut
-ignore regex "InverseAction" ".*"
