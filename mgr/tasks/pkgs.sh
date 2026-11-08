@@ -60,7 +60,6 @@ PKGS=(
   wlopm
   nvtop
   renameutils
-  llama-cpp-cmpfix
   fuse-sshfs
 
   # services
