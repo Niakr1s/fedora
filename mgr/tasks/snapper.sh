@@ -12,7 +12,7 @@ pkg_install "${PKGS[@]}"
 log_info "snapper: configuring"
 sudo snapper -c root create-config /
 sudo snapper -c root set-config ALLOW_USERS="$USER" SYNC_ACL=yes
-sudo restorecon -RFv /.snapshots
+sudo restorecon -RFv /.snapshots &>/dev/null || true
 
 log_info "snapper: updating /etc/updatedb.conf to tell updatedb to skip any directory named .snapshots when indexing the filesystem"
 if grep -qE '^[[:space:]]*PRUNENAMES[[:space:]]*=.*\.snapshots' /etc/updatedb.conf; then
