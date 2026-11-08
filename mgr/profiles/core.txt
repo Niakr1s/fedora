@@ -6,6 +6,7 @@ snapper
 kernel
 hibernation off
 locale
+reisub
 repos
 pkgs
 caddy
