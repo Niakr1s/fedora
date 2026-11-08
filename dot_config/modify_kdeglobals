@@ -10,6 +10,6 @@ source auto
 
 
 ignore "General" "ColorSchemeHash"
-ignore "KFileDialog Settings" "Show Inline Previews"
+ignore section "KFileDialog Settings"
 ignore section "DirSelect Dialog"
 ignore section "KShortcutsDialog Settings"
