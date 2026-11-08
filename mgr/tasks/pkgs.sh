@@ -65,6 +65,14 @@ PKGS=(
   # services
   Sunshine
 
+  # drivers
+  intel-media-driver
+  libva-intel-driver
+
+  # codecs
+  libavcodec-freeworld
+  libva-utils
+
   # libs
   cairo
   gtk4-layer-shell

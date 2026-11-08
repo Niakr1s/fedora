@@ -10,7 +10,6 @@ source "$SCRIPT_DIR/../lib/helpers.sh"
 
 PKGS=(
   akmod-nvidia xorg-x11-drv-nvidia-cuda             # nvidia drivers
-  intel-media-driver libva-intel-driver libva-utils # intel drivers
   nvidia-pstated # niakr1s/copr
 )
 
