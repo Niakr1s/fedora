@@ -7,5 +7,10 @@ source auto
 #ignore "exact section name without brackets" "exact key name"
 #ignore regex "section.*" "key_prefix_.*"
 #transform "section" "key" transform_name read="the docs" for="more detail on transforms"
+
+{{ if eq .chezmoi.hostname "desktop" }}
 ignore regex ".*" "popupHeight"
 ignore regex ".*" "popupWidth"
+{{ else }}
+ignore section regex ".*"
+{{ end }}
