@@ -20,6 +20,7 @@ PKGS=(
   glow
   borgbackup
   yazi
+  bottom
   tealdeer
   btop
   chezmoi
