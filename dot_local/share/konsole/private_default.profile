@@ -8,4 +8,4 @@ Font=Cascadia Mono NF,9,-1,5,300,0,0,0,0,0,0,0,0,0,0,1,Light,0,0
 Name=default
 Parent=FALLBACK/
 TerminalColumns=180
-TerminalRows=50
+TerminalRows=44
