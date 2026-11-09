@@ -130,6 +130,7 @@ PKGS=(
   obs-studio
   zeal
   clash-verge-rev
+  easyeffects
 
   # games
   luanti # minecraft like
