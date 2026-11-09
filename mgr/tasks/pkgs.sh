@@ -137,6 +137,7 @@ PKGS=(
   # games tools
   steam lutris
   mangohud gamemode gamemode.i686
+  gameconqueror
 )
 
 PKGS_REMOVE=(
