@@ -2,3 +2,4 @@
 mgr
 .lmstudio/
 **/*.src.ini
+**/*.src.json

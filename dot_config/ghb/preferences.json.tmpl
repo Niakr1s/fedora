@@ -1,0 +1,3 @@
+{{- $data := fromJson (include "dot_config/ghb/preferences.src.json") -}}
+{{- $filtered := omit $data.Preferences "window_height" "window_width" "default_source" "destination_dir" -}}
+{{- dict "Preferences" $filtered | toPrettyJson "    " -}}
