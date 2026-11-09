@@ -74,6 +74,7 @@ PKGS=(
   libva-utils
 
   # libs
+  qt
   cairo
   gtk4-layer-shell
   libevdev
