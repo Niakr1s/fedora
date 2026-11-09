@@ -1,2 +1,2 @@
 [Global]
-RequiredNotificationInterval=2592000
+RequiredNotificationInterval=-1
