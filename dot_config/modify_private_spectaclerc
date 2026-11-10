@@ -10,5 +10,6 @@ source auto
 
 ignore "ImageSave" "lastImageSaveAsLocation"
 ignore "ImageSave" "lastImageSaveLocation"
+ignore "Annotations" "annotationToolType"
 
 ignore section "ViewerWindow"
