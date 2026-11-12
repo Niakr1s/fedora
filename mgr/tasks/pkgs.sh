@@ -15,6 +15,11 @@ COPRS=(
   niakr1s/llama-cpp-cmpfix
 )
 
+PKG_URLS=(
+  "https://github.com/mops1k/plasma-keyboard-custom/releases/download/v6.7.90-custom-r47/kcm-plasma-keyboard-custom-6.7.90-1.fc44.x86_64.rpm|kcm-plasma-keyboard-custom"
+  "https://github.com/mops1k/plasma-keyboard-custom/releases/download/v6.7.90-custom-r47/plasma-keyboard-custom-6.7.90-1.fc44.x86_64.rpm|plasma-keyboard-custom"
+)
+
 PKGS=(
   copr-cli
   glow
@@ -206,6 +211,7 @@ copr_install "${COPRS[@]}"
 
 sudo dnf install -y ffmpeg --allowerasing # we install ffmpeg separatedly
 pkg_install "${PKGS[@]}"
+pkg_url_install "${PKG_URLS[@]}"
 
 pkg_remove "${PKGS_REMOVE[@]}"
 flatpak_install "${FLATPAKS[@]}"

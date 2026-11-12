@@ -40,6 +40,28 @@ pkg_install() {
   sudo sudo dnf install -y "${pkgs[@]}"
 }
 
+# Download and install rpms
+pkg_url_install() {
+  local tmpdir
+  tmpdir=$(mktemp -d)
+  cd "$tmpdir" || return 1
+
+  for spec in "$@"; do
+    local url="${spec%|*}"      # part before the pipe
+    local pkgname="${spec##*|}" # part after the pipe
+    if ! rpm -q "$pkgname" >/dev/null 2>&1; then
+      wget -O "$(basename -- "$url")" "$url" &&
+        echo "Downloaded: $url" || echo "Failed: $spec" >&2
+    else
+      echo "Already installed, skipping: $pkgname"
+    fi
+  done
+
+  sudo dnf install -y ./*.rpm
+
+  rm -rf "$tmpdir"
+}
+
 # Install one or more APT packages
 pkg_remove() {
   local pkgs=("$@")

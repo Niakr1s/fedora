@@ -1,3 +1,8 @@
 [General]
 diacriticsPopupEnabled=false
 enabledLocales=en_US,ru_RU
+floatingKeyboardOpacity=65
+keyboardHeightPercent=30
+predictiveTextEnabled=false
+showFunctionKeyRow=true
+swipeTypingEnabled=false
