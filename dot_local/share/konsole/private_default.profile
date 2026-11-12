@@ -9,3 +9,7 @@ Name=default
 Parent=FALLBACK/
 TerminalColumns=180
 TerminalRows=44
+
+[Scrolling]
+HistoryMode=2
+ScrollBarPosition=1
