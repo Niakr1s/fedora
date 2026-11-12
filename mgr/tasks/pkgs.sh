@@ -87,7 +87,7 @@ PKGS=(
   wayland-protocols-devel
   cairo
   gtk4-layer-shell
-  libevdev
+  libevdev libevdev-devel
   python-pyudev
   python-evdev
   python-dbus-fast
