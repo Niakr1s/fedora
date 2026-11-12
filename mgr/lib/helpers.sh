@@ -50,7 +50,7 @@ pkg_url_install() {
     local url="${spec%|*}"      # part before the pipe
     local pkgname="${spec##*|}" # part after the pipe
     if ! rpm -q "$pkgname" >/dev/null 2>&1; then
-      wget -O "$(basename -- "$url")" "$url" &&
+      wget -O "$pkgname.rpm" "$url" &&
         echo "Downloaded: $url" || echo "Failed: $spec" >&2
     else
       echo "Already installed, skipping: $pkgname"
