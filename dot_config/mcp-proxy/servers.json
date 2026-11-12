@@ -4,7 +4,10 @@
       "command": "npx",
       "args": ["-y", "mcp-searxng"],
       "env": {
-        "SEARXNG_URL": "http://127.0.0.1:8888"
+        "SEARXNG_URL": "http://127.0.0.1:8888",
+        "HTTP_PROXY": "http://127.0.0.1:7897",
+        "HTTPS_PROXY": "http://127.0.0.1:7897",
+        "NO_PROXY": "127.0.0.1,localhost"
       }
     },
     "time": {
