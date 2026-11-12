@@ -1,0 +1,13 @@
+[Unit]
+Description=SearXNG Streamable-HTTP MCP Bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=uvx mcp-proxy --named-server-config /home/user/.config/mcp-proxy/servers.json --port 8001 --allow-origin "*" --stateless
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
