@@ -220,5 +220,3 @@ cargo_install "${CARGO_PKGS[@]}"
 am_install "${AM_PKGS[@]}"
 
 post_install
-
-log_info "Install amneziavpn client manually from 'https://github.com/amnezia-vpn/amnezia-client/releases/download/5.1.0.6/AmneziaVPN_5.1.0.6_linux_x64.run'"
