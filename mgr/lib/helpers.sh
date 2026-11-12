@@ -59,7 +59,7 @@ pkg_url_install() {
 
   sudo dnf install -y ./*.rpm
 
-  rm -rf "$tmpdir"
+  rm ./*.rpm
 }
 
 # Install one or more APT packages
