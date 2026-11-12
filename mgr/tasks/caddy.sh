@@ -9,3 +9,4 @@ log_info "Adding caddy local proxies..."
 "$SCRIPT_DIR/../tools/caddy-proxy" add comfyui.localhost 8188
 "$SCRIPT_DIR/../tools/caddy-proxy" add windows.localhost 8006
 "$SCRIPT_DIR/../tools/caddy-proxy" add llama.localhost 9931
+"$SCRIPT_DIR/../tools/caddy-proxy" add kiwix.localhost 8090

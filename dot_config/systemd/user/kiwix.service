@@ -1,0 +1,12 @@
+[Unit]
+Description=Kiwix Offline ZIM Server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bash -O globstar -c 'exec /usr/bin/kiwix-serve --port 8090 -k /home/user/zim/**/*.zim'
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
