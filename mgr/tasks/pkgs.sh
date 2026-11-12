@@ -180,6 +180,10 @@ function post_install() {
   # enable lingering
   loginctl enable-linger "$USER"
 
+  # enable overcommit memory for virtual machines
+  echo "vm.overcommit_memory = 1" | sudo tee /etc/sysctl.d/99-vm-overcommit_memory.conf
+  sudo sysctl --system
+
   # enable syncthing
   systemctl --user enable --now syncthing.service
 
