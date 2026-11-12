@@ -62,6 +62,7 @@ PKGS=(
   nvtop
   renameutils
   fuse-sshfs
+  kiwix-desktop kiwix-tools
 
   # services
   Sunshine

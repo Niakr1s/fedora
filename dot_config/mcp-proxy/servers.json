@@ -13,6 +13,10 @@
     "time": {
       "command": "uvx",
       "args": ["mcp-server-time"]
+    },
+    "zim": {
+      "command": "uvx",
+      "args": ["openzim-mcp", "/home/user/zim"]
     }
   }
 }
