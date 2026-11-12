@@ -129,7 +129,6 @@ PKGS=(
   mpv
   telegram-desktop
   obs-studio
-  zeal
   clash-verge-rev
   easyeffects
 
@@ -145,6 +144,7 @@ PKGS=(
 PKGS_REMOVE=(
   elisa-player
   dragon
+  zeal
 )
 
 AM_PKGS=(
