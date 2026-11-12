@@ -83,7 +83,7 @@
     "signaling_info": ""
   },
   "Vulkan": {
-    "gpu_id": 0,
+    "gpu_id": 1,
     "pipeline_cache_archived": false,
     "pipeline_cache_enabled": false,
     "renderdoc_enabled": false,
