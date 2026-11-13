@@ -32,20 +32,23 @@ bind 'set show-all-if-ambiguous on'
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 export CUDACXX=/usr/local/cuda/bin/nvcc
 
-PATH_ADDITIONS=(
+PATHS=(
+  "$HOME/.asdf/shims"
+  "/usr/local/bin"
+  "/usr/bin"
+  "/bin"
   "$HOME/.local/bin"
   "$HOME/bin"
   "$HOME/node_modules/.bin"
   "$HOME/go/bin"
   "$HOME/.cargo/bin"
-  "$HOME/.asdf/shims"
   "$HOME/.local/share/chezmoi/mgr"
   "$HOME/.local/share/chezmoi/mgr/tools"
   "$HOME/.config/emacs/bin"
 )
-export PATH="$PATH:$(
+export PATH="$(
   IFS=:
-  echo "${PATH_ADDITIONS[*]}"
+  echo "${PATHS[*]}"
 )"
 
 export EDITOR="nvim"
