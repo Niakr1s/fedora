@@ -74,7 +74,6 @@ PKGS=(
 
   # drivers
   intel-media-driver
-  libva-intel-driver
 
   # codecs
   libavcodec-freeworld
@@ -151,6 +150,9 @@ PKGS_REMOVE=(
   dragon
   zeal
   zig # will be managed by asdf
+
+  libva-intel-driver
+  libva-intel-media-driver
 )
 
 AM_PKGS=(
