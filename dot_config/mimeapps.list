@@ -73,3 +73,4 @@ video/x-theora=mpv.desktop;
 video/x-theora+ogg=mpv.desktop;
 x-scheme-handler/clash=clash-verge.desktop;
 x-scheme-handler/clash-verge=clash-verge.desktop;
+x-scheme-handler/discord-424004941485572097=discord-424004941485572097.desktop
