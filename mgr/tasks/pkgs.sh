@@ -173,10 +173,6 @@ FLATPAKS=(
   # "cosmic|io.github.marcelogomes90.cosmic-ext-applet-status-hub"
 )
 
-AUR_PKGS=(
-  lisgd iio-niri
-)
-
 GO_PKGS=(
   github.com/jorgerojas26/lazysql@latest
 )
