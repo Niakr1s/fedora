@@ -1,0 +1,17 @@
+#!/usr/bin/env chezmoi_modify_manager
+
+source auto
+
+ignore regex ".*" "popupHeight"
+ignore regex ".*" "popupWidth"
+
+# ItemGeometries configuration based on hostname
+{{- $src := include "dot_config/private_plasma-org.kde.plasma.desktop-appletsrc.src.ini" }}
+{{- $geom := regexFind "ItemGeometriesHorizontal=[^\n]+" $src | trimPrefix "ItemGeometriesHorizontal=" }}
+
+{{- $res := "2560x1440" }}
+{{- if eq .chezmoi.hostname "laptop" }}
+{{- $res = "1536x864" }}
+{{- end }}
+
+set "Containments][1" "ItemGeometries-{{ $res }}" "{{ $geom }}" separator="="
