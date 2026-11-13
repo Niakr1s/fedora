@@ -131,6 +131,7 @@ PKGS=(
   HandBrake-gui
   kid3
   mpv
+  vlc
   telegram-desktop
   obs-studio
   clash-verge-rev
