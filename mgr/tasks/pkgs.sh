@@ -21,6 +21,8 @@ PKG_URLS=(
 )
 
 PKGS=(
+  @multimedia
+
   copr-cli
   glow
   borgbackup
