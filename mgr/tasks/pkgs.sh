@@ -115,7 +115,6 @@ PKGS=(
   nodejs npm deno
   cargo lldb
   ruby ruby-devel tk
-  zig
 
   # Fonts
   cascadia-mono-nf-fonts
@@ -150,6 +149,7 @@ PKGS_REMOVE=(
   elisa-player
   dragon
   zeal
+  zig # will be managed by asdf
 )
 
 AM_PKGS=(
@@ -205,6 +205,7 @@ function post_install() {
 
   # update flatpak afterwards
   flatpak update -y
+
 }
 
 copr_install "${COPRS[@]}"
@@ -218,5 +219,6 @@ flatpak_install "${FLATPAKS[@]}"
 go_install "${GO_PKGS[@]}"
 cargo_install "${CARGO_PKGS[@]}"
 am_install "${AM_PKGS[@]}"
+asdf_install
 
 post_install

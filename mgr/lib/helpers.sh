@@ -146,6 +146,10 @@ cargo_install() {
   done
 }
 
+asdf_install() {
+  (cd "$HOME" && asdf install)
+}
+
 add_sudoers_systemctl() {
   local service="${1:?Usage: add_sudoers_systemctl <service-name>}"
   local sudoers_file="/etc/sudoers.d/${service//[@.]/_}"
