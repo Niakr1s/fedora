@@ -4004,7 +4004,7 @@ subsdec-encoding=UTF-8
 #force-dolby-surround=0
 
 # Stereo audio output mode (integer)
-#stereo-mode=0
+stereo-mode=1
 
 # Audio desynchronization compensation (integer)
 #audio-desync=0
@@ -4025,7 +4025,7 @@ subsdec-encoding=UTF-8
 #audio-time-stretch=1
 
 # Audio output module (string)
-aout=any
+aout=pulse
 
 # Media role (string)
 #role=video
