@@ -158,6 +158,10 @@ AM_PKGS=(
   ventoy
 )
 
+ASDF_PLUGINS=(
+  zig zls
+)
+
 FLATPAKS=(
   # "flathub|com.github.tchx84.Flatseal"
 
@@ -219,6 +223,6 @@ flatpak_install "${FLATPAKS[@]}"
 go_install "${GO_PKGS[@]}"
 cargo_install "${CARGO_PKGS[@]}"
 am_install "${AM_PKGS[@]}"
-asdf_install
+asdf_install "${ASDF_PLUGINS[@]}"
 
 post_install

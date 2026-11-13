@@ -147,6 +147,11 @@ cargo_install() {
 }
 
 asdf_install() {
+  local plugins=("$@")
+  for plugin in "${plugins[@]}"; do
+    asdf plugin add "$plugin"
+  done
+
   (cd "$HOME" && asdf install)
 }
 
