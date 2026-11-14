@@ -145,6 +145,10 @@ cargo_install() {
 }
 
 asdf_install() {
+  command_exists asdf || {
+    pkg_install asdf
+  }
+
   local plugins=("$@")
   for plugin in "${plugins[@]}"; do
     asdf plugin add "$plugin"
