@@ -1,7 +1,7 @@
 {
     "PresetList": [
         {
-            "AlignAVStart": true,
+            "AlignAVStart": false,
             "AudioAutomaticNamingBehavior": "unnamed",
             "AudioCopyMask": [
                 "copy:aac"
@@ -22,7 +22,7 @@
                     "AudioSamplerate": "48",
                     "AudioTrackDRCSlider": 0.0,
                     "AudioTrackGainSlider": 0.0,
-                    "AudioTrackQuality": 1.0,
+                    "AudioTrackQuality": 3.0,
                     "AudioTrackQualityEnable": false
                 }
             ],
@@ -32,7 +32,7 @@
             "ChapterMarkers": false,
             "ChildrenArray": [],
             "Default": false,
-            "FileFormat": "av_mp4",
+            "FileFormat": "av_mkv",
             "Folder": false,
             "FolderOpen": false,
             "InlineParameterSets": false,
@@ -60,7 +60,7 @@
             "PictureDenoiseCustom": "",
             "PictureDenoiseFilter": "off",
             "PictureDenoisePreset": "",
-            "PictureDenoiseTune": "none",
+            "PictureDenoiseTune": "animation",
             "PictureDetelecine": "off",
             "PictureDetelecineCustom": "",
             "PictureForceHeight": 0,
@@ -90,7 +90,7 @@
             "PictureWidth": 720,
             "PresetDescription": "",
             "PresetDisabled": false,
-            "PresetName": "720p.h264.cq24",
+            "PresetName": "480p.h265.cq22",
             "SubtitleAddCC": false,
             "SubtitleAddForeignAudioSearch": true,
             "SubtitleAddForeignAudioSubtitle": false,
@@ -108,7 +108,7 @@
             "VideoAvgBitrate": 0,
             "VideoColorMatrixCodeOverride": 0,
             "VideoColorRange": "limited",
-            "VideoEncoder": "nvenc_h264",
+            "VideoEncoder": "nvenc_h265_10bit",
             "VideoFramerate": "24",
             "VideoFramerateMode": "pfr",
             "VideoGrayScale": false,
@@ -119,7 +119,7 @@
             "VideoPasshtruHDRDynamicMetadata": "all",
             "VideoPreset": "medium",
             "VideoProfile": "auto",
-            "VideoQualitySlider": 24.0,
+            "VideoQualitySlider": 22.0,
             "VideoQualityType": 2,
             "VideoScaler": "swscale",
             "VideoTune": "",
