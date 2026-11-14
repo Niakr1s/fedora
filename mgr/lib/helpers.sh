@@ -58,8 +58,6 @@ pkg_url_install() {
   done
 
   sudo dnf install -y ./*.rpm
-
-  rm ./*.rpm
 }
 
 # Install one or more APT packages
@@ -147,6 +145,10 @@ cargo_install() {
 }
 
 asdf_install() {
+  command_exists asdf || {
+    pkg_install asdf
+  }
+
   local plugins=("$@")
   for plugin in "${plugins[@]}"; do
     asdf plugin add "$plugin"
