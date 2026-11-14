@@ -58,8 +58,6 @@ pkg_url_install() {
   done
 
   sudo dnf install -y ./*.rpm
-
-  rm ./*.rpm
 }
 
 # Install one or more APT packages
