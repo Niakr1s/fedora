@@ -227,5 +227,30 @@ proxy-shell() {
   echo "Off: $p"
 }
 
+cmd() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: cmd <what you want to do>"
+    return 1
+  fi
+
+  local sys="You are a Linux CLI assistant."
+
+  jq -n --arg sys "$sys" --arg prompt "$*" '{
+    model: "Qwen3.6-35B-A3B",
+    chat_template_kwargs: {enable_thinking: false},
+    messages: [
+      {role: "system", content: $sys},
+      {role: "user", content: $prompt}
+    ]
+  }' | \
+  curl -s http://localhost:9931/v1/chat/completions \
+    -H "Content-Type: application/json" \
+    -d @- | \
+  jq -r '.choices[0].message.content' \
+  | sed 's/^```[a-z]*//;s/```$//' | \
+    xargs -0 printf "%b" | \
+    glow
+}
+
 eval "$(fzf --bash)"
 eval "$(zoxide init bash)"
