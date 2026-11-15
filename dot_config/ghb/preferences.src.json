@@ -32,7 +32,7 @@
         "PauseEncodingOnLowBattery": false,
         "PauseEncodingOnPowerSave": true,
         "PreferredLanguage": "und",
-        "RecursiveFolderScan": false,
+        "RecursiveFolderScan": true,
         "RemoveFinishedJobs": false,
         "ShowMiniPreview": true,
         "SrtDir": "/home/user/Videos",
