@@ -143,6 +143,8 @@ PKGS=(
   obs-studio
   clash-verge-rev
   easyeffects
+  kolourpaint
+  xreader
 
   # games
   luanti # minecraft like
@@ -158,6 +160,9 @@ PKGS_REMOVE=(
   dragon
   zeal
   zig # will be managed by asdf
+  okular
+  rhythmbox
+  nheko
 )
 
 AM_PKGS=(
