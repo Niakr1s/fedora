@@ -71,11 +71,55 @@ if [ -z "$TMUX" ] && command -v tmuxp &>/dev/null; then
   done
 fi
 
-# tmux aliases
-alias txpl="tmuxp ls" # list projects
-alias txpa="tmuxp load --yes" # load project
-alias txl="tmux ls" # list sessions
-alias txa="tmux attach -t" # load session
+function txl() {
+  echo "=== Active Tmux Sessions ==="
+  if ! tmux ls 2>/dev/null; then
+    echo "(none)"
+  fi
+
+  echo ""
+  echo "=== Tmuxp Profiles ==="
+  if ! tmuxp ls 2>/dev/null; then
+    echo "(none)"
+  fi
+}
+
+function txa() {
+  local session="$1"
+
+  # 1. Require a session name
+  if [ -z "$session" ]; then
+    echo "Usage: txa <session_name>"
+    return 1
+  fi
+
+  _tmux_connect() {
+    if [ -n "$TMUX" ]; then
+      tmux switch-client -t "=$1"
+    else
+      tmux attach -t "=$1"
+    fi
+  }
+
+  _tmux_new_session() {
+    if [ -n "$TMUX" ]; then
+      tmux new-session -d -s "$1" && tmux switch-client -t "=$1"
+    else
+      tmux new-session -s "$1"
+    fi
+  }
+
+  # 2. Check for exact running session, then tmuxp, then create new
+  if tmux has-session -t "=$session" 2>/dev/null; then
+    _tmux_connect "$session"
+    return 0
+  elif ! tmuxp load --yes "$session" &>/dev/null; then
+    _tmux_new_session "$session"
+    return $?
+  fi
+
+  return 0
+}
 
 function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
