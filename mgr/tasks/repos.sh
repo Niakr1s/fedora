@@ -7,10 +7,13 @@ sudo dnf config-manager setopt fedora-cisco-openh264.enabled=0
 
 echo "Enabling Terra repos..."
 sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-sudo dnf config-manager setopt "terra*.priority=899"
 
 echo "Enabling RPM Fusion repo..."
 sudo dnf install -y "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
+
+echo "Setting repos priorities"
+sudo dnf config-manager setopt fedora.priority=50 updates.priority=50
+sudo dnf config-manager setopt "terra*.priority=899"
 
 echo "Upgrading..."
 sudo dnf update -y && sudo dnf upgrade -y
