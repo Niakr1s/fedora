@@ -71,6 +71,8 @@ PKGS=(
   fuse-sshfs
   kiwix-desktop kiwix-tools
   chafa timg
+  xrandr
+  vulkan-tools
 
   # services
   Sunshine
