@@ -11,6 +11,7 @@ set -o pipefail
 COPRS=(
   oak443/clash-verge-rev
   lizardbyte/stable
+  mecattaf/harnessRPM
   niakr1s/copr
   niakr1s/llama-cpp-cmpfix
 )
@@ -74,6 +75,7 @@ PKGS=(
   xrandr
   vulkan-tools
   iio-sensor-proxy
+  lisgd
 
   # services
   Sunshine
