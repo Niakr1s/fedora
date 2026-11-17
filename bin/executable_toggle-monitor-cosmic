@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+echo "$MONITOR"
+
+# Ensure Wayland environment variable is set if triggered outside an interactive shell
+export WAYLAND_DISPLAY="${WAYLAND_DISPLAY:-wayland-1}"
+
+# Check if the monitor is currently enabled
+if cosmic-randr list --kdl | grep -q "output \"$MONITOR\" enabled=#true"; then
+  echo "enabled"
+    cosmic-randr disable "$MONITOR"
+else
+    cosmic-randr enable "$MONITOR"
+fi
+

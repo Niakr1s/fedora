@@ -1,0 +1,13 @@
+[Unit]
+Description=Sleep secondary monitors during cosmic lock (main: %i)
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Environment="MAIN_MONITOR=%i"
+ExecStart=%h/scripts/watchlock-cosmic.sh
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=graphical-session.target
