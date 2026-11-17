@@ -124,6 +124,7 @@ PKGS=(
   gdouros-symbola-fonts # symbola fonts
 
   # GUI
+  nautilus
   kitty
   strawberry
   keepassxc
