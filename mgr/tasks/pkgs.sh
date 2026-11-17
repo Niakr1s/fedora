@@ -70,6 +70,7 @@ PKGS=(
   renameutils
   fuse-sshfs
   kiwix-desktop kiwix-tools
+  chafa timg
 
   # services
   Sunshine
