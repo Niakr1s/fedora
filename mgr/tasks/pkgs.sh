@@ -11,7 +11,7 @@ set -o pipefail
 COPRS=(
   oak443/clash-verge-rev
   lizardbyte/stable
-  porras/lisgd
+  mecattaf/harnessRPM
   niakr1s/copr
   niakr1s/llama-cpp-cmpfix
 )
