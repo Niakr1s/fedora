@@ -2,6 +2,7 @@
 application/ogg=org.gnome.Rhythmbox3.desktop
 application/x-cue=org.gnome.Rhythmbox3.desktop
 application/x-ogg=org.gnome.Rhythmbox3.desktop
+application/x-terminal-emulator=kitty.desktop
 audio/aac=org.gnome.Rhythmbox3.desktop
 audio/ac3=org.gnome.Rhythmbox3.desktop
 audio/amr=org.gnome.Rhythmbox3.desktop
@@ -102,3 +103,4 @@ video/x-ogm+ogg=mpv.desktop
 video/x-sgi-movie=mpv.desktop
 video/x-theora+ogg=mpv.desktop
 x-content/audio-cdda=org.gnome.Rhythmbox3.desktop
+x-scheme-handler/terminal=kitty.desktop
