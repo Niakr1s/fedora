@@ -1,0 +1,11 @@
+[Unit]
+Description=COSMIC Gestures Script
+After=graphical-session.target
+
+[Service]
+ExecStart=%h/scripts/cosmic-gestures-laptop.sh
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target
