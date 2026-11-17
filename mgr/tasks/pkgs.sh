@@ -16,8 +16,8 @@ COPRS=(
 )
 
 PKG_URLS=(
-  "https://github.com/mops1k/plasma-keyboard-custom/releases/download/v6.7.90-custom-r47/kcm-plasma-keyboard-custom-6.7.90-1.fc44.x86_64.rpm|kcm-plasma-keyboard-custom"
-  "https://github.com/mops1k/plasma-keyboard-custom/releases/download/v6.7.90-custom-r47/plasma-keyboard-custom-6.7.90-1.fc44.x86_64.rpm|plasma-keyboard-custom"
+  # "https://github.com/mops1k/plasma-keyboard-custom/releases/download/v6.7.90-custom-r47/kcm-plasma-keyboard-custom-6.7.90-1.fc44.x86_64.rpm|kcm-plasma-keyboard-custom"
+  # "https://github.com/mops1k/plasma-keyboard-custom/releases/download/v6.7.90-custom-r47/plasma-keyboard-custom-6.7.90-1.fc44.x86_64.rpm|plasma-keyboard-custom"
 )
 
 PKGS=(
