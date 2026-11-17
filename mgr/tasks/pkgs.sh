@@ -73,6 +73,7 @@ PKGS=(
   chafa timg
   xrandr
   vulkan-tools
+  iio-sensor-proxy
 
   # services
   Sunshine
