@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+exec nvim -c '
+  set nonumber nolist showtabline=0 foldcolumn=0
+  let buf = nvim_create_buf(v:false, v:true)
+  let chan = nvim_open_term(buf, {})
+  call chansend(chan, getline(1, "$"))
+  execute "buffer " . buf
+  bd! #
+  setlocal nomodifiable readonly
+  nnoremap <buffer> q :qa!<CR>
+' -
