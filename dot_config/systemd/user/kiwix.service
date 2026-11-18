@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/bash -O globstar -c 'exec /usr/bin/kiwix-serve --port 8090 -k /home/user/zim/**/*.zim'
+ExecStart=/usr/bin/bash -O globstar -c 'exec /usr/bin/kiwix-serve --port 37104 -k /home/user/zim/**/*.zim'
 Restart=on-failure
 RestartSec=5
 
