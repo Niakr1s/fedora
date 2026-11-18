@@ -152,6 +152,7 @@ PKGS=(
   # games tools
   steam lutris
   mangohud gamemode gamemode.i686
+  vkBasalt
   gameconqueror
 )
 
