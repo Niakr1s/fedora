@@ -1,0 +1,9 @@
+session_name: podman
+start_directory: ~/docker
+windows:
+  - window_name: podman-tui
+    layout: even-horizontal
+    panes:
+      - shell_command:
+          - podman-tui
+        focus: true
