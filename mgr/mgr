@@ -76,7 +76,7 @@ run_profile() {
 
 main() {
   local cmd="${1:-help}"
-  shift
+  shift || true
   case "$cmd" in
     -h|--help|help) usage ;;
     profile)
