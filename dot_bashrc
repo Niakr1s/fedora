@@ -273,9 +273,9 @@ proxy-shell() {
   echo "Off: $p"
 }
 
-cmd() {
+tellme() {
   if [ $# -eq 0 ]; then
-    echo "Usage: cmd <what you want to do>"
+    echo "Usage: tellme <how to do smth>"
     return 1
   fi
 
