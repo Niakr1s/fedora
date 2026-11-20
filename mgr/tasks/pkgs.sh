@@ -146,6 +146,7 @@ PKGS=(
   kolourpaint
   xreader
   mission-center
+  cosmic-viewer
 
   # games
   luanti # minecraft like
