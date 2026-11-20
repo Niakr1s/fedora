@@ -45,6 +45,7 @@ PATHS=(
   "$HOME/.local/share/chezmoi/mgr"
   "$HOME/.local/share/chezmoi/mgr/tools"
   "$HOME/.config/emacs/bin"
+  "/usr/local/cuda/bin"
 )
 export PATH="$(
   IFS=:
