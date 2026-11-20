@@ -7,7 +7,6 @@ source "$SCRIPT_DIR/../lib/helpers.sh"
 
 set -o pipefail
 
-
 COPRS=(
   oak443/clash-verge-rev
   lizardbyte/stable
@@ -125,7 +124,7 @@ PKGS=(
 
   # Fonts
   cascadia-mono-nf-fonts
-  google-carlito-fonts # Calibri replacement
+  google-carlito-fonts  # Calibri replacement
   gdouros-symbola-fonts # symbola fonts
 
   # GUI
@@ -227,6 +226,16 @@ function post_install() {
   # update flatpak afterwards
   flatpak update -y
 
+  log_info "Enabling polkit rule for cosmic-highlight-helper..."
+  sudo tee /etc/polkit-1/rules.d/49-cosmic-nightlight.rules <<EOF
+polkit.addRule(function(action, subject) {
+    if (action.id == "org.freedesktop.policykit.exec" &&
+        action.lookup("program") == "/usr/bin/cosmic-nightlight-helper" &&
+        subject.user == "$USER") {
+        return polkit.Result.YES;
+    }
+});
+EOF
 }
 
 copr_install "${COPRS[@]}"
