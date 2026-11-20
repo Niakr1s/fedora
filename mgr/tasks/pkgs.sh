@@ -145,8 +145,8 @@ PKGS=(
   easyeffects
   kolourpaint
   xreader
-  mission-center
   cosmic-viewer
+  gnome-system-monitor
 
   # games
   luanti # minecraft like
@@ -171,7 +171,6 @@ PKGS_REMOVE=(
   okular
   rhythmbox
   nheko
-  gnome-system-monitor
 )
 
 AM_PKGS=(
