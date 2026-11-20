@@ -156,6 +156,11 @@ PKGS=(
   mangohud gamemode gamemode.i686
   vkBasalt
   gameconqueror
+
+  # cosmic applets
+  cosmic-ext-applet-cosmic-nightlight
+  cosmic-ext-applet-scratchpad
+  cosmic-ext-applet-system-monitor
 )
 
 PKGS_REMOVE=(
