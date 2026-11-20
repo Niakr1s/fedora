@@ -14,6 +14,10 @@
       "command": "uvx",
       "args": ["mcp-server-time"]
     },
+    "rand": {
+      "command": "npx",
+      "args": ["-y", "mcp-rand"]
+    },
     "zim": {
       "command": "uvx",
       "args": ["openzim-mcp", "/home/user/zim"]
