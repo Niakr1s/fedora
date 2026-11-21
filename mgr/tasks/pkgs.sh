@@ -146,6 +146,7 @@ PKGS=(
   xreader
   cosmic-viewer
   gnome-system-monitor
+  gpu-screen-recorder-gtk
 
   # games
   luanti # minecraft like
