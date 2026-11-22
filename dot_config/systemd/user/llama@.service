@@ -5,24 +5,25 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-WorkingDirectory=%h/models/LLM
 
 # Load instance-specific variables (CUDA_VISIBLE_DEVICES, PORT) from a file
 # The file path is determined by the instance name (%i)
 EnvironmentFile=%h/.config/llama/%i.env
 
 # CUDA_VISIBLE_DEVICES and PORT are now loaded from the EnvironmentFile above
-; ExecStart=/home/user/llama.cpp/build/bin/llama-server \
-ExecStart=llama-server \
+ExecStart=cmpfix-llama-server \
+    --jinja \
+    --cors-origins "*" \
     --models-preset %h/.config/llama/preset.ini \
+    --mcp-servers-config %h/.config/llama/mcp.json \
+    --tools all \
+    --allow-unauthenticated-tools \
     --cache-ram 0 \
     --ctx-checkpoints 0 \
     --load-mode none \
     --parallel 1 \
     --flash-attn on \
     --models-max 1 \
-    --tools all \
-    --ui-mcp-proxy \
     --host 0.0.0.0 \
     --port ${PORT}
 
