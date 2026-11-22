@@ -229,9 +229,9 @@ alias lat="ezaCmdTotal -la"
 # Fixes for pagers
 export LESS='-R'
 # export PAGER='less -R'
-# export GIT_PAGER='less -R'
+export GIT_PAGER='less -R'
 export PAGER="vimpager"
-export GIT_PAGER="vimpager"
+# export GIT_PAGER="vimpager"
 
 # FZF config
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --exclude dosdevices --exclude drive_c --exclude .venv'
