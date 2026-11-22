@@ -1,6 +1,6 @@
 system:
   env:
-    ENABLE_VKBASALT: '1'
+    ENABLE_VKBASALT: '0'
     LD_PRELOAD: /usr/$LIB/libgamemode.so.0
     UMU_RUNTIME_UPDATE: '0'
   gpu: card0
