@@ -16,6 +16,7 @@ ExecStart=cmpfix-llama-server \
     --cors-origins "*" \
     --models-preset %h/.config/llama/preset.ini \
     --mcp-servers-config %h/.config/llama/mcp.json \
+    --ui-mcp-proxy \
     --tools all \
     --allow-unauthenticated-tools \
     --cache-ram 0 \
