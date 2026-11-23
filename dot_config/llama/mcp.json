@@ -1,0 +1,41 @@
+{
+  "mcpServers": {
+    "duckduckgo-mcp-server": {
+      "command": "uvx",
+      "args": [
+        "--with",
+        "duckduckgo-mcp-server[browser]",
+        "duckduckgo-mcp-server",
+        "--fetch-backend",
+        "auto"
+      ],
+      "env": {
+        "DDG_REGION": "us-en"
+      }
+    },
+    "ddg-search": {
+      "command": "npx",
+      "args": ["-y", "@oevortex/ddg_search@latest"]
+    },
+    "time": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-time"
+      ]
+    },
+    "rand": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-rand"
+      ]
+    },
+    "zim": {
+      "command": "uvx",
+      "args": [
+        "openzim-mcp",
+        "/home/user/zim"
+      ]
+    }
+  }
+}
