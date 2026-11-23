@@ -146,7 +146,6 @@ PKGS=(
   kolourpaint
   xreader
   cosmic-viewer
-  gnome-system-monitor
   gpu-screen-recorder-gtk
   mission-center
 
