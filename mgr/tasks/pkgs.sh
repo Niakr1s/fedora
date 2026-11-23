@@ -147,6 +147,7 @@ PKGS=(
   cosmic-viewer
   gnome-system-monitor
   gpu-screen-recorder-gtk
+  mission-center
 
   # games
   luanti # minecraft like
@@ -171,6 +172,7 @@ PKGS_REMOVE=(
   okular
   rhythmbox
   nheko
+  gnome-system-monitor
 )
 
 AM_PKGS=(
