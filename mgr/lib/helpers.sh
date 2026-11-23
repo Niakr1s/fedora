@@ -111,14 +111,37 @@ go_install() {
     pkg_install go
   }
 
+  local gobin
+  gobin="$(go env GOBIN)"
+  if [[ -z "$gobin" ]]; then
+    gobin="$(go env GOPATH)/bin"
+  fi
+
   local pkgs=("$@")
-  local entry pkg extra=()
+  local entry pkg bin_name extra=()
   for entry in "${pkgs[@]}"; do
+    extra=() # Reset flags for each iteration
     if [[ "$entry" == *"|"* ]]; then
       pkg="${entry%%|*}"
       read -ra extra <<<"${entry#*|}"
     else
       pkg="$entry"
+    fi
+
+    # Strip '@version' and extract the last path segment as the binary name
+    bin_name="${pkg%%@*}"
+    bin_name="${bin_name##*/}"
+
+    # Handle Go major version suffixes (e.g., .../v2 -> parent dir name)
+    if [[ "$bin_name" =~ ^v[0-9]+$ ]]; then
+      bin_name="${pkg%%@*}"
+      bin_name="${bin_name%/*}"
+      bin_name="${bin_name##*/}"
+    fi
+
+    if [[ -x "$gobin/$bin_name" ]]; then
+      log_info "Go package already installed: $bin_name ($gobin/$bin_name)"
+      continue
     fi
 
     if ((${#extra[@]})); then
