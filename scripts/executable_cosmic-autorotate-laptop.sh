@@ -4,17 +4,6 @@ DISPLAY_NAME="eDP-1"
 WIDTH="1920"
 HEIGHT="1080"
 
-# Wait until COSMIC creates the Wayland socket
-while [ -z "$WAYLAND_DISPLAY" ]; do
-    for socket in "$XDG_RUNTIME_DIR"/wayland-*; do
-        if [ -S "$socket" ]; then
-            export WAYLAND_DISPLAY=$(basename "$socket")
-            break
-        fi
-    done
-    [ -z "$WAYLAND_DISPLAY" ] && sleep 1
-done
-
 monitor-sensor --accel | while IFS= read -r line; do
     case "$line" in
         *"Accelerometer orientation changed: normal"*)

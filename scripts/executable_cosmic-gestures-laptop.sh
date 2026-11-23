@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-until WAYLAND_DISPLAY=$(systemctl --user show-environment | sed -n 's/^WAYLAND_DISPLAY=//p') && [ -n "$WAYLAND_DISPLAY" ]; do
-  sleep 0.5
-done
-echo "WAYLAND_DISPLAY=$WAYLAND_DISPLAY"
-
 # Automatically find the touchscreen device node
 TOUCH_DEVICE=$(libinput list-devices | awk '
   /^Device:/ { dev=$0 }

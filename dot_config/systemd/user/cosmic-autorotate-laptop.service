@@ -1,6 +1,7 @@
 [Unit]
 Description=COSMIC Auto-Rotate Screen Script
-After=graphical-session.target
+PartOf=cosmic-session.target
+After=cosmic-session.target
 
 [Service]
 ExecStart=%h/scripts/cosmic-autorotate-laptop.sh
@@ -8,4 +9,4 @@ Restart=always
 RestartSec=3
 
 [Install]
-WantedBy=default.target
+WantedBy=cosmic-session.target
