@@ -75,6 +75,7 @@ PKGS=(
   vulkan-tools
   iio-sensor-proxy
   lisgd
+  topgrade
 
   # services
   Sunshine
@@ -198,10 +199,12 @@ FLATPAKS=(
 
 GO_PKGS=(
   github.com/jorgerojas26/lazysql@latest
+  github.com/nao1215/gup@latest
 )
 
 CARGO_PKGS=(
   chezmoi_modify_manager
+  cargo_update
 )
 
 function post_install() {
