@@ -7,3 +7,12 @@ windows:
       - shell_command:
           - nvim .
         focus: true
+  - window_name: merge
+    layout: even-horizontal
+    panes:
+      - shell_command:
+          - czd
+        focus: true
+      - shell_command:
+          -
+        focus: true
