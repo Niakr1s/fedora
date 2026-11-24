@@ -22,3 +22,8 @@
     type = "git-repo"
     url = "git@github.com:Niakr1s/cosmic.git"
     refreshPeriod = "168h"
+
+[".config/mpv"]
+    type = "git-repo"
+    url = "git@github.com:Niakr1s/mpv.git"
+    refreshPeriod = "168h"
