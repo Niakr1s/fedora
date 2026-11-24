@@ -5,7 +5,7 @@ PartOf=graphical-session.target
 
 [Service]
 Environment="MAIN_MONITOR=%i"
-ExecStart=%h/scripts/watchlock-cosmic.sh
+ExecStart=%h/scripts/cosmic-watchlock.sh
 Restart=on-failure
 RestartSec=3
 
