@@ -11,19 +11,19 @@
 [".config/nvim"]
     type = "git-repo"
     url = "git@github.com:Niakr1s/lazyvim.git"
-    refreshPeriod = "1h"
+    refreshPeriod = "1m"
 
 ["rpmbuild"]
     type = "git-repo"
     url = "git@github.com:Niakr1s/copr.git"
-    refreshPeriod = "1h"
+    refreshPeriod = "1m"
 
 [".config/cosmic"]
     type = "git-repo"
     url = "git@github.com:Niakr1s/cosmic.git"
-    refreshPeriod = "1h"
+    refreshPeriod = "1m"
 
 [".config/mpv"]
     type = "git-repo"
     url = "git@github.com:Niakr1s/mpv.git"
-    refreshPeriod = "1h"
+    refreshPeriod = "1m"
