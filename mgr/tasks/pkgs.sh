@@ -203,7 +203,7 @@ GO_PKGS=(
 
 CARGO_PKGS=(
   chezmoi_modify_manager
-  cargo_update
+  cargo-update
 )
 
 function post_install() {
