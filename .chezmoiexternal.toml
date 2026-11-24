@@ -1,29 +1,29 @@
 [".config/yazi/plugins/mediainfo.yazi"]
   type = "git-repo"
   url = "https://github.com/boydaihungst/mediainfo.yazi"
-  refreshPeriod = "168h"
+  refreshPeriod = "1h"
 
 [".tmux/plugins/tpm"]
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tpm"
-    refreshPeriod = "168h"
+    refreshPeriod = "1h"
 
 [".config/nvim"]
     type = "git-repo"
     url = "git@github.com:Niakr1s/lazyvim.git"
-    refreshPeriod = "168h"
+    refreshPeriod = "1h"
 
 ["rpmbuild"]
     type = "git-repo"
     url = "git@github.com:Niakr1s/copr.git"
-    refreshPeriod = "168h"
+    refreshPeriod = "1h"
 
 [".config/cosmic"]
     type = "git-repo"
     url = "git@github.com:Niakr1s/cosmic.git"
-    refreshPeriod = "168h"
+    refreshPeriod = "1h"
 
 [".config/mpv"]
     type = "git-repo"
     url = "git@github.com:Niakr1s/mpv.git"
-    refreshPeriod = "168h"
+    refreshPeriod = "1h"
