@@ -92,6 +92,7 @@ PKGS=(
   kf6-kcoreaddons-devel kf6-ki18n-devel kf6-kcmutils-devel kf6-kconfig-devel kf6-kcrash-devel kf6-kglobalaccel-devel
   libplasma-devel layer-shell-qt-devel
   wayland-protocols-devel
+  openssl-devel
   cairo
   gtk4-layer-shell
   libevdev libevdev-devel
