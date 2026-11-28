@@ -295,8 +295,6 @@ _tellmewith() {
   - Prefix any destructive or system-altering command (e.g., rm -rf, dd, mkfs, chmod -R) with a bold [WARNING] tag.
   - Use concise Markdown."
 
-  echo "$sys"
-
   jq -n --arg model "$model" --arg sys "$sys" --arg prompt "$*" '{
     model: $model,
     chat_template_kwargs: {enable_thinking: false},
