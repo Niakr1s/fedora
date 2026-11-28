@@ -277,7 +277,25 @@ _tellmewith() {
   local model="$1"
   shift
 
-  local sys="You are a Linux CLI assistant."
+  local os_info=$(grep -E '^PRETTY_NAME=' /etc/os-release 2>/dev/null | cut -d'"' -f2)
+  local now=$(date "+%Y-%m-%d %H:%M:%S %Z")
+  local pkg_mgr=$(command -v apt dnf pacman yum zypper brew apk 2>/dev/null | head -n1 | xargs basename 2>/dev/null)
+
+  local sys="You are an expert Linux CLI assistant.
+  Environment:
+  - OS: ${os_info:-$(uname -s)}
+  - Shell: ${SHELL##*/}
+  - Package Manager: ${pkg_mgr:-unknown}
+  - Current Datetime: $now
+
+  Rules:
+  - Output the exact, copy-pasteable command first in a \`\`\`bash code block.
+  - Keep explanations under 2 sentences. Skip greetings, filler, and basic flag definitions.
+  - Tailor commands to the user's OS, shell, and package manager above.
+  - Prefix any destructive or system-altering command (e.g., rm -rf, dd, mkfs, chmod -R) with a bold [WARNING] tag.
+  - Use concise Markdown."
+
+  echo "$sys"
 
   jq -n --arg model "$model" --arg sys "$sys" --arg prompt "$*" '{
     model: $model,
@@ -291,7 +309,6 @@ _tellmewith() {
     -H "Content-Type: application/json" \
     -d @- | \
   jq -r '.choices[0].message.content' | \
-  sed 's/^```[a-zA-Z0-9_-]*//;s/```$//' | \
   glow
 }
 
