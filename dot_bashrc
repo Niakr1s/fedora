@@ -272,16 +272,15 @@ proxy-shell() {
   echo "Off: $p"
 }
 
-tellme() {
-  if [ $# -eq 0 ]; then
-    echo "Usage: tellme <how to do smth>"
-    return 1
-  fi
+# tellme with model
+_tellmewith() {
+  local model="$1"
+  shift
 
   local sys="You are a Linux CLI assistant."
 
-  jq -n --arg sys "$sys" --arg prompt "$*" '{
-    model: "Qwen3.6-35B-A3B",
+  jq -n --arg model "$model" --arg sys "$sys" --arg prompt "$*" '{
+    model: $model,
     chat_template_kwargs: {enable_thinking: false},
     messages: [
       {role: "system", content: $sys},
@@ -291,11 +290,13 @@ tellme() {
   curl -s http://localhost:9931/v1/chat/completions \
     -H "Content-Type: application/json" \
     -d @- | \
-  jq -r '.choices[0].message.content' \
-  | sed 's/^```[a-z]*//;s/```$//' | \
-    xargs -0 printf "%b" | \
-    glow
+  jq -r '.choices[0].message.content' | \
+  sed 's/^```[a-zA-Z0-9_-]*//;s/```$//' | \
+  glow
 }
+
+# for default I use Qwen3.8
+alias tellme="_tellmewith Qwen3.8-27B"
 
 eval "$(fzf --bash)"
 eval "$(zoxide init bash)"
