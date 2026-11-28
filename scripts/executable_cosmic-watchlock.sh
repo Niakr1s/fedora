@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 : "${MAIN_MONITOR:?MAIN_MONITOR environment variable must be set}"
-OFF_INTERVAL=30       # Re-apply wlopm --off every N seconds while locked
-POLL_INTERVAL=2       # Check lock file every N seconds
+OFF_INTERVAL=30 # Re-apply wlopm --off every N seconds while locked
+POLL_INTERVAL=2 # Check lock file every N seconds
 
 screenlock=""
 declare -A monitor_states
@@ -27,11 +27,21 @@ read_monitor_states() {
   )
 }
 
+main_monitor_off() {
+  echo "watchlock: turning off the main monitor: $MAIN_MONITOR"
+  wlopm --off "$MAIN_MONITOR"
+}
+
+main_monitor_on() {
+  echo "watchlock: turning on the main monitor: $MAIN_MONITOR"
+  wlopm --on "$MAIN_MONITOR"
+}
+
 while true; do
   old_screenlock="$screenlock"
   screenlock=false
 
-  if compgen -G "$XDG_RUNTIME_DIR/cosmic-greeter-*.lock" > /dev/null; then
+  if compgen -G "$XDG_RUNTIME_DIR/cosmic-greeter-*.lock" >/dev/null; then
     screenlock=true
   fi
 
@@ -58,13 +68,11 @@ while true; do
       done
 
       sleep 1
-      echo "watchlock: turning off monitors via wlopm"
-      wlopm --off "*"
+      main_monitor_off
       last_off_time=$(date +%s)
 
     else
-      echo "watchlock: waking monitors via wlopm"
-      wlopm --on "*"
+      main_monitor_on
 
       # Restore each monitor to its exact saved enabled/disabled state
       for out in "${!monitor_states[@]}"; do
@@ -81,9 +89,8 @@ while true; do
   # Still locked: periodically re-issue wlopm --off every OFF_INTERVAL seconds
   elif [[ "$screenlock" == true ]]; then
     now=$(date +%s)
-    if (( now - last_off_time >= OFF_INTERVAL )); then
-      echo "watchlock: re-applying wlopm --off"
-      wlopm --off "*"
+    if ((now - last_off_time >= OFF_INTERVAL)); then
+      main_monitor_off
       last_off_time=$now
     fi
   fi
