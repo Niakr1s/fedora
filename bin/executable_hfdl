@@ -85,8 +85,8 @@ def main() -> None:
     )
     parser.add_argument(
         "--dir",
-        default="~/models",
-        help="target directory (default: ~/models, created if missing)",
+        default="~/models/LLM",
+        help="target directory (default: ~/models/LLM, created if missing)",
     )
     parser.add_argument(
         "-f",
